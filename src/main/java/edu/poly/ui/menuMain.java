@@ -6,6 +6,7 @@
 package edu.poly.ui;
 
 import edu.poly.ui_Xe.xe;
+import edu.poly.ui_kH.khachHang;
 
 /**
  *
@@ -144,7 +145,8 @@ public class menuMain extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnQLPKActionPerformed
 
     private void BtnQLKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQLKHActionPerformed
-        // TODO add your handling code here:
+        khachHang form = new khachHang();
+        form.setVisible(true);
     }//GEN-LAST:event_BtnQLKHActionPerformed
 
     private void BtnQLHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQLHDActionPerformed
