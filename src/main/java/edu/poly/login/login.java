@@ -163,7 +163,7 @@ public class login extends javax.swing.JFrame {
             return;
         }
         
-        if (userName.equals("a") && password.equals("a")){
+        if (userName.equals("admin") && password.equals("admin")){
             JOptionPane.showMessageDialog(this, "Successfully");
             
             if (chkRemember.isSelected()) {
