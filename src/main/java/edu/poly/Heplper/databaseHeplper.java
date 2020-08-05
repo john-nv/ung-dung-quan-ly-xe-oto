@@ -17,7 +17,7 @@ public class databaseHeplper {
     public static Connection openConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
-        String connectionUrl = "jdbc:sqlserver://DESKTOP-I8JJTHS:1433;database=QuanLyChoThueXe;";
+        String connectionUrl = "ádasdsadjdbc:sqlserver://DESKTOP-I8JJTHS:1433;database=QuanLyChoThueXe;";
         java.sql.Connection con = DriverManager.getConnection(connectionUrl, "sa", "sa");
 
         return con;
