@@ -36,25 +36,32 @@ public class xeDao {
         }
     }
     
-    public boolean update(modelXe mdXe) throws SQLException, ClassNotFoundException {
-        String sql = "UPDATE dbo.Xe" +
-                        "   SET MaXe = 'q2'" +
-                        "      ,TenXe = 'aac'" +
-                        "      ,SoKhung = '?'" +
-                        "      ,SoMay = '?'" +
-                        "      ,MaLuc = ?" +
-                        "      ,Hang = 'ac'" +
-                        "      ,SoCho = ?" +
-                        "      ,GiaThueXeTheoGio = ?" +
-                        "      ,GiaThueXeTheoNgay = ?" +
-                        "      ,GiaThueXeTheoThang = ?" +
-                        "      ,TienPhat =  ?" +
-                        "      ,TinhTrangXe = '?'" +
-                        "      ,ThoiGianBatDauTinhTrang = '?'" +
-                        "      ,ThoiGianKetThucTinhTrang = '?'" +
-                        "      ,MaLoaiXe = '?'" +
-                        "      ,BienSoXe = '?'" +
-                        " WHERE MaXe ='?'"; 
+    public boolean update(modelXe mdXe, String MaXe) throws SQLException, ClassNotFoundException {
+//        String sql = "UPDATE dbo.Xe" +
+//                        "   SET MaXe = '?'" +
+//                        "      ,TenXe = '?'" +
+//                        "      ,SoKhung = '?'" +
+//                        "      ,SoMay = '?'" +
+//                        "      ,MaLuc = ?" +
+//                        "      ,Hang = '?'" +
+//                        "      ,SoCho = ?" +
+//                        "      ,GiaThueXeTheoGio = ?" +
+//                        "      ,GiaThueXeTheoNgay = ?" +
+//                        "      ,GiaThueXeTheoThang = ?" +
+//                        "      ,TienPhat =  ?" +
+//                        "      ,TinhTrangXe = '?'" +
+//                        "      ,ThoiGianBatDauTinhTrang = '?'" +
+//                        "      ,ThoiGianKetThucTinhTrang = '?'" +
+//                        "      ,MaLoaiXe = '?'" +
+//                        "      ,BienSoXe = '?'" +
+//                        " WHERE MaXe = " + MaXe; 
+        String sql = "UPDATE [dbo].[Xe] SET [MaXe] = '?' ,[TenXe] = '?' ,[SoKhung] = '?'"
+                + " ,[SoMay] = '?' ,[MaLuc] = ? ,[Hang] = '?' ,[SoCho] = ?       WHERE MaXe = ' " + MaXe +" ' ; ";
+        
+//        ,[GiaThueXeTheoGio] = ? ,"
+//                + "[GiaThueXeTheoNgay] = ? ,[GiaThueXeTheoThang] = ? ,[TienPhat] = ? ,[TinhTrangXe] = '?'"
+//                + "   ,[ThoiGianBatDauTinhTrang] = '?' ,[ThoiGianKetThucTinhTrang] = '?' ,[MaLoaiXe] = '?' ,"
+//                + "[BienSoXe] = '?'
 
         try (
                 Connection con = databaseHelper.openConnection();  
@@ -63,7 +70,7 @@ public class xeDao {
 
             // thêm dữ liệu 
             createModelXe(ptmt, mdXe);
-            ptmt.setString(17, mdXe.getMaXe());
+//            ptmt.setString(17, mdXe.getMaXe());
 
             return ptmt.executeUpdate() > 0;
         }

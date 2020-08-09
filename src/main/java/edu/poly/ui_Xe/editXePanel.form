@@ -16,102 +16,113 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="226" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel32" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel25" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel31" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel33" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel38" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="ac1" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtMaXeAdd" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
-                                  <Component id="txtHangAdd" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtMaXeEditSearch" min="-2" pref="145" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnEditShowXe1" min="-2" pref="111" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel32" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel25" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel31" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel33" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel38" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ac1" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtMaXeEdit" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                          <Component id="txtHangEdit" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="txtMaLucEdit" min="-2" pref="92" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="txtSoChoEdit" min="-2" pref="92" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Component id="txtSoKhungEdit" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
+                                  <Component id="txtSoMayEdit" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
+                                  <Component id="txtTenXeEdit" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
+                                  <Component id="txtBienSoXeEdit" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
+                                  <Component id="txtMaLoaiXeEdit" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtMaLucAdd" min="-2" pref="92" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                              <Component id="jLabel27" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel29" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel35" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtTimeEndTinhTrangEdit" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
+                                          <Component id="txtGiaThueGioEdit" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
+                                          <Component id="txtTinhTrangXeEdit" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
+                                          <Component id="txtTimeStartTinhTrangEdit" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtSoChoAdd" min="-2" pref="92" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel34" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel36" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel37" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtTienPhatEdit" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
+                                          <Component id="txtGiaThueNgayEdit" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
+                                          <Component id="txtGiaThueThangEdit" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <Component id="txtSoKhungAdd" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
-                          <Component id="txtSoMayAdd" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
-                          <Component id="txtTenXeAdd" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
-                          <Component id="txtBienSoXeAdd" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
-                          <Component id="txtMaLoaiXeAdd" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel27" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel29" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel35" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtTimeEndTinhTrangAdd" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
-                                  <Component id="txtGiaThueGioAdd" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
-                                  <Component id="txtTinhTrangXeAdd" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
-                                  <Component id="txtTimeStartTinhTrangAdd" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel34" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel36" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel37" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtTienPhatAdd" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
-                                  <Component id="txtGiaThueNgayAdd" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
-                                  <Component id="txtGiaThueThangAdd" alignment="0" min="-2" pref="262" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="0" pref="47" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jSeparator1" max="32767" attributes="0"/>
+                          <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="jLabel1" min="-2" pref="205" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="548" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="205" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="txtMaXeEdit1" min="-2" pref="235" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnEditShowXe1" min="-2" pref="111" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="330" max="-2" attributes="0"/>
-              <Component id="btnSave1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnReSet1" min="-2" pref="125" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btnEditXe" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+              <Component id="btnReSetXe" min="-2" pref="125" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="487" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -119,104 +130,107 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtMaXeEdit1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnEditShowXe1" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="jLabel1" min="-2" pref="28" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtMaXeEditSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEditShowXe1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtTinhTrangXeAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTinhTrangXeEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtTimeStartTinhTrangAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTimeStartTinhTrangEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtTimeEndTinhTrangAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTimeEndTinhTrangEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtGiaThueGioAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtGiaThueGioEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtGiaThueNgayAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtGiaThueNgayEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtGiaThueThangAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtGiaThueThangEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtTienPhatAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTienPhatEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel37" alignment="3" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="txtMaXeAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtMaXeEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtMaLucAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtMaLucEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtSoChoAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtSoChoEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtHangAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtHangEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtTenXeAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTenXeEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtSoKhungAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtSoKhungEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtSoMayAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtSoMayEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtBienSoXeAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtBienSoXeEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtMaLoaiXeAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtMaLoaiXeEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ac1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnSave1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnReSet1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEditXe" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnReSetXe" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -224,9 +238,9 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="txtGiaThueThangAdd">
+    <Component class="javax.swing.JTextField" name="txtGiaThueThangEdit">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGiaThueThangAddActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGiaThueThangEditActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel30">
@@ -234,9 +248,9 @@
         <Property name="text" type="java.lang.String" value="M&#xe3; l&#x1ef1;c:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtTienPhatAdd">
+    <Component class="javax.swing.JTextField" name="txtTienPhatEdit">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTienPhatAddActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTienPhatEditActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -246,43 +260,46 @@
         <Property name="text" type="java.lang.String" value="S&#x1ed1; khung :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtTenXeAdd">
+    <Component class="javax.swing.JTextField" name="txtTenXeEdit">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="24" style="1"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="S&#x1eed;a th&#xf4;ng tin Xe"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtMaXeAdd">
+    <Component class="javax.swing.JTextField" name="txtMaXeEdit">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtSoMayAdd">
+    <Component class="javax.swing.JTextField" name="txtSoMayEdit">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtSoKhungAdd">
+    <Component class="javax.swing.JTextField" name="txtSoKhungEdit">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtSoChoAdd">
+    <Component class="javax.swing.JTextField" name="txtSoChoEdit">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtHangAdd">
+    <Component class="javax.swing.JTextField" name="txtHangEdit">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtMaLoaiXeAdd">
+    <Component class="javax.swing.JTextField" name="txtMaLoaiXeEdit">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="text" type="java.lang.String" value="M&#xe3; xe :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtMaLucAdd">
+    <Component class="javax.swing.JTextField" name="txtMaLucEdit">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel25">
       <Properties>
         <Property name="text" type="java.lang.String" value="T&#xea;n xe :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtTinhTrangXeAdd">
+    <Component class="javax.swing.JTextField" name="txtTinhTrangXeEdit">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTinhTrangXeAddActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTinhTrangXeEditActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="ac1">
@@ -295,9 +312,9 @@
         <Property name="text" type="java.lang.String" value="H&#xe3;ng :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtTimeStartTinhTrangAdd">
+    <Component class="javax.swing.JTextField" name="txtTimeStartTinhTrangEdit">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTimeStartTinhTrangAddActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTimeStartTinhTrangEditActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel26">
@@ -310,13 +327,13 @@
         <Property name="text" type="java.lang.String" value="S&#x1ed1; m&#xe1;y :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtTimeEndTinhTrangAdd">
+    <Component class="javax.swing.JTextField" name="txtTimeEndTinhTrangEdit">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="name" type="java.lang.String" value="" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTimeEndTinhTrangAddActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTimeEndTinhTrangEditActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel27">
@@ -329,9 +346,9 @@
         <Property name="text" type="java.lang.String" value="Gi&#xe1; xe thu&#xea; theo th&#xe1;ng :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtGiaThueGioAdd">
+    <Component class="javax.swing.JTextField" name="txtGiaThueGioEdit">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGiaThueGioAddActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGiaThueGioEditActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel35">
@@ -344,14 +361,14 @@
         <Property name="text" type="java.lang.String" value="S&#x1ed1; ch&#x1ed7; : "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtBienSoXeAdd">
+    <Component class="javax.swing.JTextField" name="txtBienSoXeEdit">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBienSoXeAddActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBienSoXeEditActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtGiaThueNgayAdd">
+    <Component class="javax.swing.JTextField" name="txtGiaThueNgayEdit">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGiaThueNgayAddActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGiaThueNgayEditActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel36">
@@ -379,7 +396,7 @@
         <Property name="text" type="java.lang.String" value="Nh&#x1ead;p m&#xe3; xe c&#x1ea7;n s&#x1eed;a :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtMaXeEdit1">
+    <Component class="javax.swing.JTextField" name="txtMaXeEditSearch">
     </Component>
     <Component class="javax.swing.JButton" name="btnEditShowXe1">
       <Properties>
@@ -392,7 +409,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditShowXe1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnReSet1">
+    <Component class="javax.swing.JButton" name="btnReSetXe">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/edu/poly/icon/icon/reset-20.png"/>
@@ -400,7 +417,7 @@
         <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t l&#x1ea1;i"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnSave1">
+    <Component class="javax.swing.JButton" name="btnEditXe">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/edu/poly/icon/icon/save-20.png"/>
@@ -408,8 +425,10 @@
         <Property name="text" type="java.lang.String" value="L&#x1b0;u thay &#x111;&#x1ed5;i"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSave1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditXeActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparator2">
     </Component>
   </SubComponents>
 </Form>

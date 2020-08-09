@@ -69,7 +69,7 @@ public class editXeForm extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
-        txtMaXeEdit = new javax.swing.JTextField();
+        ád = new javax.swing.JTextField();
         btnEditShowXe = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
@@ -395,7 +395,7 @@ public class editXeForm extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(txtMaXeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ád, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEditShowXe, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -507,7 +507,7 @@ public class editXeForm extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtMaXeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ád, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEditShowXe))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -585,7 +585,7 @@ public class editXeForm extends javax.swing.JFrame {
                             .addComponent(btnExit)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnSave1)
                             .addComponent(btnReSet1))))
                 .addGap(21, 21, 21)
@@ -699,36 +699,36 @@ public class editXeForm extends javax.swing.JFrame {
 
     
     private void btnEditShowXeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditShowXeActionPerformed
-        try {
-            xeDao dao = new xeDao();
-            modelXe mdXe = dao.findByMaxeEditTxt(txtMaXeEdit.getText());
-            
-            // kiểm tra mã xe đúng theo yêu cầu thì hiển thị lên TextFiel
-            if (mdXe != null) {
-                txtMaXe.setText(mdXe.getMaXe());
-                txtTenXe.setText(mdXe.getTenXe());
-                txtSoKhung.setText(mdXe.getSoKhung());
-                txtSoMay.setText(mdXe.getSoMay());
-                txtMaLuc.setText(String.format("%d" , mdXe.getMaLuc()));
-                txtSoCho.setText(String.format("%d" , mdXe.getSoCho()));
-                txtGiaThueThang.setText(String.format("%d" , mdXe.getGiaThueXeTheoThang()));
-                txtGiaThueNgay.setText(String.format("%d" , mdXe.getGiaThueXeTheoNgay()));
-                txtGiaThueGio.setText(String.format("%d" , mdXe.getGiaThueXeTheoGio()));
-                txtTienPhat.setText(String.format("%d" , mdXe.getTienPhat()));
-                txtHang.setText(mdXe.getHang());
-                txtTinhTrangXe.setText(mdXe.getTinhTrangXe());
-                txtTimeStartTT.setText(mdXe.getThoiGianBatDauTinhTrang());
-                txtTimeEndTT.setText(mdXe.getThoiGianKetThucTinhTrang());
-                txtMaLoaiXe.setText(mdXe.getMaLoaiXe());
-                txtBienSoXe.setText(mdXe.getBienSoXe());
-            }else{
-                JOptionPane.showMessageDialog(this, "Vui lòng kiểm tra lại trường tìm kiếm !");
-            }
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Lỗi");
-        }
+//        try {
+//            xeDao dao = new xeDao();
+//            modelXe mdXe = dao.findByMaxeEditTxt(ád.getText());
+//            
+//            // kiểm tra mã xe đúng theo yêu cầu thì hiển thị lên TextFiel
+//            if (mdXe != null) {
+//                txtMaXe.setText(mdXe.getMaXe());
+//                txtTenXe.setText(mdXe.getTenXe());
+//                txtSoKhung.setText(mdXe.getSoKhung());
+//                txtSoMay.setText(mdXe.getSoMay());
+//                txtMaLuc.setText(String.format("%d" , mdXe.getMaLuc()));
+//                txtSoCho.setText(String.format("%d" , mdXe.getSoCho()));
+//                txtGiaThueThang.setText(String.format("%d" , mdXe.getGiaThueXeTheoThang()));
+//                txtGiaThueNgay.setText(String.format("%d" , mdXe.getGiaThueXeTheoNgay()));
+//                txtGiaThueGio.setText(String.format("%d" , mdXe.getGiaThueXeTheoGio()));
+//                txtTienPhat.setText(String.format("%d" , mdXe.getTienPhat()));
+//                txtHang.setText(mdXe.getHang());
+//                txtTinhTrangXe.setText(mdXe.getTinhTrangXe());
+//                txtTimeStartTT.setText(mdXe.getThoiGianBatDauTinhTrang());
+//                txtTimeEndTT.setText(mdXe.getThoiGianKetThucTinhTrang());
+//                txtMaLoaiXe.setText(mdXe.getMaLoaiXe());
+//                txtBienSoXe.setText(mdXe.getBienSoXe());
+//            }else{
+//                JOptionPane.showMessageDialog(this, "Vui lòng kiểm tra lại trường tìm kiếm !");
+//            }
+//            
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            JOptionPane.showMessageDialog(this, "Lỗi");
+//        }
     }//GEN-LAST:event_btnEditShowXeActionPerformed
 
     private void txtBienSoXeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBienSoXeActionPerformed
@@ -736,96 +736,96 @@ public class editXeForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBienSoXeActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        try {
-            //upde dữ liệu vào database
-            modelXe mdXe = new modelXe();
-            mdXe.setMaXe(txtMaXe.getText());
-            mdXe.setTenXe(txtTenXe.getText());
-            mdXe.setSoKhung(txtSoKhung.getText());
-            mdXe.setSoMay(txtSoMay.getText());
-            mdXe.setMaLuc(Integer.parseInt(txtMaLuc.getText()));
-            mdXe.setHang(txtHang.getText());
-            mdXe.setSoCho(Integer.parseInt(txtSoCho.getText()));
-            mdXe.setGiaThueXeTheoGio(Integer.parseInt(txtGiaThueGio.getText()));
-            mdXe.setGiaThueXeTheoNgay(Integer.parseInt(txtGiaThueNgay.getText()));
-            mdXe.setGiaThueXeTheoThang(Integer.parseInt(txtGiaThueThang.getText()));
-            mdXe.setTienPhat(Integer.parseInt(txtTienPhat.getText()));
-            mdXe.setTinhTrangXe(txtTinhTrangXe.getText());
-            mdXe.setThoiGianBatDauTinhTrang(txtTimeStartTT.getText());
-            mdXe.setThoiGianKetThucTinhTrang(txtTimeEndTT.getText());
-            mdXe.setMaLoaiXe(txtMaLoaiXe.getText());
-            mdXe.setBienSoXe(txtBienSoXe.getText());
+//        try {
+//            //upde dữ liệu vào database
+//            modelXe mdXe = new modelXe();
+//            mdXe.setMaXe(txtMaXe.getText());
+//            mdXe.setTenXe(txtTenXe.getText());
+//            mdXe.setSoKhung(txtSoKhung.getText());
+//            mdXe.setSoMay(txtSoMay.getText());
+//            mdXe.setMaLuc(Integer.parseInt(txtMaLuc.getText()));
+//            mdXe.setHang(txtHang.getText());
+//            mdXe.setSoCho(Integer.parseInt(txtSoCho.getText()));
+//            mdXe.setGiaThueXeTheoGio(Integer.parseInt(txtGiaThueGio.getText()));
+//            mdXe.setGiaThueXeTheoNgay(Integer.parseInt(txtGiaThueNgay.getText()));
+//            mdXe.setGiaThueXeTheoThang(Integer.parseInt(txtGiaThueThang.getText()));
+//            mdXe.setTienPhat(Integer.parseInt(txtTienPhat.getText()));
+//            mdXe.setTinhTrangXe(txtTinhTrangXe.getText());
+//            mdXe.setThoiGianBatDauTinhTrang(txtTimeStartTT.getText());
+//            mdXe.setThoiGianKetThucTinhTrang(txtTimeEndTT.getText());
+//            mdXe.setMaLoaiXe(txtMaLoaiXe.getText());
+//            mdXe.setBienSoXe(txtBienSoXe.getText());
             
-            xeDao dao = new xeDao();
-            if (dao.update(mdXe)) {
-                JOptionPane.showMessageDialog(this, "Lưu thành công !");
-                
-            }else{
-                JOptionPane.showMessageDialog(this, "Thêm xe bị lỗi vui lòng kiểm tra lại !");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Lỗi");
-        }
+//            xeDao dao = new xeDao();
+//            if (dao.update(mdXe)) {
+//                JOptionPane.showMessageDialog(this, "Lưu thành công !");
+//                
+//            }else{
+//                JOptionPane.showMessageDialog(this, "Thêm xe bị lỗi vui lòng kiểm tra lại !");
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            JOptionPane.showMessageDialog(this, "Lỗi");
+//        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSave1ActionPerformed
-        try {
-            //upde dữ liệu vào database
-            modelXe mdXe = new modelXe();
-            mdXe.setMaXe(txtMaXe.getText());
-            mdXe.setTenXe(txtTenXe.getText());
-            mdXe.setSoKhung(txtSoKhung.getText());
-            mdXe.setSoMay(txtSoMay.getText());
-            mdXe.setMaLuc(Integer.parseInt(txtMaLuc.getText()));
-            mdXe.setHang(txtHang.getText());
-            mdXe.setSoCho(Integer.parseInt(txtSoCho.getText()));
-            mdXe.setGiaThueXeTheoGio(Integer.parseInt(txtGiaThueGio.getText()));
-            mdXe.setGiaThueXeTheoNgay(Integer.parseInt(txtGiaThueNgay.getText()));
-            mdXe.setGiaThueXeTheoThang(Integer.parseInt(txtGiaThueThang.getText()));
-            mdXe.setTienPhat(Integer.parseInt(txtTienPhat.getText()));
-            mdXe.setTinhTrangXe(txtTinhTrangXe.getText());
-            mdXe.setThoiGianBatDauTinhTrang(txtTimeStartTT.getText());
-            mdXe.setThoiGianKetThucTinhTrang(txtTimeEndTT.getText());
-            mdXe.setMaLoaiXe(txtMaLoaiXe.getText());
-            mdXe.setBienSoXe(txtBienSoXe.getText());
-
-            xeDao dao = new xeDao();
-            if (dao.update(mdXe)) {
-                JOptionPane.showMessageDialog(this, "Lưu thành công !");
-
-            }else{
-                JOptionPane.showMessageDialog(this, "Thêm xe bị lỗi vui lòng kiểm tra lại !");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Lỗi");
-        }
+//        try {
+//            //upde dữ liệu vào database
+//            modelXe mdXe = new modelXe();
+//            mdXe.setMaXe(txtMaXe.getText());
+//            mdXe.setTenXe(txtTenXe.getText());
+//            mdXe.setSoKhung(txtSoKhung.getText());
+//            mdXe.setSoMay(txtSoMay.getText());
+//            mdXe.setMaLuc(Integer.parseInt(txtMaLuc.getText()));
+//            mdXe.setHang(txtHang.getText());
+//            mdXe.setSoCho(Integer.parseInt(txtSoCho.getText()));
+//            mdXe.setGiaThueXeTheoGio(Integer.parseInt(txtGiaThueGio.getText()));
+//            mdXe.setGiaThueXeTheoNgay(Integer.parseInt(txtGiaThueNgay.getText()));
+//            mdXe.setGiaThueXeTheoThang(Integer.parseInt(txtGiaThueThang.getText()));
+//            mdXe.setTienPhat(Integer.parseInt(txtTienPhat.getText()));
+//            mdXe.setTinhTrangXe(txtTinhTrangXe.getText());
+//            mdXe.setThoiGianBatDauTinhTrang(txtTimeStartTT.getText());
+//            mdXe.setThoiGianKetThucTinhTrang(txtTimeEndTT.getText());
+//            mdXe.setMaLoaiXe(txtMaLoaiXe.getText());
+//            mdXe.setBienSoXe(txtBienSoXe.getText());
+//
+//            xeDao dao = new xeDao();
+//            if (dao.update(mdXe)) {
+//                JOptionPane.showMessageDialog(this, "Lưu thành công !");
+//
+//            }else{
+//                JOptionPane.showMessageDialog(this, "Thêm xe bị lỗi vui lòng kiểm tra lại !");
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            JOptionPane.showMessageDialog(this, "Lỗi");
+//        }
     }//GEN-LAST:event_btnSave1ActionPerformed
 
     private void btnEditShowXe1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditShowXe1ActionPerformed
         try {
             xeDao dao = new xeDao();
-            modelXe mdXe = dao.findByMaxeEditTxt(txtMaXeEdit.getText());
+            modelXe mdXe = dao.findByMaxeEditTxt(ád.getText());
 
             // kiểm tra mã xe đúng theo yêu cầu thì hiển thị lên TextFiel
             if (mdXe != null) {
-                txtMaXe.setText(mdXe.getMaXe());
-                txtTenXe.setText(mdXe.getTenXe());
-                txtSoKhung.setText(mdXe.getSoKhung());
-                txtSoMay.setText(mdXe.getSoMay());
-                txtMaLuc.setText(String.format("%d" , mdXe.getMaLuc()));
-                txtSoCho.setText(String.format("%d" , mdXe.getSoCho()));
-                txtGiaThueThang.setText(String.format("%d" , mdXe.getGiaThueXeTheoThang()));
-                txtGiaThueNgay.setText(String.format("%d" , mdXe.getGiaThueXeTheoNgay()));
-                txtGiaThueGio.setText(String.format("%d" , mdXe.getGiaThueXeTheoGio()));
-                txtTienPhat.setText(String.format("%d" , mdXe.getTienPhat()));
-                txtHang.setText(mdXe.getHang());
-                txtTinhTrangXe.setText(mdXe.getTinhTrangXe());
-                txtTimeStartTT.setText(mdXe.getThoiGianBatDauTinhTrang());
-                txtTimeEndTT.setText(mdXe.getThoiGianKetThucTinhTrang());
-                txtMaLoaiXe.setText(mdXe.getMaLoaiXe());
-                txtBienSoXe.setText(mdXe.getBienSoXe());
+                txtMaXe1.setText(mdXe.getMaXe());
+                txtTenXe1.setText(mdXe.getTenXe());
+                txtSoKhung1.setText(mdXe.getSoKhung());
+                txtSoMay1.setText(mdXe.getSoMay());
+                txtMaLuc1.setText(String.format("%d" , mdXe.getMaLuc()));
+                txtSoCho1.setText(String.format("%d" , mdXe.getSoCho()));
+                txtGiaThueThang1.setText(String.format("%d" , mdXe.getGiaThueXeTheoThang()));
+                txtGiaThueNgay1.setText(String.format("%d" , mdXe.getGiaThueXeTheoNgay()));
+                txtGiaThueGio1.setText(String.format("%d" , mdXe.getGiaThueXeTheoGio()));
+                txtTienPhat1.setText(String.format("%d" , mdXe.getTienPhat()));
+                txtHang1.setText(mdXe.getHang());
+                txtTinhTrangXe1.setText(mdXe.getTinhTrangXe());
+                txtTimeStartTT1.setText(mdXe.getThoiGianBatDauTinhTrang());
+                txtTimeEndTT1.setText(mdXe.getThoiGianKetThucTinhTrang());
+                txtMaLoaiXe1.setText(mdXe.getMaLoaiXe());
+                txtBienSoXe1.setText(mdXe.getBienSoXe());
             }else{
                 JOptionPane.showMessageDialog(this, "Vui lòng kiểm tra lại trường tìm kiếm !");
             }
@@ -969,7 +969,6 @@ public class editXeForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtMaLuc1;
     private javax.swing.JTextField txtMaXe;
     private javax.swing.JTextField txtMaXe1;
-    private javax.swing.JTextField txtMaXeEdit;
     private javax.swing.JTextField txtMaXeEdit1;
     private javax.swing.JTextField txtSoCho;
     private javax.swing.JTextField txtSoCho1;
@@ -987,5 +986,6 @@ public class editXeForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtTimeStartTT1;
     private javax.swing.JTextField txtTinhTrangXe;
     private javax.swing.JTextField txtTinhTrangXe1;
+    private javax.swing.JTextField ád;
     // End of variables declaration//GEN-END:variables
 }
