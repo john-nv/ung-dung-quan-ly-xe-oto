@@ -6,7 +6,9 @@
 package edu.poly.ui;
 
 import edu.poly.ui_Xe.managementXePanel;
+import edu.poly.ui_hopdong.managementHopDongPanel;
 import edu.polyHelpandIntro.IntroDialog;
+import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
 /**
@@ -15,6 +17,7 @@ import javax.swing.ImageIcon;
  */
 public class menuMainForm extends javax.swing.JFrame {
     private managementXePanel mXePanel;
+    private managementHopDongPanel mHopDongPanel;
     /**
      * Creates new form menuMainForm
      */
@@ -361,7 +364,7 @@ public class menuMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        menuHopDongActionPerformed(evt);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void menuIntroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIntroActionPerformed
@@ -444,4 +447,13 @@ public class menuMainForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuXe;
     private javax.swing.JTabbedPane tplMenuBoard;
     // End of variables declaration//GEN-END:variables
+
+    private void menuHopDongActionPerformed(ActionEvent evt) {
+        if (mHopDongPanel == null){
+            mHopDongPanel = new managementHopDongPanel();
+            ImageIcon icon = new ImageIcon(getClass().getResource("/edu/poly/icon/icon/xe-15.jpg"));
+            tplMenuBoard.addTab("  Quản lý Hợp Đồng  ", icon  , mHopDongPanel, "  Quản lý Hợp Đồng  ");
+        }
+        tplMenuBoard.setSelectedComponent(mHopDongPanel);
+    }
 }
