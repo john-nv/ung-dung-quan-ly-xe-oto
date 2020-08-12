@@ -4,7 +4,12 @@
  * and open the template in the editor.
  */
 package edu.poly.objectDAO;
-
+import edu.poly.Helper.databaseHelper;
+import edu.poly.model.xe.modelLoaiXe;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 /**
  *
  * @author dinh
