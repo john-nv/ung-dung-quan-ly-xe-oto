@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.poly.ui_hopdong;
+package edu.poly.ui;
 
 import edu.poly.ui_Xe.addXePanel;
 import edu.poly.ui_Xe.editXePanel;
