@@ -42,7 +42,6 @@ public class managementXePanel extends javax.swing.JPanel {
         btnPanelEditXe = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Quản lý xe");
 
         btnPanelShowXe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/search1.jpg"))); // NOI18N
@@ -94,12 +93,12 @@ public class managementXePanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnPanelShowXe)
                         .addComponent(btnPanelUpdaXe)
-                        .addComponent(btnPanelEditXe)))
+                        .addComponent(btnPanelEditXe))
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

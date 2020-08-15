@@ -26,7 +26,7 @@ public class xeDao {
                 + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try (
-                Connection con = databaseHelper.openConnection();  
+                Connection con = databaseHelper.openConnection();
                 PreparedStatement ptmt = con.prepareStatement(sql);) {
 
             // thêm dữ liệu 
@@ -35,7 +35,7 @@ public class xeDao {
             return ptmt.executeUpdate() > 0;
         }
     }
-    
+
     public boolean update(modelXe mdXe, String MaXe) throws SQLException, ClassNotFoundException {
 //        String sql = "UPDATE dbo.Xe" +
 //                        "   SET MaXe = '?'" +
@@ -55,81 +55,78 @@ public class xeDao {
 //                        "      ,MaLoaiXe = '?'" +
 //                        "      ,BienSoXe = '?'" +
 //                        " WHERE MaXe = " + MaXe; 
-        String sql = "UPDATE [dbo].[Xe] SET [MaXe] = '?' ,[TenXe] = '?' ,[SoKhung] = '?'"
-                + " ,[SoMay] = '?' ,[MaLuc] = ? ,[Hang] = '?' ,[SoCho] = ?       WHERE MaXe = ' " + MaXe +" ' ; ";
-        
+        String sql = "UPDATE [dbo].[Xe] SET [MaXe] = ? ,[TenXe] = ? ,[SoKhung] = ? ,[SoMay] = ? ,[MaLuc] = ? ,[Hang] = ? ,[SoCho] = ? WHERE MaXe = ' " + MaXe + " ' ";
+
 //        ,[GiaThueXeTheoGio] = ? ,"
 //                + "[GiaThueXeTheoNgay] = ? ,[GiaThueXeTheoThang] = ? ,[TienPhat] = ? ,[TinhTrangXe] = '?'"
 //                + "   ,[ThoiGianBatDauTinhTrang] = '?' ,[ThoiGianKetThucTinhTrang] = '?' ,[MaLoaiXe] = '?' ,"
 //                + "[BienSoXe] = '?'
-
         try (
-                Connection con = databaseHelper.openConnection();  
-                PreparedStatement ptmt = con.prepareStatement(sql);
-                ){
+                Connection con = databaseHelper.openConnection();
+                PreparedStatement ptmt = con.prepareStatement(sql);) {
 
             // thêm dữ liệu 
-            createModelXe(ptmt, mdXe);
+            try {
+                createModelXe(ptmt, mdXe);
+            } catch (Exception e) {
+                System.out.println(e.toString());
+            }
 //            ptmt.setString(17, mdXe.getMaXe());
 
             return ptmt.executeUpdate() > 0;
         }
     }
-    
-    public boolean delete(String delXe) throws ClassNotFoundException, SQLException{
+
+    public boolean delete(String delXe) throws ClassNotFoundException, SQLException {
         String sql = "delete from xe where maXe =? ";
         try (
                 Connection con = databaseHelper.openConnection();
-                PreparedStatement psmt = con.prepareStatement(sql);
-            ){
+                PreparedStatement psmt = con.prepareStatement(sql);) {
             psmt.setString(1, delXe);
 
-            return  psmt.executeUpdate()>0;
+            return psmt.executeUpdate() > 0;
         }
     }
-    
-    public List<modelXe> showXe() throws ClassNotFoundException, SQLException{
+
+    public List<modelXe> showXe() throws ClassNotFoundException, SQLException {
         String sql = "select * from xe where 'aabaca'";
         try (
                 Connection con = databaseHelper.openConnection();
-                PreparedStatement ptmt = con.prepareStatement(sql);
-            )
-        {
+                PreparedStatement ptmt = con.prepareStatement(sql);) {
             //ptmt.setString(1, showXe);
-            
+
             List<modelXe> list = new ArrayList<>();
-            try ( ResultSet rs = ptmt.executeQuery()) {
-                    while (rs.next()) {
-                        modelXe modelXe = new modelXe();
-                        fillXe(modelXe, rs);
-                        list.add(modelXe);
-                    }
+            try (ResultSet rs = ptmt.executeQuery()) {
+                while (rs.next()) {
+                    modelXe modelXe = new modelXe();
+                    fillXe(modelXe, rs);
+                    list.add(modelXe);
                 }
+            }
             return list;
         }
     }
-    
 
     private void createModelXe(final PreparedStatement psmt, modelXe mdXe) throws SQLException {
-        psmt.setString(1, mdXe.getMaXe());
-        psmt.setString(2, mdXe.getTenXe());
-        psmt.setString(3, mdXe.getSoKhung());
-        psmt.setString(4, mdXe.getSoMay());
-        psmt.setInt(5, mdXe.getMaLuc());
-        psmt.setString(6, mdXe.getHang());
-        psmt.setInt(7, mdXe.getSoCho());
-        psmt.setInt(8, mdXe.getGiaThueXeTheoGio());
-        psmt.setInt(9, mdXe.getGiaThueXeTheoNgay());
-        psmt.setInt(10, mdXe.getGiaThueXeTheoThang());
-        psmt.setInt(11, mdXe.getTienPhat());
-        psmt.setString(12, mdXe.getTinhTrangXe());
-        psmt.setString(13, mdXe.getThoiGianBatDauTinhTrang());
-        psmt.setString(14, mdXe.getThoiGianKetThucTinhTrang());
-        psmt.setString(15, mdXe.getMaLoaiXe());
-        psmt.setString(16, mdXe.getBienSoXe());
+            psmt.setString(1, mdXe.getMaXe());
+            psmt.setString(2, mdXe.getTenXe());
+            psmt.setString(3, mdXe.getSoKhung());
+            psmt.setString(4, mdXe.getSoMay());
+            psmt.setInt(5, mdXe.getMaLuc());
+            psmt.setString(6, mdXe.getHang());
+            psmt.setInt(7, mdXe.getSoCho());
+//            psmt.setFloat(8, mdXe.getGiaThueXeTheoGio());
+//            psmt.setFloat(9, mdXe.getGiaThueXeTheoNgay());
+//            psmt.setFloat(10, mdXe.getGiaThueXeTheoThang());
+//            psmt.setFloat(11, mdXe.getTienPhat());
+//            psmt.setString(12, mdXe.getTinhTrangXe());
+//            psmt.setString(13, mdXe.getThoiGianBatDauTinhTrang());
+//            psmt.setString(14, mdXe.getThoiGianKetThucTinhTrang());
+//            psmt.setString(15, mdXe.getMaLoaiXe());
+//            psmt.setString(16, mdXe.getBienSoXe());
+
     }
 
-    
     private void fillXe(modelXe modelxe, final ResultSet rs) throws SQLException {
         modelxe.setMaXe(rs.getString("MaXe"));
         modelxe.setTenXe(rs.getString("TenXe"));
@@ -154,140 +151,123 @@ public class xeDao {
         String sql = "select * from xe where tenXe like ?";
         try (
                 Connection con = databaseHelper.openConnection();
-                PreparedStatement ptmt = con.prepareStatement(sql);
-            )
-        {
-            
-                ptmt.setString(1, "%" + tenXe + "%");
-                List<modelXe> list = new ArrayList<>();
-                try ( ResultSet rs = ptmt.executeQuery()) {
-                    while (rs.next()) {
-                        modelXe modelXe = new modelXe();
-                        fillXe(modelXe, rs);
-                        list.add(modelXe);
-                    }
+                PreparedStatement ptmt = con.prepareStatement(sql);) {
+
+            ptmt.setString(1, "%" + tenXe + "%");
+            List<modelXe> list = new ArrayList<>();
+            try (ResultSet rs = ptmt.executeQuery()) {
+                while (rs.next()) {
+                    modelXe modelXe = new modelXe();
+                    fillXe(modelXe, rs);
+                    list.add(modelXe);
                 }
+            }
             return list;
 
         }
     }
-    
-    
+
     // Lọc tên rồi đưa vào JtextField
-    public modelXe findByMaxeEditTxt(String maXe) throws ClassNotFoundException, SQLException{
-             String sql = "select * from xe where MaXe like ?";
+    public modelXe findByMaxeEditTxt(String maXe) throws ClassNotFoundException, SQLException {
+        String sql = "select * from xe where MaXe like ?";
         try (
                 Connection con = databaseHelper.openConnection();
-                PreparedStatement ptmt = con.prepareStatement(sql);
-            )
-        {
-                ptmt.setString(1, maXe);
-                
-                try(ResultSet rs = ptmt.executeQuery()){
-                    if (rs.next()) {
-                        modelXe mdXe = new modelXe();
-                        mdXe.setMaXe(rs.getString("maXe"));
-                        mdXe.setTenXe(rs.getString("TenXe"));
-                        mdXe.setSoKhung(rs.getString("Sokhung"));
-                        mdXe.setSoMay(rs.getString("SoMay"));
-                        mdXe.setMaLuc(rs.getInt("MaLuc"));
-                        mdXe.setHang(rs.getString("Hang"));
-                        mdXe.setSoCho(rs.getInt("SoCho"));
-                        mdXe.setGiaThueXeTheoGio(rs.getInt("GiaThueXeTheoGio"));
-                        mdXe.setGiaThueXeTheoNgay(rs.getInt("GiaThueXeTheoNgay"));
-                        mdXe.setGiaThueXeTheoThang(rs.getInt("GiaThueXeTheoThang"));
-                        mdXe.setTienPhat(rs.getInt("TienPhat"));
-                        mdXe.setTinhTrangXe(rs.getString("TinhTrangXe"));
-                        mdXe.setThoiGianBatDauTinhTrang(rs.getString("ThoiGianBatDauTinhTrang"));
-                        mdXe.setThoiGianKetThucTinhTrang(rs.getString("ThoiGianKetThucTinhTrang"));
-                        mdXe.setMaLoaiXe(rs.getString("MaLoaiXe"));
-                        mdXe.setBienSoXe(rs.getString("BienSoXe"));
-                        
-                        return mdXe;
-                    }
+                PreparedStatement ptmt = con.prepareStatement(sql);) {
+            ptmt.setString(1, maXe);
+
+            try (ResultSet rs = ptmt.executeQuery()) {
+                if (rs.next()) {
+                    modelXe mdXe = new modelXe();
+                    mdXe.setMaXe(rs.getString("maXe"));
+                    mdXe.setTenXe(rs.getString("TenXe"));
+                    mdXe.setSoKhung(rs.getString("Sokhung"));
+                    mdXe.setSoMay(rs.getString("SoMay"));
+                    mdXe.setMaLuc(rs.getInt("MaLuc"));
+                    mdXe.setHang(rs.getString("Hang"));
+                    mdXe.setSoCho(rs.getInt("SoCho"));
+                    mdXe.setGiaThueXeTheoGio(rs.getInt("GiaThueXeTheoGio"));
+                    mdXe.setGiaThueXeTheoNgay(rs.getInt("GiaThueXeTheoNgay"));
+                    mdXe.setGiaThueXeTheoThang(rs.getInt("GiaThueXeTheoThang"));
+                    mdXe.setTienPhat(rs.getInt("TienPhat"));
+                    mdXe.setTinhTrangXe(rs.getString("TinhTrangXe"));
+                    mdXe.setThoiGianBatDauTinhTrang(rs.getString("ThoiGianBatDauTinhTrang"));
+                    mdXe.setThoiGianKetThucTinhTrang(rs.getString("ThoiGianKetThucTinhTrang"));
+                    mdXe.setMaLoaiXe(rs.getString("MaLoaiXe"));
+                    mdXe.setBienSoXe(rs.getString("BienSoXe"));
+
+                    return mdXe;
                 }
-                return null;
+            }
+            return null;
         }
     }
 
-    
     public List<modelXe> showAllXe() throws SQLException, ClassNotFoundException {
         String sql = "select * from xe ";
         try (
                 Connection con = databaseHelper.openConnection();
-                PreparedStatement ptmt = con.prepareStatement(sql);
-            )
-        {
+                PreparedStatement ptmt = con.prepareStatement(sql);) {
             List<modelXe> list = new ArrayList<>();
-            try ( ResultSet rs = ptmt.executeQuery()) {
-                    while (rs.next()) {
-                        modelXe modelXe = new modelXe();
-                        fillXe(modelXe, rs);
-                        list.add(modelXe);
-                    }
+            try (ResultSet rs = ptmt.executeQuery()) {
+                while (rs.next()) {
+                    modelXe modelXe = new modelXe();
+                    fillXe(modelXe, rs);
+                    list.add(modelXe);
                 }
+            }
             return list;
         }
     }
-   
-    
-    public List<modelXe> showXeRepair() throws ClassNotFoundException, SQLException{
+
+    public List<modelXe> showXeRepair() throws ClassNotFoundException, SQLException {
         String sql = "select * from xe where TinhTrangXe = 'sc' ";
         try (
                 Connection con = databaseHelper.openConnection();
-                PreparedStatement ptmt = con.prepareStatement(sql);
-            )
-        {
+                PreparedStatement ptmt = con.prepareStatement(sql);) {
             List<modelXe> list = new ArrayList<>();
-            try ( ResultSet rs = ptmt.executeQuery()) {
-                    while (rs.next()) {
-                        modelXe modelXe = new modelXe();
-                        fillXe(modelXe, rs);
-                        list.add(modelXe);
-                    }
+            try (ResultSet rs = ptmt.executeQuery()) {
+                while (rs.next()) {
+                    modelXe modelXe = new modelXe();
+                    fillXe(modelXe, rs);
+                    list.add(modelXe);
                 }
+            }
             return list;
         }
     }
-    
-    public List<modelXe> showXeReady() throws ClassNotFoundException, SQLException{
+
+    public List<modelXe> showXeReady() throws ClassNotFoundException, SQLException {
         String sql = "select * from xe where TinhTrangXe = 'ss' ";
         try (
                 Connection con = databaseHelper.openConnection();
-                PreparedStatement ptmt = con.prepareStatement(sql);
-            )
-        {
+                PreparedStatement ptmt = con.prepareStatement(sql);) {
             List<modelXe> list = new ArrayList<>();
-            try ( ResultSet rs = ptmt.executeQuery()) {
-                    while (rs.next()) {
-                        modelXe modelXe = new modelXe();
-                        fillXe(modelXe, rs);
-                        list.add(modelXe);
-                    }
+            try (ResultSet rs = ptmt.executeQuery()) {
+                while (rs.next()) {
+                    modelXe modelXe = new modelXe();
+                    fillXe(modelXe, rs);
+                    list.add(modelXe);
                 }
+            }
             return list;
         }
     }
-    
-    public List<modelXe> showXeOn() throws ClassNotFoundException, SQLException{
+
+    public List<modelXe> showXeOn() throws ClassNotFoundException, SQLException {
         String sql = "select * from xe where TinhTrangXe = 'thue' ";
         try (
                 Connection con = databaseHelper.openConnection();
-                PreparedStatement ptmt = con.prepareStatement(sql);
-            )
-        {
+                PreparedStatement ptmt = con.prepareStatement(sql);) {
             List<modelXe> list = new ArrayList<>();
-            try ( ResultSet rs = ptmt.executeQuery()) {
-                    while (rs.next()) {
-                        modelXe modelXe = new modelXe();
-                        fillXe(modelXe, rs);
-                        list.add(modelXe);
-                    }
+            try (ResultSet rs = ptmt.executeQuery()) {
+                while (rs.next()) {
+                    modelXe modelXe = new modelXe();
+                    fillXe(modelXe, rs);
+                    list.add(modelXe);
                 }
+            }
             return list;
         }
     }
-    
-   
-    
+
 }

@@ -25,6 +25,15 @@
         <artifactId>mssql-jdbc</artifactId>
         <version>8.2.2.jre13</version>
     </dependency>
-
+        <dependency>
+            <groupId>org.swinglabs</groupId>
+            <artifactId>swingx</artifactId>
+            <version>0.9.5-2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.toedter</groupId>
+            <artifactId>jcalendar</artifactId>
+            <version>1.4</version>
+        </dependency>
     </dependencies>
 </project>

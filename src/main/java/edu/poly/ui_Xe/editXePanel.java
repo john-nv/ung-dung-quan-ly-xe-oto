@@ -90,7 +90,6 @@ public class editXePanel extends javax.swing.JPanel {
         jLabel31.setText("Số khung :");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Sửa thông tin Xe");
 
         jLabel7.setText("Mã xe :");
@@ -431,7 +430,7 @@ public class editXePanel extends javax.swing.JPanel {
             mdXe.setSoMay(txtSoMayEdit.getText());
             mdXe.setMaLuc(Integer.parseInt(txtMaLucEdit.getText()));
             mdXe.setHang(txtHangEdit.getText());
-//            mdXe.setSoCho(Integer.parseInt(txtSoChoEdit.getText()));
+            mdXe.setSoCho(Integer.parseInt(txtSoChoEdit.getText()));
 //            mdXe.setGiaThueXeTheoGio(Integer.parseInt(txtGiaThueGioEdit.getText()));
 //            mdXe.setGiaThueXeTheoNgay(Integer.parseInt(txtGiaThueNgayEdit.getText()));
 //            mdXe.setGiaThueXeTheoThang(Integer.parseInt(txtGiaThueThangEdit.getText()));

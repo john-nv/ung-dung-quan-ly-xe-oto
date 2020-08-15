@@ -24,8 +24,8 @@ public class addHopDongPanel extends javax.swing.JPanel {
     public addHopDongPanel() {
         initComponents();
         loadCBX("LOAIXE", cbxMaLoaiXe, 1);
-        loadCBX("PHUKIEN", cbxMaPK, 1);
-        loadCBX("Tien", cbxMaTT, 1);
+        loadCBX("PHUKIEN", cbxMaPK, 1); 
+//        loadCBX("Tien", cbxMaTT, 1);
     }
 
     /**
