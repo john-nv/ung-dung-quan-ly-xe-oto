@@ -26,6 +26,7 @@ public class managementHopDongPanel extends javax.swing.JPanel {
     private addHopDongPanel AddHopDongPanel;
 //    private editXePanel editXePanel;
 //    private showXePanel showXePanel;
+    //test
     DefaultTableModel model = null;
 
     /**
