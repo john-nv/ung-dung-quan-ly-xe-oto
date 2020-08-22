@@ -5,6 +5,9 @@
  */
 package edu.poly.model.xe;
 
+import java.awt.Image;
+import java.sql.Date;
+
 /**
  *
  * @author Admin
@@ -14,30 +17,14 @@ public class modelXe {
     int MaLuc,SoCho;
     String MaXe, TenXe, SoKhung, SoMay, Hang, TinhTrangXe, MaLoaiXe, BienSoXe; 
     int GiaThueXeTheoGio, GiaThueXeTheoNgay, GiaThueXeTheoThang, TienPhat;
-    String ThoiGianBatDauTinhTrang, ThoiGianKetThucTinhTrang;
+    Date ThoiGianBatDauTinhTrang, ThoiGianKetThucTinhTrang;
+    Image HinhXe;
     // DATETIME – định dạng: YYYY-MM-DD HH:MI:SS
     
-//    	[MaXe] [varchar](50) NOT NULL,
-//	[TenXe] [nvarchar](50) NOT NULL,
-//	[SoKhung] [nvarchar](50) NOT NULL,
-//	[SoMay] [nvarchar](50) NOT NULL,
-//	[MaLuc] [int] NOT NULL,
-//	[Hang] [nvarchar](50) NOT NULL,
-//	[SoCho] [int] NOT NULL,
-//	[GiaThueXeTheoGio] [decimal](18, 2) NOT NULL,
-//	[GiaThueXeTheoNgay] [decimal](18, 2) NOT NULL,
-//	[GiaThueXeTheoThang] [decimal](18, 2) NOT NULL,
-//	[TienPhat] [decimal](18, 2) NOT NULL,
-//	[TinhTrangXe] [nvarchar](50) NOT NULL,
-//	[ThoiGianBatDauTinhTrang] [datetime] NULL,
-//	[ThoiGianKetThucTinhTrang] [datetime] NULL,
-//	[MaLoaiXe] [varchar](50) NOT NULL,
-//	[BienSoXe] [varchar](50) NOT NULL,
-
     public modelXe() {
     }
 
-    public modelXe(int MaLuc, int SoCho, String MaXe, String TenXe, String SoKhung, String SoMay, String Hang, String TinhTrangXe, String MaLoaiXe, String BienSoXe, int GiaThueXeTheoGio, int GiaThueXeTheoNgay, int GiaThueXeTheoThang, int TienPhat, String ThoiGianBatDauTinhTrang, String ThoiGianKetThucTinhTrang) {
+    public modelXe(int MaLuc, int SoCho, String MaXe, String TenXe, String SoKhung, String SoMay, String Hang, String TinhTrangXe, String MaLoaiXe, String BienSoXe, int GiaThueXeTheoGio, int GiaThueXeTheoNgay, int GiaThueXeTheoThang, int TienPhat, Date ThoiGianBatDauTinhTrang, Date ThoiGianKetThucTinhTrang, Image HinhXe) {
         this.MaLuc = MaLuc;
         this.SoCho = SoCho;
         this.MaXe = MaXe;
@@ -54,6 +41,7 @@ public class modelXe {
         this.TienPhat = TienPhat;
         this.ThoiGianBatDauTinhTrang = ThoiGianBatDauTinhTrang;
         this.ThoiGianKetThucTinhTrang = ThoiGianKetThucTinhTrang;
+        this.HinhXe = HinhXe;
     }
 
     public int getMaLuc() {
@@ -168,22 +156,28 @@ public class modelXe {
         this.TienPhat = TienPhat;
     }
 
-    public String getThoiGianBatDauTinhTrang() {
+    public Date getThoiGianBatDauTinhTrang() {
         return ThoiGianBatDauTinhTrang;
     }
 
-    public void setThoiGianBatDauTinhTrang(String ThoiGianBatDauTinhTrang) {
+    public void setThoiGianBatDauTinhTrang(Date ThoiGianBatDauTinhTrang) {
         this.ThoiGianBatDauTinhTrang = ThoiGianBatDauTinhTrang;
     }
 
-    public String getThoiGianKetThucTinhTrang() {
+    public Date getThoiGianKetThucTinhTrang() {
         return ThoiGianKetThucTinhTrang;
     }
 
-    public void setThoiGianKetThucTinhTrang(String ThoiGianKetThucTinhTrang) {
+    public void setThoiGianKetThucTinhTrang(Date ThoiGianKetThucTinhTrang) {
         this.ThoiGianKetThucTinhTrang = ThoiGianKetThucTinhTrang;
     }
-    
-    
-    
+
+    public Image getHinhXe() {
+        return HinhXe;
+    }
+
+    public void setHinhXe(Image HinhXe) {
+        this.HinhXe = HinhXe;
+    }
+ 
 }

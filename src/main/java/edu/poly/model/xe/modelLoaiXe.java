@@ -37,6 +37,7 @@ public class modelLoaiXe {
     public void setTenLoaiXe(String TenLoaiXe) {
         this.TenLoaiXe = TenLoaiXe;
     }
+
     
     
 }

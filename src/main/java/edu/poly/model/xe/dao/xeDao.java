@@ -7,12 +7,14 @@ package edu.poly.model.xe.dao;
 
 import edu.poly.Helper.databaseHelper;
 import edu.poly.model.xe.modelXe;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.sql.rowset.serial.SerialBlob;
 
 /**
  *
@@ -22,17 +24,39 @@ public class xeDao {
 
     public boolean insert(modelXe mdXe) throws SQLException, ClassNotFoundException {
         String sql = "Insert into xe (MaXe, TenXe, SoKhung, SoMay, MaLuc, Hang, SoCho, GiaThueXeTheoGio, GiaThueXeTheoNgay, GiaThueXeTheoThang, TienPhat,"
-                + "TinhTrangXe, ThoiGianBatDauTinhTrang, ThoiGianKetThucTinhTrang, MaLoaiXe, BienSoXe)"
-                + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                + "TinhTrangXe, ThoiGianBatDauTinhTrang, ThoiGianKetThucTinhTrang, MaLoaiXe, BienSoXe, HinhXe)"
+                + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try (
                 Connection con = databaseHelper.openConnection();
-                PreparedStatement ptmt = con.prepareStatement(sql);) {
+                PreparedStatement psmt = con.prepareStatement(sql);) {
 
             // thêm dữ liệu 
-            createModelXe(ptmt, mdXe);
+            psmt.setString(1, mdXe.getMaXe());
+            psmt.setString(2, mdXe.getTenXe());
+            psmt.setString(3, mdXe.getSoKhung());
+            psmt.setString(4, mdXe.getSoMay());
+            psmt.setInt(5, mdXe.getMaLuc());
+            psmt.setString(6, mdXe.getHang());
+            psmt.setInt(7, mdXe.getSoCho());
+            psmt.setFloat(8, mdXe.getGiaThueXeTheoGio());
+            psmt.setFloat(9, mdXe.getGiaThueXeTheoNgay());
+            psmt.setFloat(10, mdXe.getGiaThueXeTheoThang());
+            psmt.setFloat(11, mdXe.getTienPhat());
+            psmt.setString(12, mdXe.getTinhTrangXe());
+            psmt.setDate(13, mdXe.getThoiGianBatDauTinhTrang());
+            psmt.setDate(14, mdXe.getThoiGianKetThucTinhTrang());
+            psmt.setString(15, mdXe.getMaLoaiXe());
+            psmt.setString(16, mdXe.getBienSoXe());
+            if (mdXe.getHinhXe() != null) {
+                Blob hinh = new SerialBlob((Blob) mdXe.getHinhXe());
+                psmt.setBlob(17, hinh);
+            }else {
+                Blob hinh = null;
+                psmt.setBlob(17, hinh);
+            }
 
-            return ptmt.executeUpdate() > 0;
+            return psmt.executeUpdate() > 0;
         }
     }
 
@@ -81,10 +105,12 @@ public class xeDao {
         String sql = "delete from xe where maXe =? ";
         try (
                 Connection con = databaseHelper.openConnection();
-                PreparedStatement psmt = con.prepareStatement(sql);) {
-            psmt.setString(1, delXe);
+                PreparedStatement psmt = con.prepareStatement(sql);
+            ){
+            
+                psmt.setString(1, delXe);
 
-            return psmt.executeUpdate() > 0;
+                return psmt.executeUpdate() > 0;
         }
     }
 
@@ -115,15 +141,15 @@ public class xeDao {
             psmt.setInt(5, mdXe.getMaLuc());
             psmt.setString(6, mdXe.getHang());
             psmt.setInt(7, mdXe.getSoCho());
-//            psmt.setFloat(8, mdXe.getGiaThueXeTheoGio());
-//            psmt.setFloat(9, mdXe.getGiaThueXeTheoNgay());
-//            psmt.setFloat(10, mdXe.getGiaThueXeTheoThang());
-//            psmt.setFloat(11, mdXe.getTienPhat());
-//            psmt.setString(12, mdXe.getTinhTrangXe());
-//            psmt.setString(13, mdXe.getThoiGianBatDauTinhTrang());
-//            psmt.setString(14, mdXe.getThoiGianKetThucTinhTrang());
-//            psmt.setString(15, mdXe.getMaLoaiXe());
-//            psmt.setString(16, mdXe.getBienSoXe());
+            psmt.setFloat(8, mdXe.getGiaThueXeTheoGio());
+            psmt.setFloat(9, mdXe.getGiaThueXeTheoNgay());
+            psmt.setFloat(10, mdXe.getGiaThueXeTheoThang());
+            psmt.setFloat(11, mdXe.getTienPhat());
+            psmt.setString(12, mdXe.getTinhTrangXe());
+            psmt.setDate(13, mdXe.getThoiGianBatDauTinhTrang());
+            psmt.setDate(14, mdXe.getThoiGianKetThucTinhTrang());
+            psmt.setString(15, mdXe.getMaLoaiXe());
+            psmt.setString(16, mdXe.getBienSoXe());
 
     }
 
@@ -140,8 +166,8 @@ public class xeDao {
         modelxe.setGiaThueXeTheoThang(rs.getInt("GiaThueXeTheoThang"));
         modelxe.setTienPhat(rs.getInt("TienPhat"));
         modelxe.setTinhTrangXe(rs.getString("TinhTrangXe"));
-        modelxe.setThoiGianBatDauTinhTrang(rs.getString("ThoiGianBatDauTinhTrang"));
-        modelxe.setThoiGianKetThucTinhTrang(rs.getString("ThoiGianKetThucTinhTrang"));
+        modelxe.setThoiGianBatDauTinhTrang(rs.getDate("ThoiGianBatDauTinhTrang"));
+        modelxe.setThoiGianKetThucTinhTrang(rs.getDate("ThoiGianKetThucTinhTrang"));
         modelxe.setMaLoaiXe(rs.getString("MaLoaiXe"));
         modelxe.setBienSoXe(rs.getString("BienSoXe"));
     }
@@ -190,10 +216,11 @@ public class xeDao {
                     mdXe.setGiaThueXeTheoThang(rs.getInt("GiaThueXeTheoThang"));
                     mdXe.setTienPhat(rs.getInt("TienPhat"));
                     mdXe.setTinhTrangXe(rs.getString("TinhTrangXe"));
-                    mdXe.setThoiGianBatDauTinhTrang(rs.getString("ThoiGianBatDauTinhTrang"));
-                    mdXe.setThoiGianKetThucTinhTrang(rs.getString("ThoiGianKetThucTinhTrang"));
+                    mdXe.setThoiGianBatDauTinhTrang(rs.getDate("ThoiGianBatDauTinhTrang"));
+                    mdXe.setThoiGianKetThucTinhTrang(rs.getDate("ThoiGianKetThucTinhTrang"));
                     mdXe.setMaLoaiXe(rs.getString("MaLoaiXe"));
                     mdXe.setBienSoXe(rs.getString("BienSoXe"));
+//                    mdXe.setHinhXe(rs.);
 
                     return mdXe;
                 }
@@ -206,12 +233,16 @@ public class xeDao {
         String sql = "select * from xe ";
         try (
                 Connection con = databaseHelper.openConnection();
-                PreparedStatement ptmt = con.prepareStatement(sql);) {
+                PreparedStatement ptmt = con.prepareStatement(sql);
+            ){
+            
             List<modelXe> list = new ArrayList<>();
             try (ResultSet rs = ptmt.executeQuery()) {
                 while (rs.next()) {
                     modelXe modelXe = new modelXe();
+                    
                     fillXe(modelXe, rs);
+                    
                     list.add(modelXe);
                 }
             }
@@ -220,7 +251,7 @@ public class xeDao {
     }
 
     public List<modelXe> showXeRepair() throws ClassNotFoundException, SQLException {
-        String sql = "select * from xe where TinhTrangXe = 'sc' ";
+        String sql = "select * from xe where TinhTrangXe = 'Sua chua' ";
         try (
                 Connection con = databaseHelper.openConnection();
                 PreparedStatement ptmt = con.prepareStatement(sql);) {
@@ -237,7 +268,7 @@ public class xeDao {
     }
 
     public List<modelXe> showXeReady() throws ClassNotFoundException, SQLException {
-        String sql = "select * from xe where TinhTrangXe = 'ss' ";
+        String sql = "select * from xe where TinhTrangXe = 'San sang' ";
         try (
                 Connection con = databaseHelper.openConnection();
                 PreparedStatement ptmt = con.prepareStatement(sql);) {
@@ -254,7 +285,7 @@ public class xeDao {
     }
 
     public List<modelXe> showXeOn() throws ClassNotFoundException, SQLException {
-        String sql = "select * from xe where TinhTrangXe = 'thue' ";
+        String sql = "select * from xe where TinhTrangXe = 'Dang thue' ";
         try (
                 Connection con = databaseHelper.openConnection();
                 PreparedStatement ptmt = con.prepareStatement(sql);) {
