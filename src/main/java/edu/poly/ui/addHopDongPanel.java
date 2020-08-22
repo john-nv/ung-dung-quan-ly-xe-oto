@@ -332,9 +332,9 @@ public class addHopDongPanel extends javax.swing.JPanel {
         txtTienThueXe.setText("");
         txtTienSuaChua.setText("");
         txtTongTien.setText("");
-        loadCBX("LOAIXE", cbxMaLoaiXe);
-        loadCBX("PHUKIEN", cbxMaPK);
-        loadCBX("KHACHHANG", cbxSoCMND);
+//        loadCBX("LOAIXE", cbxMaLoaiXe);
+//        loadCBX("PHUKIEN", cbxMaPK);
+//        loadCBX("KHACHHANG", cbxSoCMND);
     }//GEN-LAST:event_btnAddReset1ActionPerformed
 
     private void btnXeAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXeAddActionPerformed
