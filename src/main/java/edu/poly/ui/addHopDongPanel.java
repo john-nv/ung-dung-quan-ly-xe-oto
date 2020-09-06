@@ -53,7 +53,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         bottom = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblKh = new javax.swing.JTable();
         Center = new javax.swing.JPanel();
         CenterTop = new javax.swing.JPanel();
         Left = new javax.swing.JPanel();
@@ -105,7 +105,8 @@ public class addHopDongPanel extends javax.swing.JPanel {
         jLabel1.setText("THÊM HỢP ĐỒNG");
         jPanel2.add(jLabel1, java.awt.BorderLayout.PAGE_START);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblKh.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        tblKh.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -113,12 +114,12 @@ public class addHopDongPanel extends javax.swing.JPanel {
 
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblKh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                tblKhMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tblKh);
 
         javax.swing.GroupLayout bottomLayout = new javax.swing.GroupLayout(bottom);
         bottom.setLayout(bottomLayout);
@@ -345,27 +346,27 @@ public class addHopDongPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Hay nhap day du cac field!");
     }//GEN-LAST:event_btnXeAddActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        txtMaHD.setText(String.valueOf(jTable1.getValueAt(rowSelected(), 0)));
+    private void tblKhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblKhMouseClicked
+        txtMaHD.setText(String.valueOf(tblKh.getValueAt(rowSelected(), 0)));
         try {
-            dpkNgayLap.setDate(new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(jTable1.getValueAt(rowSelected(), 1))));
-            dpkTimeBatDauHD.setDate(new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(jTable1.getValueAt(rowSelected(), 3))));
-            dpkTimeKetThucHD.setDate(new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(jTable1.getValueAt(rowSelected(), 4))));
+            dpkNgayLap.setDate(new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(tblKh.getValueAt(rowSelected(), 1))));
+            dpkTimeBatDauHD.setDate(new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(tblKh.getValueAt(rowSelected(), 3))));
+            dpkTimeKetThucHD.setDate(new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(tblKh.getValueAt(rowSelected(), 4))));
         } catch (ParseException ex) {
             ex.printStackTrace();
         }
-        cbxSoCMND.setSelectedItem(String.valueOf(jTable1.getValueAt(rowSelected(), 2)));
-        txtDiemNhanXe.setText(String.valueOf(jTable1.getValueAt(rowSelected(), 5)));
-        txtDiemTraXe.setText(String.valueOf(jTable1.getValueAt(rowSelected(), 6)));
-        tareaGhiChu.setText(String.valueOf(jTable1.getValueAt(rowSelected(), 7)));
-        cbxMaLoaiXe.setSelectedItem(String.valueOf(jTable1.getValueAt(rowSelected(), 8)));
-        cbxMaPK.setSelectedItem(String.valueOf(jTable1.getValueAt(rowSelected(), 9)));
-        cbxDatCoc.setSelectedItem(String.valueOf(jTable1.getValueAt(rowSelected(), 11)));
-        txtMaTT.setText(String.valueOf(jTable1.getValueAt(rowSelected(), 12)));
-        txtTienThueXe.setText(String.valueOf(jTable1.getValueAt(rowSelected(), 13)));
-        txtTienSuaChua.setText(String.valueOf(jTable1.getValueAt(rowSelected(), 14)));
-        txtTongTien.setText(String.valueOf(jTable1.getValueAt(rowSelected(), 15)));
-    }//GEN-LAST:event_jTable1MouseClicked
+        cbxSoCMND.setSelectedItem(String.valueOf(tblKh.getValueAt(rowSelected(), 2)));
+        txtDiemNhanXe.setText(String.valueOf(tblKh.getValueAt(rowSelected(), 5)));
+        txtDiemTraXe.setText(String.valueOf(tblKh.getValueAt(rowSelected(), 6)));
+        tareaGhiChu.setText(String.valueOf(tblKh.getValueAt(rowSelected(), 7)));
+        cbxMaLoaiXe.setSelectedItem(String.valueOf(tblKh.getValueAt(rowSelected(), 8)));
+        cbxMaPK.setSelectedItem(String.valueOf(tblKh.getValueAt(rowSelected(), 9)));
+        cbxDatCoc.setSelectedItem(String.valueOf(tblKh.getValueAt(rowSelected(), 11)));
+        txtMaTT.setText(String.valueOf(tblKh.getValueAt(rowSelected(), 12)));
+        txtTienThueXe.setText(String.valueOf(tblKh.getValueAt(rowSelected(), 13)));
+        txtTienSuaChua.setText(String.valueOf(tblKh.getValueAt(rowSelected(), 14)));
+        txtTongTien.setText(String.valueOf(tblKh.getValueAt(rowSelected(), 15)));
+    }//GEN-LAST:event_tblKhMouseClicked
 
     private void btnEditXeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditXeActionPerformed
         if (capNhatHopDong() == 1) {
@@ -427,8 +428,8 @@ public class addHopDongPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea tareaGhiChu;
+    private javax.swing.JTable tblKh;
     private javax.swing.JTextField txtDiemNhanXe;
     private javax.swing.JTextField txtDiemTraXe;
     private javax.swing.JTextField txtMaHD;
@@ -525,14 +526,14 @@ public class addHopDongPanel extends javax.swing.JPanel {
                 model.addRow(new Object[]{maHD, ngayLap, soCMND, thoiGianBatDauHD, thoiGianKetThucHD, diaDiemNhanXe, diaDiemTraXe, ghiChu1, maLoaiXe, maPK, maTT1, datCoc, maTT2, tienThueXe, tienSuaChua, tongTien, ghiChu2});
 
             }
-            jTable1.setModel(model);
+            tblKh.setModel(model);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private int rowSelected() {
-        int row = jTable1.getSelectedRow();
+        int row = tblKh.getSelectedRow();
         return row;
     }
 

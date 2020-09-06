@@ -5,9 +5,6 @@
  */
 package edu.poly.ui;
 
-import edu.poly.ui_Xe.addXePanel;
-import edu.poly.ui_Xe.editXePanel;
-import edu.poly.ui_Xe.showXePanel;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
