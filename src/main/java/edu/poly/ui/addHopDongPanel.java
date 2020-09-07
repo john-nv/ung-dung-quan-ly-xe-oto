@@ -339,11 +339,28 @@ public class addHopDongPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAddReset1ActionPerformed
 
     private void btnXeAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXeAddActionPerformed
-        if (themHopDong() == 1) {
-            loadDataTable();
-            JOptionPane.showMessageDialog(this, "Them Hop Dong thanh cong!");
-        } else
-            JOptionPane.showMessageDialog(this, "Hay nhap day du cac field!");
+        if (btnXeAdd.getText() == "Thêm") {
+            txtMaHD.setText("");
+            dpkNgayLap.setDate(null);
+            dpkTimeBatDauHD.setDate(null);
+            dpkTimeKetThucHD.setDate(null);
+            txtDiemNhanXe.setText("");
+            txtDiemTraXe.setText("");
+            tareaGhiChu.setText("");
+            txtMaTT.setText("");
+            txtTienThueXe.setText("");
+            txtTienSuaChua.setText("");
+            txtTongTien.setText("");
+            btnXeAdd.setText("Lưu");
+        } else if (btnXeAdd.getText() == "Lưu") {
+            if (themHopDong() == 1) {
+                loadDataTable();
+                JOptionPane.showMessageDialog(this, "Them Hop Dong thanh cong!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Hay nhap day du cac field!");
+            }
+        }
+
     }//GEN-LAST:event_btnXeAddActionPerformed
 
     private void tblKhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblKhMouseClicked
@@ -380,13 +397,15 @@ public class addHopDongPanel extends javax.swing.JPanel {
         editHopDongDao editHD = new editHopDongDao();
         modelHopDong hd = new modelHopDong();
         hd.setMaHD(Integer.parseInt(txtMaHD.getText()));
-        
+
         modelTien t = new modelTien();
         t.setMaTT(txtMaTT.getText());
-        if (editHD.xoaHopDong(hd, t)==1) {
+        if (editHD.xoaHopDong(hd, t) == 1) {
             JOptionPane.showMessageDialog(this, "Xoa Hop Dong thanh cong");
-        }else JOptionPane.showMessageDialog(this, "Xoa Hop Dong khong thanh cong");
-        
+        } else {
+            JOptionPane.showMessageDialog(this, "Xoa Hop Dong khong thanh cong");
+        }
+
         loadDataTable();
     }//GEN-LAST:event_btnEditXe1ActionPerformed
 
@@ -455,7 +474,6 @@ public class addHopDongPanel extends javax.swing.JPanel {
     int temp = 0;
 
     private int themHopDong() {
-
         try {
             java.util.Date utilDate1 = dpkNgayLap.getDate();
             java.sql.Date ngayLap = new java.sql.Date(utilDate1.getTime());

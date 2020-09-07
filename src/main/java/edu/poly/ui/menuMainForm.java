@@ -16,6 +16,14 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.imageio.ImageReader;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,18 +34,21 @@ import javax.swing.JPanel;
  * @author QUANGC
  */
 public class menuMainForm extends javax.swing.JFrame implements Runnable {
+
     private JPanel childJPanel;
     private Thread thread;
+
     /**
      * Creates new form menuMainForm
      */
     public menuMainForm() {
         initComponents();
-        
+
         backgroundHome();
         setLocationRelativeTo(null); //centen destop
-        setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH );
+        setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
         Start();
+        loadGif();
     }
 
     /**
@@ -250,10 +261,12 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanelMain.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanelMain.setLayout(new java.awt.BorderLayout());
 
         jLabelhome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelhome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/gifntext-gif.gif"))); // NOI18N
+        jLabelhome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/gifntext-gif(1).gif")));
+        jLabelhome.setMaximumSize(new java.awt.Dimension(1200, 900));
         jPanelMain.add(jLabelhome, java.awt.BorderLayout.CENTER);
 
         jScrollPane3.setViewportView(jPanelMain);
@@ -262,7 +275,6 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
 
         lblRun.setBackground(new java.awt.Color(102, 102, 102));
         lblRun.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        lblRun.setForeground(new java.awt.Color(0, 0, 0));
         lblRun.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRun.setText("Địa chỉ : 38 Yên Bái, Quận Hải Châu, Thành phố Đà Nẵng - Đồ án cho thuê xe ô tô - Nhóm 6");
 
@@ -456,7 +468,7 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         loginDialog login = new loginDialog(this, true);
         login.setVisible(true);
         displayAccountInformation();
-        
+
     }//GEN-LAST:event_menuLogOutActionPerformed
 
     private void menuXeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuXeActionPerformed
@@ -477,7 +489,7 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
 
     private void menuIntroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIntroActionPerformed
         IntroDialog intro = new IntroDialog(this, true);
-        
+
         intro.setVisible(true);
     }//GEN-LAST:event_menuIntroActionPerformed
 
@@ -503,7 +515,7 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         loginDialog login = new loginDialog(this, true);
-        
+
         login.setVisible(true);
         displayAccountInformation();
     }//GEN-LAST:event_formWindowOpened
@@ -594,62 +606,86 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
     private javax.swing.JMenuItem menuXe;
     // End of variables declaration//GEN-END:variables
 
-    private void showPanel(JPanel panel){
-        childJPanel =  panel;
+    private void showPanel(JPanel panel) {
+        childJPanel = panel;
         jPanelMain.removeAll();
         jPanelMain.add(childJPanel);
         jPanelMain.validate();
     }
-    
-    private void Start(){
-        if(thread==null){
-            thread= new Thread(this);
+
+    private void Start() {
+        if (thread == null) {
+            thread = new Thread(this);
             thread.start();
         }
     }
-    
-    private void Update(){
+
+    private void Update() {
 //        lblRun.setForeground(Color.red);
-        lblRun.setLocation(lblRun.getX()-1, lblRun.getY());
-        if(lblRun.getX()+lblRun.getWidth()<0){
+        lblRun.setLocation(lblRun.getX() - 1, lblRun.getY());
+        if (lblRun.getX() + lblRun.getWidth() < 0) {
             lblRun.setLocation(this.getWidth(), lblRun.getY());
         }
     }
-    
-        public void run() {
-        long FPS=80;
-        long period=1000*1000000/FPS;
-        long beginTime,sleepTime;
-        
-        beginTime=System.nanoTime();
-        while(true){
-            
+
+    public void run() {
+        long FPS = 80;
+        long period = 1000 * 1000000 / FPS;
+        long beginTime, sleepTime;
+
+        beginTime = System.nanoTime();
+        while (true) {
+
             Update();
-            
-            long deltaTime=System.nanoTime()-beginTime;
-            sleepTime=period-deltaTime;
-            try{
-                if(sleepTime>0)
-                    Thread.sleep(sleepTime/1000000);
-                else    Thread.sleep(period/2000000);
-                
-            }catch(Exception ex){
+
+            long deltaTime = System.nanoTime() - beginTime;
+            sleepTime = period - deltaTime;
+            try {
+                if (sleepTime > 0) {
+                    Thread.sleep(sleepTime / 1000000);
+                } else {
+                    Thread.sleep(period / 2000000);
+                }
+
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
-            beginTime=System.nanoTime();
+            beginTime = System.nanoTime();
         }
     }
-        
-   private void displayAccountInformation(){
-           lblUse.setText(SharedData.tenDangNhap.getTaiKhoang());
-   }
-       
-   private void backgroundHome(){
+
+    private void displayAccountInformation() {
+        lblUse.setText(SharedData.tenDangNhap.getTaiKhoang());
+    }
+
+    private void backgroundHome() {
 //        ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/edu/poly/icon/icon/gifntext-gif.gif")));
 //        ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/edu/poly/icon/icon/background-home.jpg")));
 //        Image img1 = myimage.getImage();
 //        Image img2 = img1.getScaledInstance(jLabelhome.getWidth(), jLabelhome.getHeight(), Image.SCALE_SMOOTH);
 //        ImageIcon i = new ImageIcon(img2);
 //        jLabelhome.setIcon(i);
-   }
+    }
+
+    private void loadGif() {
+        
+//        File file  = new File("/edu/poly/icon/icon/gifntext-gif.gif");
+//        
+//        ImageReader reader = ImageIO.getImageReadersByFormatName(".gif").next();
+//        try {
+//            reader.setInput(ImageIO.createImageInputStream(file));
+//            
+//            int numImages = reader.getNumImages(true);
+//            
+//        } catch (IOException ex) {
+//            Logger.getLogger(menuMainForm.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        
+//        String path = "D:\\Study\\Aptech\\Java\\Netbean\\project-1000usa\\src\\main\\java\\edu\\poly\\icon\\icon\\gifntext-gif.gif";
+//        ImageIcon myImage = (ImageIcon) jLabelhome.getIcon();
+//        Image img = myImage.getImage();
+//        Image newImg = img.getScaledInstance(500, 500, Image.SCALE_SMOOTH);
+//        ImageIcon image = new ImageIcon(newImg);
+//        jLabelhome.setIcon(image);
+    }
 }
