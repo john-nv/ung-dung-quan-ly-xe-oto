@@ -37,7 +37,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
         loadCBX("PHUKIEN", cbxMaPK);
         loadCBX("KHACHHANG", cbxSoCMND);
         loadDataTable();
-
+        editHopDongDao.setSoLuongXe();
     }
 
     /**
@@ -459,16 +459,30 @@ public class addHopDongPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void loadCBX(String table, JComboBox cbx) {
-        String sql = "select * from " + table + "";
-        try {
-            Connection con = databaseHelper.openConnection();
-            Statement sttm = con.createStatement();
-            ResultSet rs = sttm.executeQuery(sql);
-            while (rs.next()) {
-                cbx.addItem(rs.getString(1));
+        if (table == "LOAIXE") {
+            String sql = "select * from " + table + " where SoLuong is not NULL";
+            try {
+                Connection con = databaseHelper.openConnection();
+                Statement sttm = con.createStatement();
+                ResultSet rs = sttm.executeQuery(sql);
+                while (rs.next()) {
+                    cbx.addItem(rs.getString(1));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } else {
+            String sql = "select * from " + table + "";
+            try {
+                Connection con = databaseHelper.openConnection();
+                Statement sttm = con.createStatement();
+                ResultSet rs = sttm.executeQuery(sql);
+                while (rs.next()) {
+                    cbx.addItem(rs.getString(1));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
     int temp = 0;

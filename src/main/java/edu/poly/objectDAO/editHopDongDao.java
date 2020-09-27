@@ -13,12 +13,43 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
  * @author dinh
  */
 public class editHopDongDao {
+
+    public static void setSoLuongXe() {
+        ArrayList<String> danhSachLoaiXe = new ArrayList<>();
+        String sql1 = "select MaLoaiXe from LOAIXE";
+        try {
+            Connection con = databaseHelper.openConnection();
+            PreparedStatement pstm1 = con.prepareStatement(sql1);
+            ResultSet rs = pstm1.executeQuery();
+            while (rs.next()) {
+                danhSachLoaiXe.add(rs.getString(1));
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        for (String dslx : danhSachLoaiXe) {
+            String sql2 = "update LOAIXE set LOAIXE.SoLuong=(select count (MaLoaiXe) from Xe where TinhTrangXe = N'Sẵn sàng' and MaLoaiXe = ? group by MaLoaiXe) from LOAIXE lx join Xe x on lx.MaLoaiXe = x.MaLoaiXe where lx.MaLoaiXe = ?";
+            try {
+                Connection con = databaseHelper.openConnection();
+                PreparedStatement pstm2 = con.prepareStatement(sql2);
+                pstm2.setString(1, dslx);
+                pstm2.setString(2, dslx);
+                pstm2.executeUpdate();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    }
 
     public void insertHopDong(modelHopDong hd, modelTien t) {
         String sql1 = "insert into TIEN (MaThanhToan, TienThueXe, TienSuaChua, TongTien, GhiChu) values (?,?,?,?,?)";
@@ -93,7 +124,8 @@ public class editHopDongDao {
             e.printStackTrace();
         }
     }
-    public int xoaHopDong(modelHopDong hd, modelTien t){
+
+    public int xoaHopDong(modelHopDong hd, modelTien t) {
         int temp = 0;
         String sql1 = "delete from TIEN where MaThanhToan=?";
         String sql2 = "delete from HOPDONG where MaHD=?";
@@ -104,17 +136,17 @@ public class editHopDongDao {
             try {
                 pstm1.setString(1, t.getMaTT());
                 pstm2.setInt(1, hd.getMaHD());
-                
+
                 pstm2.executeUpdate();
                 pstm1.executeUpdate();
-                temp =1;
+                temp = 1;
             } catch (Exception e) {
                 e.printStackTrace();
-                temp =0;
+                temp = 0;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            temp=0;
+            temp = 0;
         }
         return temp;
     }
