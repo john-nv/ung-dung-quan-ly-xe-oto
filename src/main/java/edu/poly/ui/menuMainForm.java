@@ -12,21 +12,7 @@ import edu.poly.ui_xe.MaLoaiXePanel;
 import edu.poly.ui_xe.XePanel;
 import edu.polyHelpandIntro.IntroDialog;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.imageio.ImageReader;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -44,11 +30,9 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
     public menuMainForm() {
         initComponents();
 
-        backgroundHome();
         setLocationRelativeTo(null); //centen destop
         setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
         Start();
-        loadGif();
     }
 
     /**
@@ -265,7 +249,7 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         jPanelMain.setLayout(new java.awt.BorderLayout());
 
         jLabelhome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelhome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/gifntext-gif(1).gif")));
+        jLabelhome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/carHOME(1).gif")));
         jLabelhome.setMaximumSize(new java.awt.Dimension(1200, 900));
         jPanelMain.add(jLabelhome, java.awt.BorderLayout.CENTER);
 
@@ -656,36 +640,5 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
 
     private void displayAccountInformation() {
         lblUse.setText(SharedData.tenDangNhap.getTaiKhoang());
-    }
-
-    private void backgroundHome() {
-//        ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/edu/poly/icon/icon/gifntext-gif.gif")));
-//        ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/edu/poly/icon/icon/background-home.jpg")));
-//        Image img1 = myimage.getImage();
-//        Image img2 = img1.getScaledInstance(jLabelhome.getWidth(), jLabelhome.getHeight(), Image.SCALE_SMOOTH);
-//        ImageIcon i = new ImageIcon(img2);
-//        jLabelhome.setIcon(i);
-    }
-
-    private void loadGif() {
-        
-//        File file  = new File("/edu/poly/icon/icon/gifntext-gif.gif");
-//        
-//        ImageReader reader = ImageIO.getImageReadersByFormatName(".gif").next();
-//        try {
-//            reader.setInput(ImageIO.createImageInputStream(file));
-//            
-//            int numImages = reader.getNumImages(true);
-//            
-//        } catch (IOException ex) {
-//            Logger.getLogger(menuMainForm.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
-//        String path = "D:\\Study\\Aptech\\Java\\Netbean\\project-1000usa\\src\\main\\java\\edu\\poly\\icon\\icon\\gifntext-gif.gif";
-//        ImageIcon myImage = (ImageIcon) jLabelhome.getIcon();
-//        Image img = myImage.getImage();
-//        Image newImg = img.getScaledInstance(500, 500, Image.SCALE_SMOOTH);
-//        ImageIcon image = new ImageIcon(newImg);
-//        jLabelhome.setIcon(image);
     }
 }

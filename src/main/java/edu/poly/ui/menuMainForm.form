@@ -516,7 +516,7 @@
                       <Properties>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/edu/poly/icon/icon/gifntext-gif(1).gif&quot;))" type="code"/>
+                          <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/edu/poly/icon/icon/carHOME(1).gif&quot;))" type="code"/>
                         </Property>
                         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[1200, 900]"/>

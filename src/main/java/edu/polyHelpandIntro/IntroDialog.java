@@ -62,7 +62,7 @@ public class IntroDialog extends javax.swing.JDialog {
         jLabel4.setText("Tác giả : Võ Định, Ngô Văn Quang");
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setText("Phiên bản : ");
+        jLabel5.setText("Phiên bản : Duy nhất");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
