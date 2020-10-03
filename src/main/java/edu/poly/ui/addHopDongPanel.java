@@ -33,11 +33,12 @@ public class addHopDongPanel extends javax.swing.JPanel {
      */
     public addHopDongPanel() {
         initComponents();
+        editHopDongDao.setSoLuongXe();
         loadCBX("LOAIXE", cbxMaLoaiXe);
         loadCBX("PHUKIEN", cbxMaPK);
         loadCBX("KHACHHANG", cbxSoCMND);
         loadDataTable();
-        editHopDongDao.setSoLuongXe();
+
     }
 
     /**
@@ -298,20 +299,20 @@ public class addHopDongPanel extends javax.swing.JPanel {
                 .addComponent(btnEditXe)
                 .addGap(36, 36, 36)
                 .addComponent(btnEditXe1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAddReset1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(164, 164, 164))
         );
         CenterBottomLayout.setVerticalGroup(
             CenterBottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CenterBottomLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(31, 31, 31)
                 .addGroup(CenterBottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnXeAdd)
                     .addComponent(btnAddReset1)
                     .addComponent(btnEditXe)
                     .addComponent(btnEditXe1))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addGap(70, 70, 70))
         );
 
         Center.add(CenterBottom);
@@ -356,6 +357,8 @@ public class addHopDongPanel extends javax.swing.JPanel {
             if (themHopDong() == 1) {
                 loadDataTable();
                 JOptionPane.showMessageDialog(this, "Them Hop Dong thanh cong!");
+                editHopDongDao.setSoLuongXe();
+                loadCBX("LOAIXE", cbxMaLoaiXe);
             } else {
                 JOptionPane.showMessageDialog(this, "Hay nhap day du cac field!");
             }
@@ -465,9 +468,12 @@ public class addHopDongPanel extends javax.swing.JPanel {
                 Connection con = databaseHelper.openConnection();
                 Statement sttm = con.createStatement();
                 ResultSet rs = sttm.executeQuery(sql);
+                cbx.removeAllItems();
                 while (rs.next()) {
-                    cbx.addItem(rs.getString(1));
+                    cbx.addItem(rs.getString(2));
+                    System.out.println("combobox: " + rs.getString(1));
                 }
+                con.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -480,6 +486,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                 while (rs.next()) {
                     cbx.addItem(rs.getString(1));
                 }
+                con.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -516,8 +523,9 @@ public class addHopDongPanel extends javax.swing.JPanel {
             hd.setMaPK(cbxMaPK.getSelectedItem().toString());
             hd.setMaTT(txtMaTT.getText());
             hd.setDatCoc(cbxDatCoc.getSelectedItem().toString());
-
+            System.out.println("in loi: " + editHD.convertLoaiXeToMaLoaiXe(cbxMaLoaiXe.getSelectedItem().toString()) + "hehe");
             editHD.insertHopDong(hd, t);
+
             temp = 1;
 
         } catch (Exception e) {

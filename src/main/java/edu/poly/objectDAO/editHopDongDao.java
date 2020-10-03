@@ -12,8 +12,11 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -32,6 +35,7 @@ public class editHopDongDao {
                 danhSachLoaiXe.add(rs.getString(1));
 
             }
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -43,12 +47,57 @@ public class editHopDongDao {
                 pstm2.setString(1, dslx);
                 pstm2.setString(2, dslx);
                 pstm2.executeUpdate();
+                con.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
         }
 
+    }
+
+    public String convertLoaiXeToMaLoaiXe(String loaiXe) {
+        String maLoaiXe=null;
+        try {
+            String sql = "select MaLoaiXe from LOAIXE where TenLoaiXe = ?";
+            Connection con = databaseHelper.openConnection();
+            PreparedStatement pstm = con.prepareStatement(sql);
+            pstm.setNString(1, loaiXe);
+            ResultSet rs = pstm.executeQuery();
+            maLoaiXe = rs.getString(0);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } 
+        System.out.println("rs: "+maLoaiXe);
+        return maLoaiXe;
+    }
+
+    public void doiTrangThaiCuaXeChoThue(String maLoaiXe) {
+        ArrayList<String> danhSachXe = new ArrayList<>();
+        String sql1 = "select MaXe from Xe where MaLoaiXe = ? and TinhTrangXe = N'Sẵn sàng'";
+        try {
+            Connection con = databaseHelper.openConnection();
+            PreparedStatement pstm1 = con.prepareStatement(sql1);
+            pstm1.setString(1, maLoaiXe);
+            ResultSet rs = pstm1.executeQuery();
+            while (rs.next()) {
+                danhSachXe.add(rs.getString(1));
+            }
+            con.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        System.out.println(danhSachXe.get(0));
+        String sql2 = "update Xe set TinhTrangXe = N'Đang thuê' where MaXe =?";
+        try {
+            Connection con = databaseHelper.openConnection();
+            PreparedStatement pstm2 = con.prepareStatement(sql2);
+            pstm2.setString(1, danhSachXe.get(0));
+            pstm2.executeUpdate();
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void insertHopDong(modelHopDong hd, modelTien t) {
@@ -86,6 +135,7 @@ public class editHopDongDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        doiTrangThaiCuaXeChoThue(hd.getMaLoaiXe());
     }
 
     public void updateHopDong(modelHopDong hd, modelTien t) {
