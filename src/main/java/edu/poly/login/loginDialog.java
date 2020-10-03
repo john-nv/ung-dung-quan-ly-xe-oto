@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package edu.poly.login;
+
 import edu.poly.Helper.SharedData;
 import edu.poly.Helper.notificationError;
 import edu.poly.objectDAO.loginDao;
@@ -27,13 +28,12 @@ public class loginDialog extends javax.swing.JDialog {
     /**
      * Creates new form loginDialog
      */
-    int x,y;
-    
+    int x, y;
+
     public loginDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
-        
+
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/edu/poly/icon/icon/background-login.jpg")));
         Image img1 = myimage.getImage();
         Image img2 = img1.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
@@ -74,11 +74,15 @@ public class loginDialog extends javax.swing.JDialog {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Đăng nhập vào hệ thống");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
 
         txtPass.setBackground(new java.awt.Color(210, 210, 210));
+        txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPassKeyPressed(evt);
+            }
+        });
         getContentPane().add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 220, 30));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -179,25 +183,8 @@ public class loginDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        StringBuilder sb = new StringBuilder();
-        notificationError.DataAvailable(txtUse, sb, "Tài khoảng rỗng !");
-        notificationError.DataAvailable(txtPass, sb, "Mật khẩu rỗng rỗng !");
-        
-        try {
-            loginDao dao = new loginDao();
-            modeLogin mdLG = dao.checkLogin(txtUse.getText(), new String(txtPass.getPassword()));
-            if (mdLG == null) {
-                JOptionPane.showMessageDialog(this, "Tài khoảng hoặc mật khẩu sai. Vui lòng kiểm tra lại !");
-            }else{
-                SharedData.tenDangNhap = mdLG;
-                this.dispose();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Lỗi");
-        }
+        login();
     }//GEN-LAST:event_btnLoginActionPerformed
-
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         txtUse.setText("");
         txtUse.setBackground(Color.white);
@@ -219,8 +206,14 @@ public class loginDialog extends javax.swing.JDialog {
     private void jPanelOnseenMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelOnseenMouseDragged
         int xx = evt.getXOnScreen();
         int yy = evt.getYOnScreen();
-        this.setLocation(xx-x, yy-y);
+        this.setLocation(xx - x, yy - y);
     }//GEN-LAST:event_jPanelOnseenMouseDragged
+
+    private void txtPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            login();
+        }
+    }//GEN-LAST:event_txtPassKeyPressed
 
     /**
      * @param args the command line arguments
@@ -253,7 +246,7 @@ public class loginDialog extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 loginDialog dialog = new loginDialog(new javax.swing.JFrame(), true);
-                JDialog.setDefaultLookAndFeelDecorated (false);
+                JDialog.setDefaultLookAndFeelDecorated(false);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -280,4 +273,24 @@ public class loginDialog extends javax.swing.JDialog {
     private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtUse;
     // End of variables declaration//GEN-END:variables
+
+    private void login() {
+        StringBuilder sb = new StringBuilder();
+        notificationError.DataAvailable(txtUse, sb, "Tài khoảng rỗng !");
+        notificationError.DataAvailable(txtPass, sb, "Mật khẩu rỗng rỗng !");
+
+        try {
+            loginDao dao = new loginDao();
+            modeLogin mdLG = dao.checkLogin(txtUse.getText(), new String(txtPass.getPassword()));
+            if (mdLG == null) {
+                JOptionPane.showMessageDialog(this, "Tài khoảng hoặc mật khẩu sai. Vui lòng kiểm tra lại !");
+            } else {
+                SharedData.tenDangNhap = mdLG;
+                this.dispose();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Lỗi");
+        }
+    }
 }

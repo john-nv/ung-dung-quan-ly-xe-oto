@@ -17,8 +17,8 @@ public class databaseHelper {
     public static Connection openConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
-        String connectionUrl = "jdbc:sqlserver://DESKTOP-I8JJTHS:1433;database=QuanLyChoThueXe;";
-        Connection con = DriverManager.getConnection(connectionUrl, "sa", "sa");
+        String connectionUrl = "jdbc:sqlserver://DINH-PC\\SQLEXPRESS:1433;database=QuanLyChoThueXe;";
+        Connection con = DriverManager.getConnection(connectionUrl, "sa", "123456");
 
         return con;
 

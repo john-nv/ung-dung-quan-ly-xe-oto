@@ -19,12 +19,17 @@
     </properties>
     
     <dependencies>
-            <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
-    <dependency>
-        <groupId>com.microsoft.sqlserver</groupId>
-        <artifactId>mssql-jdbc</artifactId>
-        <version>8.2.2.jre13</version>
-    </dependency>
+        <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>8.2.2.jre13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE120-u1</version>
+        </dependency>
         <dependency>
             <groupId>org.swinglabs</groupId>
             <artifactId>swingx</artifactId>
@@ -49,6 +54,12 @@
             <groupId>unknown.binary</groupId>
             <artifactId>AbsoluteLayout</artifactId>
             <version>SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.12</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
 </project>
