@@ -64,11 +64,14 @@ public class editHopDongDao {
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setNString(1, loaiXe);
             ResultSet rs = pstm.executeQuery();
-            maLoaiXe = rs.getString(0);
+            while (rs.next()) {                
+                maLoaiXe = rs.getString(1);
+            }
+            
         } catch (Exception ex) {
             ex.printStackTrace();
         } 
-        System.out.println("rs: "+maLoaiXe);
+//        System.out.println("rs: "+maLoaiXe);
         return maLoaiXe;
     }
 
@@ -87,7 +90,7 @@ public class editHopDongDao {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        System.out.println(danhSachXe.get(0));
+//        System.out.println(danhSachXe.get(0));
         String sql2 = "update Xe set TinhTrangXe = N'Đang thuê' where MaXe =?";
         try {
             Connection con = databaseHelper.openConnection();

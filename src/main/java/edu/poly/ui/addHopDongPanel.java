@@ -12,14 +12,18 @@ import edu.poly.objectDAO.editHopDongDao;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.ListModel;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -37,6 +41,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
         loadCBX("LOAIXE", cbxMaLoaiXe);
         loadCBX("PHUKIEN", cbxMaPK);
         loadCBX("KHACHHANG", cbxSoCMND);
+        loadListBox();
         loadDataTable();
 
     }
@@ -76,20 +81,36 @@ public class addHopDongPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tareaGhiChu = new javax.swing.JTextArea();
         Right = new javax.swing.JPanel();
+        Panel1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         cbxMaLoaiXe = new javax.swing.JComboBox<>();
+        Panel2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         cbxMaPK = new javax.swing.JComboBox<>();
+        Panel3 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         cbxDatCoc = new javax.swing.JComboBox<>();
+        Panel4 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         txtMaTT = new javax.swing.JTextField();
+        Panel5 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         txtTienThueXe = new javax.swing.JTextField();
+        Panel6 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         txtTienSuaChua = new javax.swing.JTextField();
+        Panel7 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         txtTongTien = new javax.swing.JTextField();
+        Panel8 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jPanel1 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
         CenterBottom = new javax.swing.JPanel();
         btnXeAdd = new javax.swing.JButton();
         btnAddReset1 = new javax.swing.JButton();
@@ -126,11 +147,11 @@ public class addHopDongPanel extends javax.swing.JPanel {
         bottom.setLayout(bottomLayout);
         bottomLayout.setHorizontalGroup(
             bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 805, Short.MAX_VALUE)
+            .addGap(0, 1116, Short.MAX_VALUE)
             .addGroup(bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(bottomLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1096, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         bottomLayout.setVerticalGroup(
@@ -209,46 +230,105 @@ public class addHopDongPanel extends javax.swing.JPanel {
         Left.getAccessibleContext().setAccessibleParent(Left);
 
         Right.setPreferredSize(new java.awt.Dimension(200, 200));
-        Right.setLayout(new java.awt.GridLayout(7, 2));
+        Right.setLayout(new java.awt.GridLayout(8, 1));
+
+        Panel1.setLayout(new java.awt.GridLayout(1, 2));
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Mã Loại Xe:     ");
-        Right.add(jLabel10);
+        Panel1.add(jLabel10);
 
-        Right.add(cbxMaLoaiXe);
+        Panel1.add(cbxMaLoaiXe);
+
+        Right.add(Panel1);
+
+        Panel2.setLayout(new java.awt.GridLayout(1, 2));
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Mã Phụ Kiện:     ");
-        Right.add(jLabel11);
+        Panel2.add(jLabel11);
 
-        Right.add(cbxMaPK);
+        Panel2.add(cbxMaPK);
+
+        Right.add(Panel2);
+
+        Panel3.setLayout(new java.awt.GridLayout(1, 2));
 
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel13.setText("Đặt cọc:     ");
-        Right.add(jLabel13);
+        Panel3.add(jLabel13);
 
         cbxDatCoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tien", "Xe may" }));
-        Right.add(cbxDatCoc);
+        Panel3.add(cbxDatCoc);
+
+        Right.add(Panel3);
+
+        Panel4.setLayout(new java.awt.GridLayout(1, 2));
 
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setText("Mã Thanh Toán:     ");
-        Right.add(jLabel12);
-        Right.add(txtMaTT);
+        Panel4.add(jLabel12);
+        Panel4.add(txtMaTT);
+
+        Right.add(Panel4);
+
+        Panel5.setLayout(new java.awt.GridLayout(1, 2));
 
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("Tiền Thuê Xe:     ");
-        Right.add(jLabel14);
-        Right.add(txtTienThueXe);
+        Panel5.add(jLabel14);
+        Panel5.add(txtTienThueXe);
+
+        Right.add(Panel5);
+
+        Panel6.setLayout(new java.awt.GridLayout(1, 2));
 
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel15.setText("Tiền Sửa Chửa:     ");
-        Right.add(jLabel15);
-        Right.add(txtTienSuaChua);
+        Panel6.add(jLabel15);
+        Panel6.add(txtTienSuaChua);
+
+        Right.add(Panel6);
+
+        Panel7.setLayout(new java.awt.GridLayout(1, 2));
 
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel16.setText("Tổng Tiền:     ");
-        Right.add(jLabel16);
-        Right.add(txtTongTien);
+        Panel7.add(jLabel16);
+        Panel7.add(txtTongTien);
+
+        Right.add(Panel7);
+
+        Panel8.setLayout(new java.awt.GridLayout(1, 4));
+
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel17.setText("Mã phụ kiện:     ");
+        Panel8.add(jLabel17);
+
+        jScrollPane3.setViewportView(jList1);
+
+        Panel8.add(jScrollPane3);
+
+        jPanel1.setLayout(new java.awt.GridLayout(2, 1));
+
+        jButton2.setText(">>");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2);
+
+        jButton1.setText("<<");
+        jPanel1.add(jButton1);
+
+        Panel8.add(jPanel1);
+
+        jScrollPane4.setViewportView(jList2);
+
+        Panel8.add(jScrollPane4);
+
+        Right.add(Panel8);
 
         CenterTop.add(Right);
 
@@ -299,7 +379,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                 .addComponent(btnEditXe)
                 .addGap(36, 36, 36)
                 .addComponent(btnEditXe1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 408, Short.MAX_VALUE)
                 .addComponent(btnAddReset1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(164, 164, 164))
         );
@@ -412,12 +492,26 @@ public class addHopDongPanel extends javax.swing.JPanel {
         loadDataTable();
     }//GEN-LAST:event_btnEditXe1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        DefaultListModel listModel2 = new DefaultListModel();
+        listModel2.addElement(jList1.getSelectedValuesList());
+        jList2.setModel(listModel2);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Center;
     private javax.swing.JPanel CenterBottom;
     private javax.swing.JPanel CenterTop;
     private javax.swing.JPanel Left;
+    private javax.swing.JPanel Panel1;
+    private javax.swing.JPanel Panel2;
+    private javax.swing.JPanel Panel3;
+    private javax.swing.JPanel Panel4;
+    private javax.swing.JPanel Panel5;
+    private javax.swing.JPanel Panel6;
+    private javax.swing.JPanel Panel7;
+    private javax.swing.JPanel Panel8;
     private javax.swing.JPanel Right;
     private javax.swing.JPanel bottom;
     private javax.swing.JButton btnAddReset1;
@@ -431,6 +525,8 @@ public class addHopDongPanel extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXDatePicker dpkNgayLap;
     private org.jdesktop.swingx.JXDatePicker dpkTimeBatDauHD;
     private org.jdesktop.swingx.JXDatePicker dpkTimeKetThucHD;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -439,6 +535,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -447,9 +544,14 @@ public class addHopDongPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea tareaGhiChu;
     private javax.swing.JTable tblKh;
     private javax.swing.JTextField txtDiemNhanXe;
@@ -471,7 +573,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                 cbx.removeAllItems();
                 while (rs.next()) {
                     cbx.addItem(rs.getString(2));
-                    System.out.println("combobox: " + rs.getString(1));
+//                    System.out.println("combobox: " + rs.getString(1));
                 }
                 con.close();
             } catch (Exception e) {
@@ -519,11 +621,11 @@ public class addHopDongPanel extends javax.swing.JPanel {
             hd.setDiaDiemNhanXe(txtDiemNhanXe.getText());
             hd.setDiaDiemTraXe(txtDiemTraXe.getText());
             hd.setGhiChu(tareaGhiChu.getText());
-            hd.setMaLoaiXe(cbxMaLoaiXe.getSelectedItem().toString());
+            hd.setMaLoaiXe(editHD.convertLoaiXeToMaLoaiXe(cbxMaLoaiXe.getSelectedItem().toString()));
             hd.setMaPK(cbxMaPK.getSelectedItem().toString());
             hd.setMaTT(txtMaTT.getText());
             hd.setDatCoc(cbxDatCoc.getSelectedItem().toString());
-            System.out.println("in loi: " + editHD.convertLoaiXeToMaLoaiXe(cbxMaLoaiXe.getSelectedItem().toString()) + "hehe");
+//            System.out.println("in loi: " + cbxMaLoaiXe.getSelectedItem().toString() + "hehe");
             editHD.insertHopDong(hd, t);
 
             temp = 1;
@@ -615,5 +717,21 @@ public class addHopDongPanel extends javax.swing.JPanel {
             temp = 0;
         }
         return temp;
+    }
+
+    private void loadListBox() {
+        DefaultListModel listModel1 = new DefaultListModel();
+        try {
+            String sql = "select * from LOAIPHUKIEN where SoLuong is not NULL";
+            Connection con = databaseHelper.openConnection();
+            Statement sttm = con.createStatement();
+            ResultSet rs = sttm.executeQuery(sql);
+            while (rs.next()) {
+                listModel1.addElement(rs.getString(2));
+            }
+            jList1.setModel(listModel1);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }
