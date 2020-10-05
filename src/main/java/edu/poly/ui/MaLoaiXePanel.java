@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.poly.ui_xe;
+package edu.poly.ui;
 
 import edu.poly.Helper.notificationError;
-import edu.poly.object.loaiXeDao;
+import edu.poly.objectDAO.loaiXeDao;
 import edu.poly.object.modelLoaiXe;
 import java.awt.Color;
 import java.util.List;
