@@ -11,9 +11,10 @@ import edu.poly.login.loginPanel;
 import edu.poly.ui.MaLoaiXePanel;
 import edu.poly.ui.XePanel;
 import edu.polyHelpandIntro.IntroDialog;
-import java.awt.Color;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import edu.poly.ui.phuKienPanel;
 
 /**
  *
@@ -50,7 +51,7 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         jButton1 = new javax.swing.JButton();
         btnKhachHang = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnPhuKien = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -93,10 +94,13 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         jMenuItem2 = new javax.swing.JMenuItem();
         menuIntro = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Quản lý cho thuê xe");
         setBackground(new java.awt.Color(0, 0, 0));
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -125,7 +129,12 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/ql-phukien.png"))); // NOI18N
+        btnPhuKien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/ql-phukien.png"))); // NOI18N
+        btnPhuKien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPhuKienActionPerformed(evt);
+            }
+        });
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/ql-doanhThu-50-copy-0.png"))); // NOI18N
 
@@ -176,7 +185,7 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnPhuKien, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnKhachHang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnExit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -210,7 +219,7 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPhuKien, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -260,13 +269,13 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         lblRun.setBackground(new java.awt.Color(102, 102, 102));
         lblRun.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblRun.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRun.setText("Địa chỉ : 38 Yên Bái, Quận Hải Châu, Thành phố Đà Nẵng - Đồ án cho thuê xe ô tô - Nhóm 6");
+        lblRun.setText("Đồ án : Chương trình quản lí cho thuê xe ô tô - Nhóm 6 - Trung tâm : Softech Aftech Đà nẵng - Địa chỉ : 38 Yên Bái Hải Châu 1 Hải Châu Đà Nẵng 550000, Việt Nam");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblRun, javax.swing.GroupLayout.DEFAULT_SIZE, 968, Short.MAX_VALUE)
+            .addComponent(lblRun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -400,6 +409,11 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/xe-24.png"))); // NOI18N
         jMenuItem5.setText("Quản lý Phụ kiện");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem5);
 
         jMenuBar1.add(jMenu2);
@@ -464,7 +478,10 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_menuExitActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        this.dispose();
+        int n = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắc muốn thoát khỏi chương trình ?", "Thông báo !", JOptionPane.YES_NO_OPTION);
+        if (n == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -504,6 +521,21 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         displayAccountInformation();
     }//GEN-LAST:event_formWindowOpened
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        int n = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắc muốn thoát khỏi chương trình ?", "Thông báo !", JOptionPane.YES_NO_OPTION);
+        if (n == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_formWindowClosing
+
+    private void btnPhuKienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhuKienActionPerformed
+        showPanel(new phuKienPanel());
+    }//GEN-LAST:event_btnPhuKienActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -542,9 +574,9 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnKhachHang;
+    private javax.swing.JButton btnPhuKien;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel10;

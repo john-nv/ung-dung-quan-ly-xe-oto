@@ -78,8 +78,8 @@
                                           </Group>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="txtHoTen" max="32767" attributes="0"/>
-                                              <Component id="dpkNamSinh" min="-2" pref="264" max="-2" attributes="0"/>
+                                              <Component id="txtHoTen" pref="264" max="32767" attributes="0"/>
+                                              <Component id="dpkNamSinh" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">

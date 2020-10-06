@@ -109,7 +109,7 @@ public class XePanel extends javax.swing.JPanel {
                 });
                 
             }
-            model.fireTableDataChanged(); // cập nhật toàn bộ dữ liệu bảng (chỉ dữ liệu của bảng)
+            model.fireTableDataChanged(); // cập nhật toàn bộ dữ liệu bảng
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage()); // show lỗi
@@ -197,20 +197,20 @@ public class XePanel extends javax.swing.JPanel {
 
                 if(columnIndex == 11){
 
-                    if(value.equals("San sang"))
+                    if(value.equals("Sẵn sàng"))
                     {
 
                         componenet.setBackground(Color.GREEN);
                         componenet.setForeground(Color.BLACK);
 
                     }
-                    if(value.equals("Dang thue")){
+                    if(value.equals("Đang thuê")){
 
                         componenet.setBackground(Color.YELLOW);
                         componenet.setForeground(Color.BLACK);
                     }
 
-                    if(value.equals("Sua chua")){
+                    if(value.equals("Sửa chữa")){
 
                         componenet.setBackground(Color.PINK);
                         componenet.setForeground(Color.BLACK);
@@ -416,7 +416,7 @@ public class XePanel extends javax.swing.JPanel {
             }
         });
 
-        cbxAddTinhTrang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "San sang", "Dang thue", "Sua chua" }));
+        cbxAddTinhTrang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sẵn sàng", "Đang thuê", "Sửa chữa" }));
 
         jLabel9.setText("Hãng :");
 
@@ -691,7 +691,7 @@ public class XePanel extends javax.swing.JPanel {
             }
         });
 
-        cbxFilterTT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "San sang", "Dang thue", "Sua chua" }));
+        cbxFilterTT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sẵn sàng", "Đang thuê", "Sửa chữa" }));
 
         jLabel18.setText("Tình trạng xe :");
 
@@ -1105,6 +1105,17 @@ public class XePanel extends javax.swing.JPanel {
 
     private void txtAddMaLucKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddMaLucKeyPressed
         ShowErrorlbl(txtAddMaLuc,showMaLuc, "Bạn không được nhập chữ !");
+        
+        String checkMaLuc = txtAddMaLuc.getText();
+        int length = checkMaLuc.length();
+        
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<= '9'){
+            if (length<5) {
+                txtAddMaLuc.setEnabled(true);
+            }else{
+                txtAddMaLuc.setEditable(false);
+            }
+        }
     }//GEN-LAST:event_txtAddMaLucKeyPressed
 
     private void btnControAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControAddActionPerformed

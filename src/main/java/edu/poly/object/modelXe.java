@@ -19,7 +19,6 @@ public class modelXe {
     int GiaThueXeTheoGio, GiaThueXeTheoNgay, GiaThueXeTheoThang, TienPhat;
     Date ThoiGianBatDauTinhTrang, ThoiGianKetThucTinhTrang;
     private byte[] HinhXe;
-    // DATETIME – định dạng: YYYY-MM-DD HH:MI:SS
 
     public modelXe() {
     }
