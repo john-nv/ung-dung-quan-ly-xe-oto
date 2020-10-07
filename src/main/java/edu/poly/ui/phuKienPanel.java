@@ -9,6 +9,8 @@ import edu.poly.Helper.databaseHelper;
 import edu.poly.Helper.notificationError;
 import edu.poly.object.modelPhuKien;
 import edu.poly.objectDAO.phuKienDAO;
+import java.awt.Component;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -18,57 +20,65 @@ import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
  * @author ASUS
  */
 public class phuKienPanel extends javax.swing.JPanel {
+
     DefaultTableModel tblModel = null;
+
     /**
      * Creates new form phuKienPanel
      */
     public phuKienPanel() {
         initComponents();
-        
+
         loadCBX1(cbxLoaiPK);
         initTable();
         loadDataToTable();
+
+        setEnabledTextFieldOFF();
+        setEnabledEventOFF();
+        setEnabledControlON();
         
+        tblPhuKien.setRowHeight(25);
+        tblPhuKien.setShowGrid(true);
     }
-    
-    private void initTable(){
+
+    private void initTable() {
         tblModel = new DefaultTableModel();
         tblModel.setColumnIdentifiers(new String[]{
             "Mã phụ kiện",
             "Tên phụ kiện",
             "Tình trạng",
             "Tg bắt đầu tình trạng",
-            "Tg kết thúc tình trạng "
+            "Tg kết thúc tình trạng ",
+            "Mã loại phụ kiện "
         });// đặt tiêu đề cho cột
         tblPhuKien.setModel(tblModel); //set dữ liệu cho bảng
     }
-    
-    private void loadDataToTable(){
+
+    private void loadDataToTable() {
         try {
             phuKienDAO dao = new phuKienDAO();
-            
+
             List<modelPhuKien> list = dao.showAllPhuKien();
             tblModel.setRowCount(0);
-                    
-                for (modelPhuKien mdPK : list) {
 
-                    tblModel.addRow(new Object[]{
-                        mdPK.getMaPK(),
-                        mdPK.getTenPK(),
-                        mdPK.getTinhTrangPK(),
-                        mdPK.getTimeStartPK(),
-                        mdPK.getTimeEndPK(),
-                        mdPK.getMaLoaiPK()
+            for (modelPhuKien mdPK : list) {
 
-                    });
-                
-                tblModel.fireTableDataChanged(); // cập nhật toàn bộ dữ liệu bảng (chỉ dữ liệu của bảng)
+                tblModel.addRow(new Object[]{
+                    mdPK.getMaPK(),
+                    mdPK.getTenPK(),
+                    mdPK.getMaLoaiPK(),
+                    mdPK.getTimeEndPK(),
+                    mdPK.getTimeStartPK(),
+                    mdPK.getTinhTrangPK(),});
+
+                tblModel.fireTableDataChanged();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -97,19 +107,62 @@ public class phuKienPanel extends javax.swing.JPanel {
         jLabel21 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblPhuKien = new javax.swing.JTable();
+        tblPhuKien = new javax.swing.JTable()
+        {
+            @Override
+
+            public Component prepareRenderer (TableCellRenderer renderer, int rowIndex, int columnIndex){
+                Component componenet = super.prepareRenderer(renderer, rowIndex, columnIndex);
+
+                Object value = getModel().getValueAt(rowIndex,columnIndex);
+
+                if(columnIndex == 2){
+
+                    if(value.equals("Sẵn sàng"))
+                    {
+
+                        componenet.setBackground(Color.GREEN);
+                        componenet.setForeground(Color.BLACK);
+
+                    }
+                    if(value.equals("Đang thuê")){
+
+                        componenet.setBackground(Color.YELLOW);
+                        componenet.setForeground(Color.BLACK);
+                    }
+
+                    if(value.equals("Sửa chữa")){
+
+                        componenet.setBackground(Color.PINK);
+                        componenet.setForeground(Color.BLACK);
+                    }
+
+                }
+
+                else {
+
+                    componenet.setBackground(Color.WHITE);
+                    componenet.setForeground(Color.BLACK);
+                }
+
+                return componenet;
+            }
+
+        }
+
+        ;
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        btnAdd = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
-        btnDel1 = new javax.swing.JButton();
-        btnHuy = new javax.swing.JButton();
+        btnControlSave = new javax.swing.JButton();
+        btnControlUpdete = new javax.swing.JButton();
+        btnControlDel = new javax.swing.JButton();
+        btnControlCancel = new javax.swing.JButton();
         txtMaPK = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtTenPK = new javax.swing.JTextField();
         btnDel = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        btnResetSave = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
         dpkEndTT = new org.jdesktop.swingx.JXDatePicker();
         cbxLoaiPK = new javax.swing.JComboBox<>();
 
@@ -157,21 +210,41 @@ public class phuKienPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblPhuKien);
 
-        jLabel1.setText("Thêm và sửa thông tin phụ kiện");
+        jLabel1.setText("Chỉnh sửa thông tin phụ kiện");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Bảng điều khiển"));
 
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/save-20.png"))); // NOI18N
-        btnAdd.setText("Thêm");
+        btnControlSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/save-20.png"))); // NOI18N
+        btnControlSave.setText("Thêm");
+        btnControlSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnControlSaveActionPerformed(evt);
+            }
+        });
 
-        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/edit-20.png"))); // NOI18N
-        btnEdit.setText("Sửa");
+        btnControlUpdete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/edit-20.png"))); // NOI18N
+        btnControlUpdete.setText("Sửa");
+        btnControlUpdete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnControlUpdeteActionPerformed(evt);
+            }
+        });
 
-        btnDel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/delete-20.png"))); // NOI18N
-        btnDel1.setText("Xóa");
+        btnControlDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/delete-20.png"))); // NOI18N
+        btnControlDel.setText("Xóa");
+        btnControlDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnControlDelActionPerformed(evt);
+            }
+        });
 
-        btnHuy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/huy-18.jpg"))); // NOI18N
-        btnHuy.setText("Hủy");
+        btnControlCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/huy-18.jpg"))); // NOI18N
+        btnControlCancel.setText("Hủy");
+        btnControlCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnControlCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -179,26 +252,26 @@ public class phuKienPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(277, 277, 277)
-                .addComponent(btnAdd)
+                .addComponent(btnControlSave)
                 .addGap(12, 12, 12)
-                .addComponent(btnEdit)
+                .addComponent(btnControlUpdete)
                 .addGap(18, 18, 18)
-                .addComponent(btnDel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnControlDel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnHuy)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addComponent(btnControlCancel)
+                .addContainerGap(212, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnDel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnHuy, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnControlDel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnControlCancel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addComponent(btnControlUpdete, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnControlSave, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jLabel8.setText("Mã loại phụ kiện : ");
@@ -207,14 +280,29 @@ public class phuKienPanel extends javax.swing.JPanel {
         btnDel.setText("Xóa");
         btnDel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnDel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/edit-20.png"))); // NOI18N
         btnUpdate.setText("Lưu thay đổi");
         btnUpdate.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
-        btnResetSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/reset-20.png"))); // NOI18N
-        btnResetSave.setText("Tạo mới");
-        btnResetSave.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/reset-20.png"))); // NOI18N
+        btnReset.setText("Tạo mới");
+        btnReset.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
         dpkEndTT.setFormats("dd/MM/yyyy");
 
@@ -233,7 +321,7 @@ public class phuKienPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(277, 277, 277)
+                                .addGap(313, 313, 313)
                                 .addComponent(jLabel21))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(164, 164, 164)
@@ -254,7 +342,7 @@ public class phuKienPanel extends javax.swing.JPanel {
                                     .addComponent(cbxLoaiPK, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(btnResetSave, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnReset, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnDel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnUpdate))))
@@ -297,7 +385,7 @@ public class phuKienPanel extends javax.swing.JPanel {
                             .addComponent(jLabel8)
                             .addComponent(cbxLoaiPK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnResetSave)
+                        .addComponent(btnReset)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSave)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -309,7 +397,7 @@ public class phuKienPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -323,14 +411,14 @@ public class phuKienPanel extends javax.swing.JPanel {
             notificationError.DataAvailable(txtTenPK, sb, "Trường Tên phụ kiện không thể bỏ trống !");
 
             // Hiển thị thông báo lỗi đã được đặt sẵn
-            if (sb.length()>0) {
+            if (sb.length() > 0) {
                 JOptionPane.showMessageDialog(this, sb.toString());
                 return;
             }
             //--------------------------------------------
 
             int n = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắc thêm phụ kiện này ?", "Thông báo !", JOptionPane.YES_NO_OPTION);
-            if(n == JOptionPane.YES_OPTION){
+            if (n == JOptionPane.YES_OPTION) {
 
                 java.util.Date timeStart = dpkStartTT.getDate();
                 java.sql.Date startTT = new java.sql.Date(timeStart.getTime());
@@ -347,15 +435,19 @@ public class phuKienPanel extends javax.swing.JPanel {
                 mdPK.setTinhTrangPK(cbxTinhTrang.getSelectedItem().toString());
 
                 phuKienDAO dao = new phuKienDAO();
-                if (dao.insert(mdPK)){
+                if (dao.insert(mdPK)) {
                     JOptionPane.showMessageDialog(this, "Thêm phụ kiện thàng công !");
-                    // RESERT LẠI TEXT FIELD
+                    
                     loadDataToTable();
-                }else{
+                    btnResetActionPerformed(evt);
+                    setEnabledControlON();
+                    setEnabledEventOFF();
+                    setEnabledTextFieldOFF();
+                } else {
                     JOptionPane.showMessageDialog(this, "Thêm phụ kiện bại. Vui lòng kiểm tra lại ! !");
                 }
             }
-            if(n == JOptionPane.NO_OPTION){
+            if (n == JOptionPane.NO_OPTION) {
                 return;
             }
         } catch (Exception e) {
@@ -379,14 +471,144 @@ public class phuKienPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_tblPhuKienMouseClicked
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        try {
+
+            modelPhuKien mdPK = new modelPhuKien();
+
+            java.util.Date timeStart = dpkStartTT.getDate();
+            java.sql.Date startTT = new java.sql.Date(timeStart.getTime());
+            java.util.Date timeEnd = dpkEndTT.getDate();
+            java.sql.Date EndTT = new java.sql.Date(timeEnd.getTime());
+
+            mdPK.setMaPK(txtMaPK.getText());
+            mdPK.setTenPK(txtTenPK.getText());
+            mdPK.setMaLoaiPK(cbxLoaiPK.getSelectedItem().toString());
+            mdPK.setTimeStartPK((Date) startTT);
+            mdPK.setTimeEndPK((Date) EndTT);
+            mdPK.setTinhTrangPK(cbxTinhTrang.getSelectedItem().toString());
+
+            int n = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắc cập nhật thông tin phụ kiện ?", "Thông báo !", JOptionPane.YES_NO_OPTION);
+            if (n == JOptionPane.YES_OPTION) {
+                phuKienDAO dao = new phuKienDAO();
+                if (dao.update(mdPK)) {
+                    JOptionPane.showMessageDialog(this, "Cập nhật phụ kiện thàng công !");
+                    loadDataToTable();
+                    btnResetActionPerformed(evt);
+                    setEnabledControlON();
+                    setEnabledEventOFF();
+                    setEnabledTextFieldOFF();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Cập nhật thất bại. Vui lòng kiểm tra lại ! !");
+                }
+            }
+            if (n == JOptionPane.NO_OPTION) {
+                return;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Lỗi ! ");
+
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelActionPerformed
+        
+        try {
+            //-------------báo lỗi-------------
+            StringBuilder sb = new StringBuilder();
+
+            notificationError.DataAvailable(txtMaPK, sb, "Trường Mã phụ kiện không thể bỏ trống !");
+
+            // Hiển thị thông báo lỗi đã được đặt sẵn
+            if (sb.length() > 0) {
+                JOptionPane.showMessageDialog(this, sb.toString());
+                return;
+            }
+            //--------------------------------------------
+
+            int n = JOptionPane.showConfirmDialog(this,
+                    "Bạn có chắc chắn muốn xóa, dữ liệu bị xóa đi sẽ không thể khôi phục lại được !",
+                    "Thông báo !",
+                    JOptionPane.YES_NO_OPTION);
+
+            if (n == JOptionPane.YES_OPTION) {
+                try {
+                    phuKienDAO dao = new phuKienDAO();
+                    if (dao.delete(txtMaPK.getText())) {
+                        JOptionPane.showMessageDialog(this, "Xóa thành công");
+                        btnResetActionPerformed(evt);
+                        setEnabledControlON();
+                        setEnabledEventOFF();
+                        loadDataToTable();
+                        setEnabledTextFieldOFF();
+                    } else {
+                        txtMaPK.setBackground(Color.red);
+                        JOptionPane.showMessageDialog(this, "Xóa không thành công ! Vui lòng kiểm tra lại !");
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace(); //show lỗi
+                    JOptionPane.showMessageDialog(this, "Error: " + e.getMessage()); //show lỗi
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Lỗi ! ");
+
+        }
+    }//GEN-LAST:event_btnDelActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        txtMaPK.setText("");
+        txtMaPK.setBackground(Color.white);
+        txtTenPK.setText("");
+        txtTenPK.setBackground(Color.white);
+        dpkStartTT.setDate(null);
+        dpkEndTT.setDate(null);
+        cbxLoaiPK.setSelectedIndex(0);
+        cbxTinhTrang.setSelectedIndex(0);
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnControlSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlSaveActionPerformed
+        setEnabledTextFieldON();
+        setEnabledControlOFF();
+        setEnabledEventOFF();
+        btnResetActionPerformed(evt);
+        btnReset.setEnabled(true);
+        btnSave.setEnabled(true);
+    }//GEN-LAST:event_btnControlSaveActionPerformed
+
+    private void btnControlUpdeteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlUpdeteActionPerformed
+        setEnabledTextFieldON();
+        setEnabledControlOFF();
+        setEnabledEventOFF();
+        btnUpdate.setEnabled(true);
+        txtMaPK.setEnabled(false);
+        
+    }//GEN-LAST:event_btnControlUpdeteActionPerformed
+
+    private void btnControlDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlDelActionPerformed
+        setEnabledTextFieldON();
+        setEnabledControlOFF();
+        setEnabledEventOFF();
+        btnDel.setEnabled(true);
+    }//GEN-LAST:event_btnControlDelActionPerformed
+
+    private void btnControlCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlCancelActionPerformed
+        setEnabledEventOFF();
+        setEnabledControlON();
+        setEnabledTextFieldOFF();
+    }//GEN-LAST:event_btnControlCancelActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnControlCancel;
+    private javax.swing.JButton btnControlDel;
+    private javax.swing.JButton btnControlSave;
+    private javax.swing.JButton btnControlUpdete;
     private javax.swing.JButton btnDel;
-    private javax.swing.JButton btnDel1;
-    private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btnHuy;
-    private javax.swing.JButton btnResetSave;
+    private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cbxLoaiPK;
@@ -414,9 +636,9 @@ public class phuKienPanel extends javax.swing.JPanel {
         int row = tblPhuKien.getSelectedRow();
         return row;
     }
-    
-    private void loadCBX1( JComboBox cbx) {
-        String sql = "select DISTINCT MaLoaiPK from PHUKIEN ";
+
+    private void loadCBX1(JComboBox cbx) {
+        String sql = "select DISTINCT MaLoaiPK from LOAIPHUKIEN ";
         try {
             Connection con = databaseHelper.openConnection();
             Statement sttm = con.createStatement();
@@ -429,4 +651,47 @@ public class phuKienPanel extends javax.swing.JPanel {
         }
     }
 
+    public void setEnabledTextFieldON(){
+        txtMaPK.setEnabled(true);
+        txtTenPK.setEnabled(true);
+        cbxTinhTrang.setEnabled(true);
+        dpkStartTT.setEnabled(true);
+        dpkEndTT.setEnabled(true);
+        cbxLoaiPK.setEnabled(true);
+    }
+    
+    public void setEnabledTextFieldOFF(){
+        txtMaPK.setEnabled(false);
+        txtTenPK.setEnabled(false);
+        cbxTinhTrang.setEnabled(false);
+        dpkStartTT.setEnabled(false);
+        dpkEndTT.setEnabled(false);
+        cbxLoaiPK.setEnabled(false);
+    }
+    
+    public void setEnabledEventON(){
+        btnSave.setEnabled(true);
+        btnReset.setEnabled(true);
+        btnDel.setEnabled(true);
+        btnUpdate.setEnabled(true);
+    }
+    
+    public void setEnabledEventOFF(){
+        btnSave.setEnabled(false);
+        btnReset.setEnabled(false);
+        btnDel.setEnabled(false);
+        btnUpdate.setEnabled(false);
+    }
+    
+    public void setEnabledControlON(){
+        btnControlSave.setEnabled(true);
+        btnControlDel.setEnabled(true);
+        btnControlUpdete.setEnabled(true);
+    }
+    
+    public void setEnabledControlOFF(){
+        btnControlSave.setEnabled(false);
+        btnControlDel.setEnabled(false);
+        btnControlUpdete.setEnabled(false);
+    }
 }

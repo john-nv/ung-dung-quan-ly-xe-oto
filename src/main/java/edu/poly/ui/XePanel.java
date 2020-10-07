@@ -454,10 +454,10 @@ public class XePanel extends javax.swing.JPanel {
                 .addGap(230, 230, 230)
                 .addComponent(btnControAdd)
                 .addGap(18, 18, 18)
-                .addComponent(btnControEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnControEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnControCancel)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1125,6 +1125,7 @@ public class XePanel extends javax.swing.JPanel {
         btnControEdit.setEnabled(false);
         btnResetAdd.setEnabled(true);
         btnAddXe.setEnabled(true);
+        btnControAdd.setEnabled(false);
     }//GEN-LAST:event_btnControAddActionPerformed
 
     private void btnControCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControCancelActionPerformed
@@ -1141,6 +1142,7 @@ public class XePanel extends javax.swing.JPanel {
         btnControAdd.setEnabled(false);
         btnUpdate.setEnabled(true);
         txtAddMaXe.setEnabled(false);
+        btnControEdit.setEnabled(false);
     }//GEN-LAST:event_btnControEditActionPerformed
 
     private void tblSearchXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSearchXeMouseClicked

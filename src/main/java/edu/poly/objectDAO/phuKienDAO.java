@@ -6,7 +6,6 @@
 package edu.poly.objectDAO;
 
 import edu.poly.Helper.databaseHelper;
-import edu.poly.object.modelKhachHang;
 import edu.poly.object.modelPhuKien;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -63,7 +62,7 @@ public class phuKienDAO {
                 psmt.setDate(3, mdPK.getTimeStartPK());
                 psmt.setDate(4, mdPK.getTimeEndPK());
                 psmt.setString(5, mdPK.getMaLoaiPK());
-                psmt.setString(1, mdPK.getMaPK());
+                psmt.setString(6, mdPK.getMaPK());
                 
                 
             } catch (Exception e) {
@@ -74,7 +73,7 @@ public class phuKienDAO {
     }
     
     public boolean delete(String delPK) throws ClassNotFoundException, SQLException {
-        String sql = "DELETE FROM [dbo].[PHUKIEN] WHERE maXe = [MaPK] ";
+        String sql = "DELETE FROM [dbo].[PHUKIEN] WHERE [MaPK] = ? ";
         try (
                 Connection con = databaseHelper.openConnection();
                 PreparedStatement psmt = con.prepareStatement(sql);

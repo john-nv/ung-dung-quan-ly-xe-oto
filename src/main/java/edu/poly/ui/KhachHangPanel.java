@@ -169,7 +169,7 @@ public class KhachHangPanel extends javax.swing.JPanel {
 
         dpkNamSinh.setFormats("dd/MM/yyyy");
 
-        jLabel22.setText("Thêm và sửa thông tin Khách Hàng");
+        jLabel22.setText("Chỉnh sửa thông tin khách hàng");
 
         jLabel23.setText("Bảng Điều khiển");
 
@@ -592,6 +592,7 @@ public class KhachHangPanel extends javax.swing.JPanel {
         btnDel.setEnabled(false);
         btnResetSave.setEnabled(true);
         btnSave.setEnabled(true);
+        btnAdd.setEnabled(false);
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
@@ -608,6 +609,7 @@ public class KhachHangPanel extends javax.swing.JPanel {
         btnResetSave.setEnabled(true);
         btnUpdate.setEnabled(true);
         txtCmnd.setEnabled(false);
+        btnEdit.setEnabled(false);
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnDel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDel1ActionPerformed
@@ -615,6 +617,7 @@ public class KhachHangPanel extends javax.swing.JPanel {
         setEnabledOn();
         btnEdit.setEnabled(false);
         btnAdd.setEnabled(false);
+        btnDel1.setEnabled(false);
     }//GEN-LAST:event_btnDel1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

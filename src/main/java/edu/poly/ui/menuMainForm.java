@@ -86,8 +86,10 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         menuXe = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         menuMaLoaiXe = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
@@ -383,7 +385,7 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         jMenu2.add(jSeparator2);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/xe -24.jpg"))); // NOI18N
-        jMenu3.setText("Quản lý xe");
+        jMenu3.setText("Xe");
 
         menuXe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/xe -24.jpg"))); // NOI18N
         menuXe.setText("Quản lý Xe");
@@ -405,16 +407,30 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         jMenu3.add(menuMaLoaiXe);
 
         jMenu2.add(jMenu3);
-        jMenu2.add(jSeparator1);
 
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/xe-24.png"))); // NOI18N
-        jMenuItem5.setText("Quản lý Phụ kiện");
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/xe-24.png"))); // NOI18N
+        jMenu4.setText("Phụ kiện");
+
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/xe-24.png"))); // NOI18N
+        jMenuItem4.setText("Phụ kiện");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem4);
+
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/maLoaiXe-24.png"))); // NOI18N
+        jMenuItem5.setText("Loại phụ kiện");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem5);
+        jMenu4.add(jMenuItem5);
+
+        jMenu2.add(jMenu4);
+        jMenu2.add(jSeparator1);
 
         jMenuBar1.add(jMenu2);
 
@@ -532,8 +548,12 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         showPanel(new phuKienPanel());
     }//GEN-LAST:event_btnPhuKienActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        btnPhuKienActionPerformed(evt);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
+        showPanel(new loaiPhuKienPanel());
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
@@ -588,6 +608,7 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
@@ -595,6 +616,7 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
