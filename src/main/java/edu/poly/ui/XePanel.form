@@ -758,9 +758,9 @@
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="3">
-                        <StringItem index="0" value="San sang"/>
-                        <StringItem index="1" value="Dang thue"/>
-                        <StringItem index="2" value="Sua chua"/>
+                        <StringItem index="0" value="S&#x1eb5;n s&#xe0;ng"/>
+                        <StringItem index="1" value="&#x110;ang thu&#xea;"/>
+                        <StringItem index="2" value="S&#x1eed;a ch&#x1eef;a"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -791,10 +791,10 @@
                               <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
                               <Component id="btnControAdd" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnControEdit" min="-2" pref="113" max="-2" attributes="0"/>
+                              <Component id="btnControEdit" min="-2" pref="119" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btnControCancel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="198" max="32767" attributes="0"/>
+                              <EmptySpace pref="192" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -859,6 +859,9 @@
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="XePanel_jScrollPane2"/>
+              </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
@@ -878,7 +881,7 @@
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblSearchXeMouseClicked"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable()&#xa;{&#xa;    @Override&#xa;&#xa;    public Component prepareRenderer (TableCellRenderer renderer, int rowIndex, int columnIndex){&#xa;        Component componenet = super.prepareRenderer(renderer, rowIndex, columnIndex);&#xa;&#xa;        Object value = getModel().getValueAt(rowIndex,columnIndex);&#xa;&#xa;        if(columnIndex == 11){&#xa;&#xa;            if(value.equals(&quot;San sang&quot;))&#xa;            {&#xa;&#xa;                componenet.setBackground(Color.GREEN);&#xa;                componenet.setForeground(Color.BLACK);&#xa;&#xa;            }&#xa;            if(value.equals(&quot;Dang thue&quot;)){&#xa;&#xa;                componenet.setBackground(Color.YELLOW);&#xa;                componenet.setForeground(Color.BLACK);&#xa;            }&#xa;&#xa;            if(value.equals(&quot;Sua chua&quot;)){&#xa;&#xa;                componenet.setBackground(Color.PINK);&#xa;                componenet.setForeground(Color.BLACK);&#xa;            }&#xa;&#xa;        }&#xa;&#xa;        else {&#xa;&#xa;            componenet.setBackground(Color.WHITE);&#xa;            componenet.setForeground(Color.BLACK);&#xa;        }&#xa;&#xa;        return componenet;&#xa;    }&#xa;&#xa;}&#xa;&#xa;&#xa;"/>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable()&#xa;{&#xa;    @Override&#xa;&#xa;    public Component prepareRenderer (TableCellRenderer renderer, int rowIndex, int columnIndex){&#xa;        Component componenet = super.prepareRenderer(renderer, rowIndex, columnIndex);&#xa;&#xa;        Object value = getModel().getValueAt(rowIndex,columnIndex);&#xa;&#xa;        if(columnIndex == 11){&#xa;&#xa;            if(value.equals(&quot;S&#x1eb5;n s&#xe0;ng&quot;))&#xa;            {&#xa;&#xa;                componenet.setBackground(Color.GREEN);&#xa;                componenet.setForeground(Color.BLACK);&#xa;&#xa;            }&#xa;            if(value.equals(&quot;&#x110;ang thu&#xea;&quot;)){&#xa;&#xa;                componenet.setBackground(Color.YELLOW);&#xa;                componenet.setForeground(Color.BLACK);&#xa;            }&#xa;&#xa;            if(value.equals(&quot;S&#x1eed;a ch&#x1eef;a&quot;)){&#xa;&#xa;                componenet.setBackground(Color.PINK);&#xa;                componenet.setForeground(Color.BLACK);&#xa;            }&#xa;&#xa;        }&#xa;&#xa;        else {&#xa;&#xa;            componenet.setBackground(Color.WHITE);&#xa;            componenet.setForeground(Color.BLACK);&#xa;        }&#xa;&#xa;        return componenet;&#xa;    }&#xa;&#xa;}&#xa;&#xa;"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -898,9 +901,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="San sang"/>
-                    <StringItem index="1" value="Dang thue"/>
-                    <StringItem index="2" value="Sua chua"/>
+                    <StringItem index="0" value="S&#x1eb5;n s&#xe0;ng"/>
+                    <StringItem index="1" value="&#x110;ang thu&#xea;"/>
+                    <StringItem index="2" value="S&#x1eed;a ch&#x1eef;a"/>
                   </StringArray>
                 </Property>
               </Properties>

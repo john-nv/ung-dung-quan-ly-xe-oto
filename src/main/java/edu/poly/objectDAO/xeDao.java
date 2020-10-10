@@ -7,7 +7,6 @@ package edu.poly.objectDAO;
 
 import edu.poly.Helper.databaseHelper;
 import edu.poly.object.modelXe;
-import java.awt.image.BufferedImage;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -225,10 +224,11 @@ public class xeDao {
                 PreparedStatement ptmt = con.prepareStatement(sql);) 
         {
             ptmt.setString(1, hang);
-            ptmt.setString(2, tinhTrang);
-            
+            ptmt.setNString(2, tinhTrang);
             List<modelXe> list = new ArrayList<>();
             try (ResultSet rs = ptmt.executeQuery()) {
+                
+                
                 while (rs.next()) {
                     modelXe modelXe = new modelXe();
                     fillXe(modelXe, rs);

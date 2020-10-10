@@ -43,7 +43,8 @@ public class KhachHangPanel extends javax.swing.JPanel {
         });// đặt tiêu đề cho cột
         tblKhachHang.setModel(tblModel); //set dữ liệu cho bảng
     }
-        private void loadDataToTable(){
+    
+    private void loadDataToTable(){
         try {
             khachHangDAO dao = new khachHangDAO();
             List<modelKhachHang> list = dao.showAllKhachHang();
@@ -168,7 +169,7 @@ public class KhachHangPanel extends javax.swing.JPanel {
 
         dpkNamSinh.setFormats("dd/MM/yyyy");
 
-        jLabel22.setText("Thêm và sửa thông tin Khách Hàng");
+        jLabel22.setText("Chỉnh sửa thông tin khách hàng");
 
         jLabel23.setText("Bảng Điều khiển");
 
@@ -236,8 +237,8 @@ public class KhachHangPanel extends javax.swing.JPanel {
                                             .addComponent(jLabel6))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtHoTen)
-                                            .addComponent(dpkNamSinh, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(txtHoTen, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                                            .addComponent(dpkNamSinh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel4)
@@ -441,10 +442,20 @@ public class KhachHangPanel extends javax.swing.JPanel {
 
     private void txtCmndKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCmndKeyPressed
         char c=evt.getKeyChar();
+        String checkSoCMND = txtCmnd.getText();
+        int length = checkSoCMND.length();
         if (Character.isLetter(c)) {
             txtCmnd.setEditable(false);
         }else{
             txtCmnd.setEditable(true);
+        }
+        
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<= '9'){
+            if (length<10) {
+                txtCmnd.setEnabled(true);
+            }else{
+                txtCmnd.setEditable(false);
+            }
         }
     }//GEN-LAST:event_txtCmndKeyPressed
 
@@ -463,10 +474,20 @@ public class KhachHangPanel extends javax.swing.JPanel {
 
     private void txtSoGPLXKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSoGPLXKeyPressed
         char c=evt.getKeyChar();
+        String checkSoGPLX = txtSoGPLX.getText();
+        int length = checkSoGPLX.length();
         if (Character.isLetter(c)) {
             txtSoGPLX.setEditable(false);
         }else{
             txtSoGPLX.setEditable(true);
+        }
+        
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<= '9'){
+            if (length<10) {
+                txtSoGPLX.setEnabled(true);
+            }else{
+                txtSoGPLX.setEditable(false);
+            }
         }
     }//GEN-LAST:event_txtSoGPLXKeyPressed
 
@@ -571,6 +592,7 @@ public class KhachHangPanel extends javax.swing.JPanel {
         btnDel.setEnabled(false);
         btnResetSave.setEnabled(true);
         btnSave.setEnabled(true);
+        btnAdd.setEnabled(false);
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
@@ -587,6 +609,7 @@ public class KhachHangPanel extends javax.swing.JPanel {
         btnResetSave.setEnabled(true);
         btnUpdate.setEnabled(true);
         txtCmnd.setEnabled(false);
+        btnEdit.setEnabled(false);
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnDel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDel1ActionPerformed
@@ -594,6 +617,7 @@ public class KhachHangPanel extends javax.swing.JPanel {
         setEnabledOn();
         btnEdit.setEnabled(false);
         btnAdd.setEnabled(false);
+        btnDel1.setEnabled(false);
     }//GEN-LAST:event_btnDel1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

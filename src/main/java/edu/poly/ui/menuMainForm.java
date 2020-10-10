@@ -11,9 +11,10 @@ import edu.poly.login.loginPanel;
 import edu.poly.ui.MaLoaiXePanel;
 import edu.poly.ui.XePanel;
 import edu.polyHelpandIntro.IntroDialog;
-import java.awt.Color;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import edu.poly.ui.phuKienPanel;
 
 /**
  *
@@ -50,7 +51,7 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         jButton1 = new javax.swing.JButton();
         btnKhachHang = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnPhuKien = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -85,18 +86,23 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         menuXe = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         menuMaLoaiXe = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         menuIntro = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Quản lý cho thuê xe");
         setBackground(new java.awt.Color(0, 0, 0));
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -125,7 +131,12 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/ql-phukien.png"))); // NOI18N
+        btnPhuKien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/ql-phukien.png"))); // NOI18N
+        btnPhuKien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPhuKienActionPerformed(evt);
+            }
+        });
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/ql-doanhThu-50-copy-0.png"))); // NOI18N
 
@@ -176,7 +187,7 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnPhuKien, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnKhachHang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnExit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -210,7 +221,7 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPhuKien, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -260,13 +271,13 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         lblRun.setBackground(new java.awt.Color(102, 102, 102));
         lblRun.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblRun.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRun.setText("Địa chỉ : 38 Yên Bái, Quận Hải Châu, Thành phố Đà Nẵng - Đồ án cho thuê xe ô tô - Nhóm 6");
+        lblRun.setText("Đồ án : Chương trình quản lí cho thuê xe ô tô - Nhóm 6 - Trung tâm : Softech Aftech Đà nẵng - Địa chỉ : 38 Yên Bái Hải Châu 1 Hải Châu Đà Nẵng 550000, Việt Nam");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblRun, javax.swing.GroupLayout.DEFAULT_SIZE, 968, Short.MAX_VALUE)
+            .addComponent(lblRun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -374,7 +385,7 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         jMenu2.add(jSeparator2);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/xe -24.jpg"))); // NOI18N
-        jMenu3.setText("Quản lý xe");
+        jMenu3.setText("Xe");
 
         menuXe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/xe -24.jpg"))); // NOI18N
         menuXe.setText("Quản lý Xe");
@@ -396,11 +407,30 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         jMenu3.add(menuMaLoaiXe);
 
         jMenu2.add(jMenu3);
-        jMenu2.add(jSeparator1);
 
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/xe-24.png"))); // NOI18N
-        jMenuItem5.setText("Quản lý Phụ kiện");
-        jMenu2.add(jMenuItem5);
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/xe-24.png"))); // NOI18N
+        jMenu4.setText("Phụ kiện");
+
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/xe-24.png"))); // NOI18N
+        jMenuItem4.setText("Phụ kiện");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem4);
+
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/maLoaiXe-24.png"))); // NOI18N
+        jMenuItem5.setText("Loại phụ kiện");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem5);
+
+        jMenu2.add(jMenu4);
+        jMenu2.add(jSeparator1);
 
         jMenuBar1.add(jMenu2);
 
@@ -464,7 +494,10 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_menuExitActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        this.dispose();
+        int n = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắc muốn thoát khỏi chương trình ?", "Thông báo !", JOptionPane.YES_NO_OPTION);
+        if (n == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -504,6 +537,25 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         displayAccountInformation();
     }//GEN-LAST:event_formWindowOpened
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        int n = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắc muốn thoát khỏi chương trình ?", "Thông báo !", JOptionPane.YES_NO_OPTION);
+        if (n == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_formWindowClosing
+
+    private void btnPhuKienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhuKienActionPerformed
+        showPanel(new phuKienPanel());
+    }//GEN-LAST:event_btnPhuKienActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        btnPhuKienActionPerformed(evt);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        showPanel(new loaiPhuKienPanel());
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -542,9 +594,9 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnKhachHang;
+    private javax.swing.JButton btnPhuKien;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel10;
@@ -556,6 +608,7 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
@@ -563,6 +616,7 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
