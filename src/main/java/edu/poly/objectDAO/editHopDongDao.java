@@ -191,7 +191,7 @@ public class editHopDongDao {
                 pstm2.setString(6, hd.getDiaDiemNhanXe());
                 pstm2.setString(7, hd.getDiaDiemTraXe());
                 pstm2.setString(8, hd.getGhiChu());
-                pstm2.setNString(9, hd.getMaLoaiXe());
+                pstm2.setString(9, hd.getMaLoaiXe());
                 pstm2.setString(10, hd.getMaLoaiPK());
                 pstm2.setString(11, hd.getMaTT());
                 pstm2.setString(12, hd.getDatCoc());
