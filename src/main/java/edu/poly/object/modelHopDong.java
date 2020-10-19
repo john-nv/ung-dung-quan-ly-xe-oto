@@ -17,12 +17,12 @@ public class modelHopDong {
     Date ngayLap;
     int soCMND;
     Date thoiGianBatDauHD, thoiGianKetThucHD;
-    String diaDiemNhanXe, diaDiemTraXe, ghiChu, maLoaiXe, maPK, maTT, datCoc;
+    String diaDiemNhanXe, diaDiemTraXe, ghiChu, maLoaiXe, maLoaiPK, maTT, datCoc, tinhTrang;
 
     public modelHopDong() {
     }
 
-    public modelHopDong(int maHD, Date ngayLap, int soCMND, Date thoiGianBatDauHD, Date thoiGianKetThucHD, String diaDiemNhanXe, String diaDiemTraXe, String ghiChu, String maLoaiXe, String maPK, String maTT, String datCoc) {
+    public modelHopDong(int maHD, Date ngayLap, int soCMND, Date thoiGianBatDauHD, Date thoiGianKetThucHD, String diaDiemNhanXe, String diaDiemTraXe, String ghiChu, String maLoaiXe, String maLoaiPK, String maTT, String datCoc, String tinhTrang) {
         this.maHD = maHD;
         this.ngayLap = ngayLap;
         this.soCMND = soCMND;
@@ -32,9 +32,10 @@ public class modelHopDong {
         this.diaDiemTraXe = diaDiemTraXe;
         this.ghiChu = ghiChu;
         this.maLoaiXe = maLoaiXe;
-        this.maPK = maPK;
+        this.maLoaiPK = maLoaiPK;
         this.maTT = maTT;
         this.datCoc = datCoc;
+        this.tinhTrang = tinhTrang;
     }
 
     public int getMaHD() {
@@ -109,12 +110,12 @@ public class modelHopDong {
         this.maLoaiXe = maLoaiXe;
     }
 
-    public String getMaPK() {
-        return maPK;
+    public String getMaLoaiPK() {
+        return maLoaiPK;
     }
 
-    public void setMaPK(String maPK) {
-        this.maPK = maPK;
+    public void setMaLoaiPK(String maLoaiPK) {
+        this.maLoaiPK = maLoaiPK;
     }
 
     public String getMaTT() {
@@ -131,6 +132,14 @@ public class modelHopDong {
 
     public void setDatCoc(String datCoc) {
         this.datCoc = datCoc;
+    }
+
+    public String getTinhTrang() {
+        return tinhTrang;
+    }
+
+    public void setTinhTrang(String tinhTrang) {
+        this.tinhTrang = tinhTrang;
     }
 
 }

@@ -8,6 +8,7 @@ package edu.poly.objectDAO;
 import edu.poly.Helper.databaseHelper;
 import edu.poly.object.modelHopDong;
 import edu.poly.object.modelTien;
+import edu.poly.ui.addHopDongPanel;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -57,25 +58,44 @@ public class editHopDongDao {
     }
 
     public String convertLoaiXeToMaLoaiXe(String loaiXe) {
-        String maLoaiXe=null;
+        String maLoaiXe = null;
         try {
             String sql = "select MaLoaiXe from LOAIXE where TenLoaiXe = ?";
             Connection con = databaseHelper.openConnection();
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setNString(1, loaiXe);
             ResultSet rs = pstm.executeQuery();
-            while (rs.next()) {                
+            while (rs.next()) {
                 maLoaiXe = rs.getString(1);
             }
-            
+
         } catch (Exception ex) {
             ex.printStackTrace();
-        } 
+        }
 //        System.out.println("rs: "+maLoaiXe);
         return maLoaiXe;
     }
 
-    public void doiTrangThaiCuaXeChoThue(String maLoaiXe) {
+    public String convertMaLoaiXeToLoaiXe(String maLoaiXe) {
+        String loaiXe = null;
+        try {
+            String sql = "select TenLoaiXe from LOAIXE where MaLoaiXe = ?";
+            Connection con = databaseHelper.openConnection();
+            PreparedStatement pstm = con.prepareStatement(sql);
+            pstm.setString(1, maLoaiXe);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                loaiXe = rs.getString(1);
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+//        System.out.println("rs: "+maLoaiXe);
+        return loaiXe;
+    }
+
+    public void doiTrangThaiCuaXeThanhChoThue(String maLoaiXe, int maHD) {
         ArrayList<String> danhSachXe = new ArrayList<>();
         String sql1 = "select MaXe from Xe where MaLoaiXe = ? and TinhTrangXe = N'Sẵn sàng'";
         try {
@@ -91,13 +111,58 @@ public class editHopDongDao {
             ex.printStackTrace();
         }
 //        System.out.println(danhSachXe.get(0));
-        String sql2 = "update Xe set TinhTrangXe = N'Đang thuê' where MaXe =?";
+        String sql2 = "update Xe set TinhTrangXe = N'Đang thuê', MaHD=? where MaXe =?";
+//        String sql3 = "insert into ChiTietXeThue (MaHD, MaXe) values (?,?)";
         try {
             Connection con = databaseHelper.openConnection();
             PreparedStatement pstm2 = con.prepareStatement(sql2);
-            pstm2.setString(1, danhSachXe.get(0));
+//            PreparedStatement pstm3 = con.prepareStatement(sql3);
+
+            pstm2.setString(1, String.valueOf(maHD));
+            pstm2.setString(2, danhSachXe.get(0));
+
+//            pstm3.setInt(1, maHD);
+//            pstm3.setString(2, danhSachXe.get(0));
             pstm2.executeUpdate();
-            con.close();
+//            pstm3.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void doiTrangThaiCuaXeThanhSanSang(int maHD) {
+//        ArrayList<String> danhSachXe = new ArrayList<>();
+//        String sql1 = "select MaXe from Xe where MaLoaiXe = ? and TinhTrangXe = N'Đang thuê'";
+//        try {
+//            Connection con = databaseHelper.openConnection();
+//            PreparedStatement pstm1 = con.prepareStatement(sql1);
+//            pstm1.setString(1, maLoaiXe);
+//            ResultSet rs = pstm1.executeQuery();
+//            while (rs.next()) {
+//                danhSachXe.add(rs.getString(1));
+//            }
+//            System.out.println("xe dang thue cuoi cung 11: " + danhSachXe);
+//            System.out.println("last index11: " + danhSachXe.get(0));
+//            con.close();
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+//        System.out.println("xe dang thue cuoi cung22: " + danhSachXe);
+//        System.out.println("last index22: " + danhSachXe.get(0));
+//        System.out.println(danhSachXe.get(0));
+        String sql2 = "update Xe set TinhTrangXe = N'Sẵn sàng', MaHD=null where MaHD =?";
+//        String sql3 = "insert into ChiTietXeThue (MaHD, MaXe) values (?,?)";
+        try {
+            Connection con = databaseHelper.openConnection();
+            PreparedStatement pstm2 = con.prepareStatement(sql2);
+//            PreparedStatement pstm3 = con.prepareStatement(sql3);
+
+            pstm2.setString(1, String.valueOf(maHD));
+
+//            pstm3.setInt(1, maHD);
+//            pstm3.setString(2, danhSachXe.get(0));
+            pstm2.executeUpdate();
+//            pstm3.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -105,7 +170,8 @@ public class editHopDongDao {
 
     public void insertHopDong(modelHopDong hd, modelTien t) {
         String sql1 = "insert into TIEN (MaThanhToan, TienThueXe, TienSuaChua, TongTien, GhiChu) values (?,?,?,?,?)";
-        String sql2 = "insert into HOPDONG (MaHD, NgayLap, SoCMND, ThoiGianBatDauHopDong, ThoiGianKetThucHopDong, DiaDiemNhanXe, DiaDiemTraXe, GhiChu, MaLoaiXe, MaPK, MaThanhToan, DatCoc) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql2 = "insert into HOPDONG (MaHD, NgayLap, SoCMND, ThoiGianBatDauHopDong, ThoiGianKetThucHopDong, DiaDiemNhanXe, DiaDiemTraXe, GhiChu, MaLoaiXe, MaLoaiPK, MaThanhToan, DatCoc, TinhTrang) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
         try {
             Connection con = databaseHelper.openConnection();
             PreparedStatement pstm1 = con.prepareStatement(sql1);
@@ -125,10 +191,11 @@ public class editHopDongDao {
                 pstm2.setString(6, hd.getDiaDiemNhanXe());
                 pstm2.setString(7, hd.getDiaDiemTraXe());
                 pstm2.setString(8, hd.getGhiChu());
-                pstm2.setString(9, hd.getMaLoaiXe());
-                pstm2.setString(10, hd.getMaPK());
+                pstm2.setNString(9, hd.getMaLoaiXe());
+                pstm2.setString(10, hd.getMaLoaiPK());
                 pstm2.setString(11, hd.getMaTT());
                 pstm2.setString(12, hd.getDatCoc());
+                pstm2.setString(13, hd.getTinhTrang());
 
                 pstm1.executeUpdate();
                 pstm2.executeUpdate();
@@ -138,12 +205,12 @@ public class editHopDongDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        doiTrangThaiCuaXeChoThue(hd.getMaLoaiXe());
+        doiTrangThaiCuaXeThanhChoThue(hd.getMaLoaiXe(),hd.getMaHD());
     }
 
-    public void updateHopDong(modelHopDong hd, modelTien t) {
+    public void updateHopDong(modelHopDong hd, modelTien t, String valueOfCBX) {
         String sql1 = "update TIEN set TienThueXe=?, TienSuaChua=?, TongTien=?, GhiChu=? where MaThanhToan=?";
-        String sql2 = "update HOPDONG set NgayLap=?, SoCMND=?, ThoiGianBatDauHopDong=?, ThoiGianKetThucHopDong=?, DiaDiemNhanXe=?, DiaDiemTraXe=?, GhiChu=?, MaLoaiXe=?, MaPK=?, MaThanhToan=?, DatCoc=? where MaHD=?";
+        String sql2 = "update HOPDONG set NgayLap=?, SoCMND=?, ThoiGianBatDauHopDong=?, ThoiGianKetThucHopDong=?, DiaDiemNhanXe=?, DiaDiemTraXe=?, GhiChu=?, MaLoaiXe=?, MaPK=?, MaThanhToan=?, DatCoc=?, TinhTrang=? where MaHD=?";
         try {
             Connection con = databaseHelper.openConnection();
             PreparedStatement pstm1 = con.prepareStatement(sql1);
@@ -163,10 +230,11 @@ public class editHopDongDao {
                 pstm2.setString(6, hd.getDiaDiemTraXe());
                 pstm2.setString(7, hd.getGhiChu());
                 pstm2.setString(8, hd.getMaLoaiXe());
-                pstm2.setString(9, hd.getMaPK());
+                pstm2.setString(9, hd.getMaLoaiPK());
                 pstm2.setString(10, hd.getMaTT());
                 pstm2.setString(11, hd.getDatCoc());
-                pstm2.setInt(12, hd.getMaHD());
+                pstm2.setString(12, hd.getTinhTrang());
+                pstm2.setInt(13, hd.getMaHD());
 
                 pstm1.executeUpdate();
                 pstm2.executeUpdate();
@@ -176,6 +244,13 @@ public class editHopDongDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("values of CBX1: "+valueOfCBX);
+        System.out.println("values of CBX2: "+hd.getTinhTrang());
+        String hoatDong ="Hoạt Động", ketThuc="Kết Thúc";
+        if (valueOfCBX.equals(hoatDong) && hd.getTinhTrang().equals(ketThuc)) {
+            doiTrangThaiCuaXeThanhSanSang(hd.getMaHD());
+        }
+
     }
 
     public int xoaHopDong(modelHopDong hd, modelTien t) {
@@ -203,4 +278,5 @@ public class editHopDongDao {
         }
         return temp;
     }
+
 }
