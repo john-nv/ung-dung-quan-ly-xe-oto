@@ -18,6 +18,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -57,6 +58,37 @@ public class editHopDongDao {
 
     }
 
+    public static void setSoLuongPK() {
+        ArrayList<String> danhSachLoaiPK = new ArrayList<>();
+        String sql1 = "select MaLoaiPK from LOAIPHUKIEN";
+        try {
+            Connection con = databaseHelper.openConnection();
+            PreparedStatement pstm1 = con.prepareStatement(sql1);
+            ResultSet rs = pstm1.executeQuery();
+            while (rs.next()) {
+                danhSachLoaiPK.add(rs.getString(1));
+
+            }
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        for (String dslpk : danhSachLoaiPK) {
+            String sql2 = "update LOAIPHUKIEN set LOAIPHUKIEN.SoLuong=(select count (MaLoaiPK) from PHUKIEN where TinhTrangPK = N'Sẵn sàng' and MaLoaiPK = ? group by MaLoaiPK) from LOAIPHUKIEN lpk join PHUKIEN pk on lpk.MaLoaiPK = pk.MaLoaiPK where lpk.MaLoaiPK = ?";
+            try {
+                Connection con = databaseHelper.openConnection();
+                PreparedStatement pstm2 = con.prepareStatement(sql2);
+                pstm2.setString(1, dslpk);
+                pstm2.setString(2, dslpk);
+                pstm2.executeUpdate();
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
     public String convertLoaiXeToMaLoaiXe(String loaiXe) {
         String maLoaiXe = null;
         try {
@@ -74,6 +106,35 @@ public class editHopDongDao {
         }
 //        System.out.println("rs: "+maLoaiXe);
         return maLoaiXe;
+    }
+//
+
+    public ArrayList convertLoaiPKToMaLoaiPK(DefaultListModel listLoaiPK) {
+        ArrayList<String> maLoaiPK = new ArrayList<>();
+        String loaiPK = null;
+//        System.out.println("list loai PK in convert: " + listLoaiPK);
+        for (int i = 0; i < listLoaiPK.getSize(); i++) {
+//            System.out.println("loai pk at " + i + ": " + listLoaiPK.getElementAt(i).toString());
+            loaiPK = listLoaiPK.getElementAt(i).toString();
+            try {
+                String sql = "select MaLoaiPK from LOAIPHUKIEN where TenLoaiPK = ?";
+                Connection con = databaseHelper.openConnection();
+                PreparedStatement pstm = con.prepareStatement(sql);
+//                System.out.println("Loai PK in convert: " + listLoaiPK);
+                pstm.setNString(1, loaiPK);
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    maLoaiPK.add(rs.getString(1));
+//                    System.out.println("ma loai PK rs: " + rs.getString(1));
+                }
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+//        System.out.println("rs: "+maLoaiXe);
+        return maLoaiPK;
     }
 
     public String convertMaLoaiXeToLoaiXe(String maLoaiXe) {
@@ -205,12 +266,13 @@ public class editHopDongDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        doiTrangThaiCuaXeThanhChoThue(hd.getMaLoaiXe(),hd.getMaHD());
+        doiTrangThaiCuaXeThanhChoThue(hd.getMaLoaiXe(), hd.getMaHD());
+        doiTrangThaiCuaPKThanhChoThue(hd.getMaLoaiPK(), hd.getMaHD());
     }
 
     public void updateHopDong(modelHopDong hd, modelTien t, String valueOfCBX) {
         String sql1 = "update TIEN set TienThueXe=?, TienSuaChua=?, TongTien=?, GhiChu=? where MaThanhToan=?";
-        String sql2 = "update HOPDONG set NgayLap=?, SoCMND=?, ThoiGianBatDauHopDong=?, ThoiGianKetThucHopDong=?, DiaDiemNhanXe=?, DiaDiemTraXe=?, GhiChu=?, MaLoaiXe=?, MaPK=?, MaThanhToan=?, DatCoc=?, TinhTrang=? where MaHD=?";
+        String sql2 = "update HOPDONG set NgayLap=?, SoCMND=?, ThoiGianBatDauHopDong=?, ThoiGianKetThucHopDong=?, DiaDiemNhanXe=?, DiaDiemTraXe=?, GhiChu=?, MaLoaiXe=?, MaLoaiPK=?, MaThanhToan=?, DatCoc=?, TinhTrang=? where MaHD=?";
         try {
             Connection con = databaseHelper.openConnection();
             PreparedStatement pstm1 = con.prepareStatement(sql1);
@@ -244,11 +306,12 @@ public class editHopDongDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("values of CBX1: "+valueOfCBX);
-        System.out.println("values of CBX2: "+hd.getTinhTrang());
-        String hoatDong ="Hoạt Động", ketThuc="Kết Thúc";
+//        System.out.println("values of CBX1: " + valueOfCBX);
+//        System.out.println("values of CBX2: " + hd.getTinhTrang());
+        String hoatDong = "Hoạt Động", ketThuc = "Kết Thúc";
         if (valueOfCBX.equals(hoatDong) && hd.getTinhTrang().equals(ketThuc)) {
             doiTrangThaiCuaXeThanhSanSang(hd.getMaHD());
+            doiTrangThaiCuaPKThanhSanSang(hd.getMaHD());
         }
 
     }
@@ -279,4 +342,57 @@ public class editHopDongDao {
         return temp;
     }
 
+    private void doiTrangThaiCuaPKThanhChoThue(String listMaLoaiPK, int maHD) {
+        System.out.println("ma LoaiPK in doi trang thai PK:" + listMaLoaiPK);
+        String[] maLoaiPK = listMaLoaiPK.split(",");
+        System.out.println("length: " + maLoaiPK.length);
+        ArrayList<String> danhSachPK = new ArrayList<>();
+        for (int i = 0; i < maLoaiPK.length; i++) {
+            System.out.println("ma LoaiPK: " + i + " " + maLoaiPK[i].trim());
+
+            String sql1 = "select MaPK from PHUKIEN where MaLoaiPK = ? and TinhTrangPK = N'Sẵn sàng'";
+            try {
+                Connection con = databaseHelper.openConnection();
+                PreparedStatement pstm1 = con.prepareStatement(sql1);
+                pstm1.setString(1, maLoaiPK[i].trim());
+                ResultSet rs = pstm1.executeQuery();
+                while (rs.next()) {
+                    danhSachPK.add(rs.getString(1));
+                }
+                System.out.println("danh sach PK: " + danhSachPK);
+                System.out.println("danh sach PK index 0: " + danhSachPK.get(0));
+                String sql2 = "update PHUKIEN set TinhTrangPK = N'Đang thuê', MaHD=? where MaPK =?";
+                try {
+//                    Connection con = databaseHelper.openConnection();
+                    PreparedStatement pstm2 = con.prepareStatement(sql2);
+
+                    pstm2.setString(1, String.valueOf(maHD));
+                    pstm2.setString(2, danhSachPK.get(0));
+
+                    pstm2.executeUpdate();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                danhSachPK.clear();
+//                con.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+    }
+
+    private void doiTrangThaiCuaPKThanhSanSang(int maHD) {
+        String sql2 = "update PHUKIEN set TinhTrangPK = N'Sẵn sàng', MaHD=null where MaHD =?";
+        try {
+            Connection con = databaseHelper.openConnection();
+            PreparedStatement pstm2 = con.prepareStatement(sql2);
+
+            pstm2.setString(1, String.valueOf(maHD));
+
+            pstm2.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

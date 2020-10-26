@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -43,7 +44,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
         loadCBX("LOAIXE", cbxMaLoaiXe);
         loadCBX("PHUKIEN", cbxMaPK);
         loadCBX("KHACHHANG", cbxSoCMND);
-        loadListBox();
+        loadListBoxSanSang();
         loadDataTable();
 
     }
@@ -508,14 +509,37 @@ public class addHopDongPanel extends javax.swing.JPanel {
         }
 
         cbxMaLoaiXe.setSelectedItem(hd.convertMaLoaiXeToLoaiXe(String.valueOf(tblKh.getValueAt(rowSelected(), 9))));
-        cbxMaPK.setSelectedItem(String.valueOf(tblKh.getValueAt(rowSelected(), 10)));
+//        cbxMaPK.setSelectedItem(String.valueOf(tblKh.getValueAt(rowSelected(), 10)));
         cbxDatCoc.setSelectedItem(String.valueOf(tblKh.getValueAt(rowSelected(), 12)));
+        loadListBoxDangChoThue(String.valueOf(tblKh.getValueAt(rowSelected(), 10)));
 //        cbxTinhTrangHD.setSelectedItem(ABORT);
         txtMaTT.setText(String.valueOf(tblKh.getValueAt(rowSelected(), 11)));
         txtTienThueXe.setText(String.valueOf(tblKh.getValueAt(rowSelected(), 13)));
         txtTienSuaChua.setText(String.valueOf(tblKh.getValueAt(rowSelected(), 14)));
         txtTongTien.setText(String.valueOf(tblKh.getValueAt(rowSelected(), 15)));
     }//GEN-LAST:event_tblKhMouseClicked
+    private void loadListBoxDangChoThue(String strMaLoaiPK) {
+        DefaultListModel listModel2 = new DefaultListModel();
+        String[] maLoaiPK = strMaLoaiPK.split(",");
+//        System.out.println("do dai: "+maLoaiPK.length);
+        for (int i = 0; i < maLoaiPK.length; i++) {
+//            System.out.println("ma loai PK in selected"+i+" table: " + maLoaiPK[i]);
+            try {
+                String sql = "select TenLoaiPK from LOAIPHUKIEN where MaLoaiPK = '" + maLoaiPK[i].trim() + "'";
+                Connection con = databaseHelper.openConnection();
+                Statement sttm = con.createStatement();
+                ResultSet rs = sttm.executeQuery(sql);
+                while (rs.next()) {
+                    listModel2.addElement(rs.getString(1));
+                }
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        jList2.setModel(listModel2);
+    }
+
     private boolean compareItemOfCBX() {
         boolean kq = true;
         editHopDongDao hd = new editHopDongDao();
@@ -557,6 +581,9 @@ public class addHopDongPanel extends javax.swing.JPanel {
         if (capNhatHopDong() == 1) {
             loadDataTable();
             editHopDongDao.setSoLuongXe();
+            editHopDongDao.setSoLuongPK();
+            loadListBoxSanSang();
+
             JOptionPane.showMessageDialog(this, "Cap nhat Hop Dong thanh cong!");
         } else
             JOptionPane.showMessageDialog(this, "Hay nhap day du cac field!");
@@ -600,8 +627,9 @@ public class addHopDongPanel extends javax.swing.JPanel {
                 loadDataTable();
                 JOptionPane.showMessageDialog(this, "Them Hop Dong thanh cong!");
                 editHopDongDao.setSoLuongXe();
+                editHopDongDao.setSoLuongPK();
                 loadCBX("LOAIXE", cbxMaLoaiXe);
-                loadListBox();
+                loadListBoxSanSang();
             } else {
                 JOptionPane.showMessageDialog(this, "Hay nhap day du cac field!");
             }
@@ -610,6 +638,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
     DefaultListModel listModelPhuKienDangThue = new DefaultListModel();
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 //        for (int i = 0; i < jList1.getModel().getSize(); i++) {
+
         if (soSanhItem2ListPhuKien()) {
             listModelPhuKienDangThue.addElement(jList1.getSelectedValue());
         }
@@ -620,14 +649,26 @@ public class addHopDongPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        listModelPhuKienDangThue.removeAllElements();
+//        ArrayList<String> listIndexSelected = new ArrayList<>();
+//        for (int i = 0; i < jList2.gets; i++) {
+
+//        }
+        DefaultListModel listModelPhuKienDangThue2 = (DefaultListModel) jList2.getModel();
+//        System.out.println("index list 2 remove: " + jList2.getSelectedIndex());
+//        System.out.println("value of listPKCT remove: " + listModelPhuKienDangThue.toString());
+        listModelPhuKienDangThue2.remove(jList2.getSelectedIndex());
+//        jList2.setModel(listModelPhuKienDangThue);
+//        if (jList2.getSelectedIndex()!=-1) {
+//            listModelPhuKienDangThue.remove(jList2.getSelectedIndex());
+//        }
+//        jList2
     }//GEN-LAST:event_jButton1ActionPerformed
     private boolean soSanhItem2ListPhuKien() {
         boolean kq = true;
         for (int i = 0; i < jList2.getModel().getSize(); i++) {
-            System.out.println("jlist2 [" + i + "]: " + jList2.getModel().getElementAt(i));
-            System.out.println(" selected jlist1: " + jList1.getSelectedValue());
-            System.out.println("\n");
+//            System.out.println("jlist2 [" + i + "]: " + jList2.getModel().getElementAt(i));
+//            System.out.println(" selected jlist1: " + jList1.getSelectedValue());
+//            System.out.println("\n");
             if (jList2.getModel().getElementAt(i).equals(jList1.getSelectedValue())) {
                 kq = false;
             }
@@ -744,11 +785,13 @@ public class addHopDongPanel extends javax.swing.JPanel {
             hd.setThoiGianBatDauHD((Date) timeBatDauHD);
             hd.setThoiGianKetThucHD((Date) timeKetThucHD);
             hd.setDiaDiemNhanXe(txtDiemNhanXe.getText());
+//            System.out.println("Dia diem nhan xe: " + txtDiemNhanXe.getText());
             hd.setDiaDiemTraXe(txtDiemTraXe.getText());
             hd.setGhiChu(tareaGhiChu.getText());
             hd.setMaLoaiXe(editHD.convertLoaiXeToMaLoaiXe(cbxMaLoaiXe.getSelectedItem().toString()));
-            System.out.println("List pk dang thue: "+listModelPhuKienDangThue.toString());
-            hd.setMaLoaiPK(listModelPhuKienDangThue.toString());
+//            System.out.println("List pk dang thue: " + listModelPhuKienDangThue.toString());
+//            System.out.println("Ma List pk dang thue: " + editHD.convertLoaiPKToMaLoaiPK(listModelPhuKienDangThue));
+            hd.setMaLoaiPK(editHD.convertLoaiPKToMaLoaiPK(listModelPhuKienDangThue).toString().replace('[', ' ').replace(']', ' ').trim());
             hd.setMaTT(txtMaTT.getText());
             hd.setDatCoc(cbxDatCoc.getSelectedItem().toString());
             hd.setTinhTrang(cbxTinhTrangHD.getSelectedItem().toString());
@@ -766,7 +809,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
 
     private void loadDataTable() {
         try {
-            DefaultTableModel model = new DefaultTableModel(new String[]{"Ma HD", "Ngay Lap", "so CMND", "Thoi gian bat dau HD", "Thoi gian ket thuc HD", "Dia diem nhan xe", "Dia diem tra xe", "Ghi chu", "Tinh Trang HD", "Ma loai xe", "Ma PK", "Ma TT", "Dat coc", "Tien thue xe", "Tien sua chua", "Tong tien"}, 0) {
+            DefaultTableModel model = new DefaultTableModel(new String[]{"Ma HD", "Ngay Lap", "so CMND", "Thoi gian bat dau HD", "Thoi gian ket thuc HD", "Dia diem nhan xe", "Dia diem tra xe", "Ghi chu", "Tinh Trang HD", "Ma loai xe", "Ma Loai PK", "Ma TT", "Dat coc", "Tien thue xe", "Tien sua chua", "Tong tien"}, 0) {
                 public boolean isCellEditable(int row, int column) {
                     return false;
                 }
@@ -784,7 +827,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                 String diaDiemTraXe = rs.getString(7);
                 String ghiChu1 = rs.getString(8);
                 String maLoaiXe = rs.getString(9);
-                String maPK = rs.getString(10);
+                String maLoaiPK = rs.getString(10);
                 String maTT1 = rs.getString(11);
                 String datCoc = rs.getString(12);
 //                String maTT2 = rs.getString(13);
@@ -793,7 +836,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                 float tienSuaChua = rs.getFloat(16);
                 float tongTien = rs.getFloat(17);
 //                String ghiChu2 = rs.getString(17);
-                model.addRow(new Object[]{maHD, ngayLap, soCMND, thoiGianBatDauHD, thoiGianKetThucHD, diaDiemNhanXe, diaDiemTraXe, ghiChu1, tinhTrangHD, maLoaiXe, maPK, maTT1, datCoc, tienThueXe, tienSuaChua, tongTien});
+                model.addRow(new Object[]{maHD, ngayLap, soCMND, thoiGianBatDauHD, thoiGianKetThucHD, diaDiemNhanXe, diaDiemTraXe, ghiChu1, tinhTrangHD, maLoaiXe, maLoaiPK, maTT1, datCoc, tienThueXe, tienSuaChua, tongTien});
 
             }
             tblKh.setModel(model);
@@ -833,7 +876,10 @@ public class addHopDongPanel extends javax.swing.JPanel {
             hd.setDiaDiemTraXe(txtDiemTraXe.getText());
             hd.setGhiChu(tareaGhiChu.getText());
             hd.setMaLoaiXe(editHD.convertLoaiXeToMaLoaiXe(cbxMaLoaiXe.getSelectedItem().toString()));
-            hd.setMaLoaiPK(cbxMaPK.getSelectedItem().toString());
+//            hd.setMaLoaiPK(cbxMaPK.getSelectedItem().toString());
+            System.out.println("list PK dang thue in thay doi: " + jList2.getModel().toString());
+            hd.setMaLoaiPK(editHD.convertLoaiPKToMaLoaiPK((DefaultListModel) jList2.getModel()).toString().replace('[', ' ').replace(']', ' ').trim());
+            updateTinhTrangPKSauThayDoi();
             hd.setMaTT(txtMaTT.getText());
             hd.setDatCoc(cbxDatCoc.getSelectedItem().toString());
             hd.setTinhTrang(cbxTinhTrangHD.getSelectedItem().toString());
@@ -848,7 +894,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
         return temp;
     }
 
-    private void loadListBox() {
+    private void loadListBoxSanSang() {
         DefaultListModel listModel1 = new DefaultListModel();
         try {
             String sql = "select * from LOAIPHUKIEN where SoLuong is not NULL";
@@ -862,5 +908,47 @@ public class addHopDongPanel extends javax.swing.JPanel {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    private void updateTinhTrangPKSauThayDoi() {
+        editHopDongDao editHD = new editHopDongDao();
+//        System.out.println("in table: " + tblKh.getValueAt(rowSelected(), 10).toString());
+//        System.out.println("in list dang cho thue: " + editHD.convertLoaiPKToMaLoaiPK((DefaultListModel) jList2.getModel()));
+//        System.out.println("in list dang cho thue size: " + editHD.convertLoaiPKToMaLoaiPK((DefaultListModel) jList2.getModel()).size());
+        try {
+            String sql = "update LOAIPHUKIEN set where SoLuong is not NULL";
+            Connection con = databaseHelper.openConnection();
+            Statement sttm = con.createStatement();
+            ArrayList<String> listMaPKInTable = new ArrayList<>();
+            String[] maPKInTable = tblKh.getValueAt(rowSelected(), 10).toString().split(",");
+            for (int i = 0; i < maPKInTable.length; i++) {
+//            for (int j = 0; j < editHD.convertLoaiPKToMaLoaiPK((DefaultListModel) jList2.getModel()).size(); j++) {
+                if (soSanhMaPK(maPKInTable, editHD.convertLoaiPKToMaLoaiPK((DefaultListModel) jList2.getModel()), i)) {
+                    System.out.println("pk cancel: " + i + " " + maPKInTable[i].trim());
+//                  
+                }
+//            }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+//        System.out.println("list in table Array: " + listMaPKInTable);
+    }
+
+    private boolean soSanhMaPK(String[] maPKInTable, ArrayList maPKInJlist, int i) {
+        boolean kq = true;
+//        for (int i = 0; i < maPKInTable.length; i++) {
+        for (int j = 0; j < maPKInJlist.size(); j++) {
+//                System.out.println("PK in table"+i+" so sanh: "+maPKInTable[i].trim());
+//                System.out.println("PK in list"+j+" so sanh: "+maPKInJlist.get(j).toString());
+            if (maPKInTable[i].trim().equals(maPKInJlist.get(j).toString())) {
+                kq = false;
+                break;
+            }
+
+        }
+//        }
+        return kq;
     }
 }
