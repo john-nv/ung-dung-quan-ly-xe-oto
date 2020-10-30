@@ -343,9 +343,9 @@ public class editHopDongDao {
     }
 
     private void doiTrangThaiCuaPKThanhChoThue(String listMaLoaiPK, int maHD) {
-        System.out.println("ma LoaiPK in doi trang thai PK:" + listMaLoaiPK);
+//        System.out.println("ma LoaiPK in doi trang thai PK:" + listMaLoaiPK);
         String[] maLoaiPK = listMaLoaiPK.split(",");
-        System.out.println("length: " + maLoaiPK.length);
+//        System.out.println("length: " + maLoaiPK.length);
         ArrayList<String> danhSachPK = new ArrayList<>();
         for (int i = 0; i < maLoaiPK.length; i++) {
             System.out.println("ma LoaiPK: " + i + " " + maLoaiPK[i].trim());
@@ -359,8 +359,8 @@ public class editHopDongDao {
                 while (rs.next()) {
                     danhSachPK.add(rs.getString(1));
                 }
-                System.out.println("danh sach PK: " + danhSachPK);
-                System.out.println("danh sach PK index 0: " + danhSachPK.get(0));
+//                System.out.println("danh sach PK: " + danhSachPK);
+//                System.out.println("danh sach PK index 0: " + danhSachPK.get(0));
                 String sql2 = "update PHUKIEN set TinhTrangPK = N'Đang thuê', MaHD=? where MaPK =?";
                 try {
 //                    Connection con = databaseHelper.openConnection();
