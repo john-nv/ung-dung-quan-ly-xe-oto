@@ -8,6 +8,7 @@ package edu.poly.ui;
 import edu.poly.Helper.notificationError;
 import edu.poly.objectDAO.loaiXeDao;
 import edu.poly.object.modelLoaiXe;
+import edu.poly.objectDAO.editHopDongDao;
 import java.awt.Color;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -32,6 +33,9 @@ public class MaLoaiXePanel extends javax.swing.JPanel {
         
         initTable();
         loadDataToTable();
+        
+        editHopDongDao.setSoLuongXe();
+        editHopDongDao.setSoLuongPK();
         
     }
     

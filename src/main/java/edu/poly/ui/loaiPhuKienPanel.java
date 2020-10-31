@@ -7,6 +7,7 @@ package edu.poly.ui;
 
 import edu.poly.Helper.notificationError;
 import edu.poly.object.modelLoaiPhuKien;
+import edu.poly.objectDAO.editHopDongDao;
 import edu.poly.objectDAO.loaiPhuKienDAO;
 import java.awt.Color;
 import java.util.List;
@@ -33,6 +34,9 @@ public final class loaiPhuKienPanel extends javax.swing.JPanel {
         setEnabledTextFieldOFF();
         setEnabledEventOFF();
         setEnabledControlON();
+        
+        editHopDongDao.setSoLuongXe();
+        editHopDongDao.setSoLuongPK();
     }
 
     private void initTable() {
