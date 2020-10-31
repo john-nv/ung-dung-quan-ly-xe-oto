@@ -711,6 +711,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
             }
         }
         jList2.setModel(listModel2);
+        System.out.println("Line 714");
     }
 
     private boolean compareItemOfCBX() {
