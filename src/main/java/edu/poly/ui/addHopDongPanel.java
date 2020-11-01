@@ -9,6 +9,8 @@ import edu.poly.Helper.databaseHelper;
 import edu.poly.object.modelHopDong;
 import edu.poly.object.modelTien;
 import edu.poly.objectDAO.editHopDongDao;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.Date;
@@ -33,6 +35,7 @@ import javax.swing.JPanel;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -53,6 +56,9 @@ public class addHopDongPanel extends javax.swing.JPanel {
         loadDataTable();
         setEnabledTextFieldOFF();
         setEnabledEventOFF();
+        
+        tblKh.setRowHeight(25);
+        tblKh.setShowGrid(true);
     }
 
     /**
@@ -66,7 +72,40 @@ public class addHopDongPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblKh = new javax.swing.JTable();
+        tblKh = new javax.swing.JTable(){
+            @Override
+
+            public Component prepareRenderer (TableCellRenderer renderer, int rowIndex, int columnIndex){
+                Component componenet = super.prepareRenderer(renderer, rowIndex, columnIndex);
+
+                Object value = getModel().getValueAt(rowIndex,columnIndex);
+
+                if(columnIndex == 8){
+
+                    if(value.equals("Hoạt Động"))
+                    {
+
+                        componenet.setBackground(Color.GREEN);
+                        componenet.setForeground(Color.BLACK);
+
+                    }
+                    if(value.equals("Kết Thúc")){
+
+                        componenet.setBackground(Color.PINK);
+                        componenet.setForeground(Color.BLACK);
+                    }
+
+                }
+
+                else {
+
+                    componenet.setBackground(Color.WHITE);
+                    componenet.setForeground(Color.BLACK);
+                }
+
+                return componenet;
+            }
+        };
         CenterBottom = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         btnControlSave = new javax.swing.JButton();
@@ -250,7 +289,6 @@ public class addHopDongPanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(dpkNgayLap1, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                     .addComponent(cbxTinhTrangHD1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel21)
@@ -261,7 +299,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                         .addComponent(jLabel22)
                         .addGap(10, 10, 10)
                         .addComponent(cbxSoCMND1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(btnControlSave1)
                 .addGap(33, 33, 33))
         );
@@ -394,7 +432,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                                 .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(dpkTimeBatDauHD, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         LeftLayout.setVerticalGroup(
             LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -519,7 +557,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbxMaLoaiXe, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 61, Short.MAX_VALUE))
+                .addGap(0, 48, Short.MAX_VALUE))
         );
         RightLayout.setVerticalGroup(
             RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -648,7 +686,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                         .addComponent(btnEditXe)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnDel))
-                    .addComponent(Left, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                    .addComponent(Left, javax.swing.GroupLayout.PREFERRED_SIZE, 374, Short.MAX_VALUE)
                     .addComponent(Right, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
                 .addGap(28, 28, 28))
         );
