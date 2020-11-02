@@ -201,7 +201,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
@@ -310,6 +310,8 @@
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
+                                          <Component id="btnPrint" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                           <Component id="btnResetAdd" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="btnAddXe" min="-2" max="-2" attributes="0"/>
@@ -439,6 +441,7 @@
                                       <Component id="btnAddXe" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnResetAdd" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnPrint" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -847,6 +850,14 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JButton" name="btnPrint">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="In d&#x1eef; li&#x1ec7;u xe n&#xe0;y"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrintActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel17">
