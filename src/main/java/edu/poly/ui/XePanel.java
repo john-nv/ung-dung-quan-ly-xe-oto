@@ -28,6 +28,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -50,7 +51,7 @@ public class XePanel extends javax.swing.JPanel {
     /**
      * Creates new form showXePanel
      */
-    public static String dataStatic;
+    
     public XePanel() {
         initComponents();
         
@@ -1250,12 +1251,54 @@ public class XePanel extends javax.swing.JPanel {
 
         }
     }//GEN-LAST:event_btnFilterActionPerformed
-public static String abc;
+
+    public static String txtMaXe;
+    public static String txtTenXe;
+    public static String txtSoKhung;
+    public static String txtSoMay;
+    public static String txtMaLuc;
+    public static String txtHang;
+    public static String txtSoCho;
+    public static String txtMaLoaiXe;
+    public static String txtGiaGio;
+    public static String txtGiaNgay;
+    public static String txtGiaThang;
+    public static String txtTienPhat;
+    public static String txtBienSoXe;
+    public static String txtTTXe;
+    public static Date txtTimeStart;
+    public static String txtTimeEnd;
+    
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
-        xePrint xePrint = new xePrint(txtAddMaXe.getText());
+
         
-        dataStatic = txtAddGiaNgay.getText();
+        txtMaXe = txtAddMaXe.getText();
+        txtTenXe = txtAddTenXe.getText();
+        txtSoKhung = txtAddSoKhung.getText();
+        txtSoMay = txtAddSoMay.getText();
+        txtMaLuc = txtAddMaLuc.getText();
+        txtHang = cbxAddHang.getSelectedItem().toString();
+        txtSoCho = cbxAddSoCho.getSelectedItem().toString();
+        txtMaLoaiXe = cbxAddMaLoaiXe.getSelectedItem().toString();
+        txtGiaGio = txtAddGiaGio.getText();
+        txtGiaNgay = txtAddGiaNgay.getText();
+        txtGiaThang = txtAddGiaThang.getText();
+        txtTienPhat = txtAddTienPhat.getText();
+        txtBienSoXe = txtAddMaXe.getText();
+        txtTTXe = cbxAddTinhTrang.getSelectedItem().toString();
+        
+//        java.util.Date utilDate1 = dpkAddTimeBatDau.getDate();
+//        java.sql.Date timeBatDau = new java.sql.Date(utilDate1.getTime());
+//        java.util.Date utilDate2 = dpkAddTimeKetThuc.getDate();
+//        java.sql.Date timeKetThuc = new java.sql.Date(utilDate2.getTime());
+        
+        txtTimeStart = (Date) dpkAddTimeBatDau.getDate();
+
+//        txtTimeStart = dpkAddTimeBatDau.getDate();
+        
+//        dataStatic = txtAddGiaNgay.getText();
 //        abc = txtAddGiaThang.getText();
+        xePrint xePrint = new xePrint();
         xePrint.setVisible(true);
         
         
