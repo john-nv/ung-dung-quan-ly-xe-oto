@@ -9,6 +9,8 @@ import edu.poly.Helper.databaseHelper;
 import edu.poly.object.modelHopDong;
 import edu.poly.object.modelTien;
 import edu.poly.objectDAO.editHopDongDao;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.Date;
@@ -33,6 +35,7 @@ import javax.swing.JPanel;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -53,6 +56,9 @@ public class addHopDongPanel extends javax.swing.JPanel {
         loadDataTable();
         setEnabledTextFieldOFF();
         setEnabledEventOFF();
+        
+        tblKh.setRowHeight(25);
+        tblKh.setShowGrid(true);
     }
 
     /**
@@ -66,7 +72,40 @@ public class addHopDongPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblKh = new javax.swing.JTable();
+        tblKh = new javax.swing.JTable(){
+            @Override
+
+            public Component prepareRenderer (TableCellRenderer renderer, int rowIndex, int columnIndex){
+                Component componenet = super.prepareRenderer(renderer, rowIndex, columnIndex);
+
+                Object value = getModel().getValueAt(rowIndex,columnIndex);
+
+                if(columnIndex == 8){
+
+                    if(value.equals("Hoạt �?ộng"))
+                    {
+
+                        componenet.setBackground(Color.GREEN);
+                        componenet.setForeground(Color.BLACK);
+
+                    }
+                    if(value.equals("Kết Thúc")){
+
+                        componenet.setBackground(Color.PINK);
+                        componenet.setForeground(Color.BLACK);
+                    }
+
+                }
+
+                else {
+
+                    componenet.setBackground(Color.WHITE);
+                    componenet.setForeground(Color.BLACK);
+                }
+
+                return componenet;
+            }
+        };
         CenterBottom = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         btnControlSave = new javax.swing.JButton();
@@ -130,7 +169,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("HỢP ĐỒNG");
+        jLabel1.setText("HỢP �?ỒNG");
 
         tblKh.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         tblKh.setModel(new javax.swing.table.DefaultTableModel(
@@ -150,7 +189,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
 
         CenterBottom.setPreferredSize(new java.awt.Dimension(88, 88));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Bảng điều khiển"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Bảng đi�?u khiển"));
 
         btnControlSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/save-20.png"))); // NOI18N
         btnControlSave.setText("Thêm");
@@ -212,7 +251,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Bảng điều khiển"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Bảng đi�?u khiển"));
 
         btnControlSave1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/search1.jpg"))); // NOI18N
         btnControlSave1.setText("Tìm kiếm");
@@ -228,9 +267,9 @@ public class addHopDongPanel extends javax.swing.JPanel {
         dpkNgayLap.setFormats("dd/MM/yyyy");
 
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel20.setText("Tình Trạng Hợp Đồng:");
+        jLabel20.setText("Tình Trạng Hợp �?ồng:");
 
-        cbxTinhTrangHD1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hoạt Động", "Kết Thúc" }));
+        cbxTinhTrangHD1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hoạt �?ộng", "Kết Thúc" }));
 
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel21.setText("Tên Loại Xe:");
@@ -260,7 +299,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                         .addComponent(jLabel22)
                         .addGap(10, 10, 10)
                         .addComponent(cbxSoCMND1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(btnControlSave1)
                 .addGap(33, 33, 33))
         );
@@ -314,7 +353,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
         Left.setPreferredSize(new java.awt.Dimension(200, 200));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("Mã Hợp Đồng:");
+        jLabel2.setText("Mã Hợp �?ồng:");
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Ngày Lập:");
@@ -325,20 +364,20 @@ public class addHopDongPanel extends javax.swing.JPanel {
         jLabel4.setText("Số CMND:");
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("Thời gian bắt đầu HĐ:");
+        jLabel5.setText("Th�?i gian bắt đầu H�?:");
 
         dpkTimeBatDauHD.setFormats("dd/MM/yyyy");
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel6.setText("Thời gian kết thúc HĐ:");
+        jLabel6.setText("Th�?i gian kết thúc H�?:");
 
         dpkTimeKetThucHD.setFormats("dd/MM/yyyy");
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel7.setText("Địa điểm nhận xe:");
+        jLabel7.setText("�?ịa điểm nhận xe:");
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel8.setText("Địa điểm trả xe:");
+        jLabel8.setText("�?ịa điểm trả xe:");
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Ghi chú:");
@@ -348,9 +387,9 @@ public class addHopDongPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tareaGhiChu);
 
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel18.setText("Tình Trạng Hợp Đồng:");
+        jLabel18.setText("Tình Trạng Hợp �?ồng:");
 
-        cbxTinhTrangHD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hoạt Động", "Kết Thúc" }));
+        cbxTinhTrangHD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hoạt �?ộng", "Kết Thúc" }));
 
         javax.swing.GroupLayout LeftLayout = new javax.swing.GroupLayout(Left);
         Left.setLayout(LeftLayout);
@@ -393,7 +432,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                                 .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(dpkTimeBatDauHD, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         LeftLayout.setVerticalGroup(
             LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -440,7 +479,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
         Right.setPreferredSize(new java.awt.Dimension(200, 200));
 
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel15.setText("Tiền Sửa Chửa:");
+        jLabel15.setText("Ti�?n Sửa Chửa:");
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel17.setText("Tên Loại Phụ Kiện:");
@@ -469,16 +508,16 @@ public class addHopDongPanel extends javax.swing.JPanel {
         cbxDatCoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tien", "Xe may" }));
 
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel13.setText("Đặt cọc:");
+        jLabel13.setText("�?ặt c�?c:");
 
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setText("Mã Thanh Toán:");
 
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel14.setText("Tiền Thuê Xe:");
+        jLabel14.setText("Ti�?n Thuê Xe:");
 
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel16.setText("Tổng Tiền:");
+        jLabel16.setText("Tổng Ti�?n:");
 
         javax.swing.GroupLayout RightLayout = new javax.swing.GroupLayout(Right);
         Right.setLayout(RightLayout);
@@ -518,7 +557,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbxMaLoaiXe, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 61, Short.MAX_VALUE))
+                .addGap(0, 48, Short.MAX_VALUE))
         );
         RightLayout.setVerticalGroup(
             RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -647,7 +686,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                         .addComponent(btnEditXe)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnDel))
-                    .addComponent(Left, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                    .addComponent(Left, javax.swing.GroupLayout.PREFERRED_SIZE, 374, Short.MAX_VALUE)
                     .addComponent(Right, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
                 .addGap(28, 28, 28))
         );
@@ -1102,11 +1141,11 @@ public class addHopDongPanel extends javax.swing.JPanel {
             hd.setTinhTrang(cbxTinhTrangHD.getSelectedItem().toString());
 //            System.out.println("in loi: " + cbxMaLoaiXe.getSelectedItem().toString() + "hehe");
             if (truNLNow.toDays() < 0) {
-                JOptionPane.showMessageDialog(this, "Hãy nhập Ngày Lập Hợp Đồng lớn hơn Ngày hiện tại!");
+                JOptionPane.showMessageDialog(this, "Hãy nhập Ngày Lập Hợp �?ồng lớn hơn Ngày hiện tại!");
             } else if (truBDNow.toDays() < 0) {
-                JOptionPane.showMessageDialog(this, "Hãy nhập Ngày Bắt Đầu Hợp Đồng lớn hơn Ngày hiện tại!");
+                JOptionPane.showMessageDialog(this, "Hãy nhập Ngày Bắt �?ầu Hợp �?ồng lớn hơn Ngày hiện tại!");
             } else if (truBDKT.toDays() < 0) {
-                JOptionPane.showMessageDialog(this, "Hãy nhập Ngày Kết thúc Hợp Đồng lớn hơn Ngày Bắt đầu Hợp Đồng!");
+                JOptionPane.showMessageDialog(this, "Hãy nhập Ngày Kết thúc Hợp �?ồng lớn hơn Ngày Bắt đầu Hợp �?ồng!");
             } else {
                 editHD.insertHopDong(hd, t);
                 temp = 1;

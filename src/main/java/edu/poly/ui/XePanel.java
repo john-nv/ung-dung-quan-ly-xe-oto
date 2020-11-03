@@ -13,9 +13,16 @@ import javax.swing.table.DefaultTableModel;
 
 import edu.poly.objectDAO.xeDao;
 import edu.poly.object.modelXe;
+import edu.poly.ui.Print.xePrint;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.Date;
@@ -27,6 +34,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.TableCellRenderer;
@@ -42,6 +50,7 @@ public class XePanel extends javax.swing.JPanel {
     /**
      * Creates new form showXePanel
      */
+    public static String dataStatic;
     public XePanel() {
         initComponents();
         
@@ -184,6 +193,7 @@ public class XePanel extends javax.swing.JPanel {
         btnControAdd = new javax.swing.JButton();
         btnControEdit = new javax.swing.JButton();
         btnControCancel = new javax.swing.JButton();
+        btnPrint = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblSearchXe = new javax.swing.JTable()
@@ -469,6 +479,13 @@ public class XePanel extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        btnPrint.setText("In dữ liệu xe này");
+        btnPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrintActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -477,7 +494,7 @@ public class XePanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -559,6 +576,8 @@ public class XePanel extends javax.swing.JPanel {
                                             .addComponent(dpkAddTimeKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(dpkAddTimeBatDau, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnResetAdd)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnAddXe)
@@ -658,7 +677,8 @@ public class XePanel extends javax.swing.JPanel {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAddXe)
                             .addComponent(btnResetAdd)
-                            .addComponent(btnUpdate))))
+                            .addComponent(btnUpdate)
+                            .addComponent(btnPrint))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1230,6 +1250,20 @@ public class XePanel extends javax.swing.JPanel {
 
         }
     }//GEN-LAST:event_btnFilterActionPerformed
+public static String abc;
+    private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
+        xePrint xePrint = new xePrint(txtAddMaXe.getText());
+        
+        dataStatic = txtAddGiaNgay.getText();
+//        abc = txtAddGiaThang.getText();
+        xePrint.setVisible(true);
+        
+        
+//        java.util.Date utilDate2 = dpkAddTimeKetThuc.getDate();
+//        java.sql.Date timeKetThuc = new java.sql.Date(utilDate2.getTime());
+//        xePrint.setThoiGianKetThucTinhTrang((Date) timeKetThuc);
+        
+    }//GEN-LAST:event_btnPrintActionPerformed
  
     private void ShowErrorlbl(JTextField Field,JLabel lbl, String ab){
         try {
@@ -1249,6 +1283,7 @@ public class XePanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDeleteXoaXe;
     private javax.swing.JButton btnFilter;
     private javax.swing.JButton btnImage;
+    private javax.swing.JButton btnPrint;
     private javax.swing.JButton btnResetAdd;
     private javax.swing.JButton btnResetDeleteXe;
     private javax.swing.JButton btnSearchXe_tenXea;

@@ -112,6 +112,9 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblKhMouseClicked"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable(){&#xa;    @Override&#xa;&#xa;    public Component prepareRenderer (TableCellRenderer renderer, int rowIndex, int columnIndex){&#xa;        Component componenet = super.prepareRenderer(renderer, rowIndex, columnIndex);&#xa;&#xa;        Object value = getModel().getValueAt(rowIndex,columnIndex);&#xa;&#xa;        if(columnIndex == 8){&#xa;&#xa;            if(value.equals(&quot;Ho&#x1ea1;t &#x110;&#x1ed9;ng&quot;))&#xa;            {&#xa;&#xa;                componenet.setBackground(Color.GREEN);&#xa;                componenet.setForeground(Color.BLACK);&#xa;&#xa;            }&#xa;            if(value.equals(&quot;K&#x1ebf;t Th&#xfa;c&quot;)){&#xa;&#xa;                componenet.setBackground(Color.PINK);&#xa;                componenet.setForeground(Color.BLACK);&#xa;            }&#xa;&#xa;        }&#xa;&#xa;        else {&#xa;&#xa;            componenet.setBackground(Color.WHITE);&#xa;            componenet.setForeground(Color.BLACK);&#xa;        }&#xa;&#xa;        return componenet;&#xa;    }&#xa;}"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -279,7 +282,7 @@
                               <Component id="cbxSoCMND1" min="-2" pref="154" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="67" max="32767" attributes="0"/>
+                      <EmptySpace pref="39" max="32767" attributes="0"/>
                       <Component id="btnControlSave1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
@@ -457,7 +460,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="39" max="32767" attributes="0"/>
+                  <EmptySpace pref="21" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -683,7 +686,7 @@
                           <Component id="cbxMaLoaiXe" min="-2" pref="208" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="61" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="48" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
