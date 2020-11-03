@@ -279,7 +279,7 @@
                               <Component id="cbxSoCMND1" min="-2" pref="154" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="49" max="32767" attributes="0"/>
+                      <EmptySpace pref="67" max="32767" attributes="0"/>
                       <Component id="btnControlSave1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>

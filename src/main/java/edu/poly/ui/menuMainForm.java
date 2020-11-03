@@ -139,6 +139,11 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
         });
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/ql-doanhThu-50-copy-0.png"))); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/exit3-50.png"))); // NOI18N
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -555,6 +560,10 @@ public class menuMainForm extends javax.swing.JFrame implements Runnable {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         showPanel(new loaiPhuKienPanel());
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        showPanel(new danhThuPanel());
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

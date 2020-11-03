@@ -429,6 +429,9 @@
                       <Image iconType="3" name="/edu/poly/icon/icon/ql-doanhThu-50-copy-0.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnExit">
                   <Properties>

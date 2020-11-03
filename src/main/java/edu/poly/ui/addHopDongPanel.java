@@ -250,7 +250,6 @@ public class addHopDongPanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(dpkNgayLap1, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                     .addComponent(cbxTinhTrangHD1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel21)
@@ -261,7 +260,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                         .addComponent(jLabel22)
                         .addGap(10, 10, 10)
                         .addComponent(cbxSoCMND1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(btnControlSave1)
                 .addGap(33, 33, 33))
         );
@@ -809,7 +808,9 @@ public class addHopDongPanel extends javax.swing.JPanel {
         }
 //        }
     }//GEN-LAST:event_btnXeAddActionPerformed
-    DefaultListModel listModelPhuKienDangThue = new DefaultListModel();    public void setEnabledTextFieldON() {
+    DefaultListModel listModelPhuKienDangThue = new DefaultListModel();
+
+    public void setEnabledTextFieldON() {
         txtMaHD.setEnabled(true);
         dpkNgayLap.setEnabled(true);
         cbxSoCMND.setEnabled(true);
@@ -821,6 +822,8 @@ public class addHopDongPanel extends javax.swing.JPanel {
         cbxTinhTrangHD.setEnabled(true);
         cbxMaLoaiXe.setEnabled(true);
         jList1.setEnabled(true);
+        listModelPhuKienDangThue.removeAllElements();
+        jList2.setModel(listModelPhuKienDangThue);
         jList2.setEnabled(true);
         cbxDatCoc.setEnabled(true);
         txtMaTT.setEnabled(true);
@@ -863,8 +866,8 @@ public class addHopDongPanel extends javax.swing.JPanel {
         btnAddReset1.setEnabled(false);
         btnDel.setEnabled(false);
         btnEditXe.setEnabled(false);
-        jButton1.setEnabled(false);
-        jButton2.setEnabled(false);
+//        jButton1.setEnabled(false);
+//        jButton2.setEnabled(false);
     }
 
     public void setEnabledControlON() {
@@ -917,27 +920,27 @@ public class addHopDongPanel extends javax.swing.JPanel {
         //        ArrayList<String> listIndexSelected = new ArrayList<>();
         //        for (int i = 0; i < jList2.gets; i++) {
 
-            //        }
+        //        }
         DefaultListModel listModelPhuKienDangThue2 = (DefaultListModel) jList2.getModel();
         //        System.out.println("index list 2 remove: " + jList2.getSelectedIndex());
         //        System.out.println("value of listPKCT remove: " + listModelPhuKienDangThue.toString());
         listModelPhuKienDangThue2.remove(jList2.getSelectedIndex());
         //        jList2.setModel(listModelPhuKienDangThue);
         //        if (jList2.getSelectedIndex()!=-1) {
-            //            listModelPhuKienDangThue.remove(jList2.getSelectedIndex());
-            //        }
+        //            listModelPhuKienDangThue.remove(jList2.getSelectedIndex());
+        //        }
         //        jList2
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //        for (int i = 0; i < jList1.getModel().getSize(); i++) {
 
-            if (soSanhItem2ListPhuKien()) {
-                listModelPhuKienDangThue.addElement(jList1.getSelectedValue());
-            }
+        if (soSanhItem2ListPhuKien()) {
+            listModelPhuKienDangThue.addElement(jList1.getSelectedValue());
+        }
 
-            //        System.out.println("list value: " + jList1.getSelectedValue());
-            //        }
+        //        System.out.println("list value: " + jList1.getSelectedValue());
+        //        }
         jList2.setModel(listModelPhuKienDangThue);
     }//GEN-LAST:event_jButton2ActionPerformed
     private boolean soSanhItem2ListPhuKien() {
