@@ -140,6 +140,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
         btnEditXe = new javax.swing.JButton();
         btnDel = new javax.swing.JButton();
         btnAddReset1 = new javax.swing.JButton();
+        btnInHD = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -225,7 +226,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Bảng điều khiển"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Tìm kiếm"));
 
         btnControlSave1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/poly/icon/icon/search1.jpg"))); // NOI18N
         btnControlSave1.setText("Tìm kiếm");
@@ -647,6 +648,8 @@ public class addHopDongPanel extends javax.swing.JPanel {
             }
         });
 
+        btnInHD.setText("In dữ liệu hợp đồng này");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -670,7 +673,8 @@ public class addHopDongPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CenterBottom, javax.swing.GroupLayout.PREFERRED_SIZE, 1116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(CenterBottom, javax.swing.GroupLayout.PREFERRED_SIZE, 1116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInHD, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -695,7 +699,8 @@ public class addHopDongPanel extends javax.swing.JPanel {
                         .addComponent(btnDel))
                     .addComponent(Left, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
                     .addComponent(Right, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
-                .addGap(28, 28, 28))
+                .addGap(5, 5, 5)
+                .addComponent(btnInHD))
         );
 
         Left.getAccessibleContext().setAccessibleParent(Left);
@@ -977,7 +982,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
         txtMaHD.setEnabled(false);
         txtMaTT.setText("TT" + String.valueOf((Integer.parseInt(tblKh.getValueAt(tblKh.getRowCount() - 1, 0).toString())) + 1));
         txtMaTT.setEnabled(false);
-        tinhTien();
+//        tinhTien();
 //        System.out.println("last row: "+((Integer.parseInt(tblKh.getValueAt(tblKh.getRowCount()-1, 0).toString()))+1));
     }//GEN-LAST:event_btnControlSaveActionPerformed
 
@@ -1044,15 +1049,15 @@ public class addHopDongPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void dpkTimeBatDauHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dpkTimeBatDauHDActionPerformed
-        tinhTien();
+//        tinhTien();
     }//GEN-LAST:event_dpkTimeBatDauHDActionPerformed
 
     private void dpkTimeKetThucHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dpkTimeKetThucHDActionPerformed
-        tinhTien();
+//        tinhTien();
     }//GEN-LAST:event_dpkTimeKetThucHDActionPerformed
 
     private void cbxMaLoaiXeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMaLoaiXeActionPerformed
-        tinhTien();
+//        tinhTien();
     }//GEN-LAST:event_cbxMaLoaiXeActionPerformed
     private boolean soSanhItem2ListPhuKien() {
         boolean kq = true;
@@ -1079,6 +1084,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnControlUpdete;
     private javax.swing.JButton btnDel;
     private javax.swing.JButton btnEditXe;
+    private javax.swing.JButton btnInHD;
     private javax.swing.JButton btnXeAdd;
     private javax.swing.JComboBox<String> cbxDatCoc;
     private javax.swing.JComboBox<String> cbxMaLoaiXe;
@@ -1411,33 +1417,33 @@ public class addHopDongPanel extends javax.swing.JPanel {
         txtTongTien.setText("");
     }
 
-    private void tinhTien() {
-        java.util.Date utilDate2 = dpkTimeBatDauHD.getDate();
-        java.sql.Date timeBatDauHD = new java.sql.Date(utilDate2.getTime());
-        java.util.Date utilDate3 = dpkTimeKetThucHD.getDate();
-        java.sql.Date timeKetThucHD = new java.sql.Date(utilDate3.getTime());
-        LocalDate bd = LocalDate.parse(timeBatDauHD.toString(), DateTimeFormatter.ISO_LOCAL_DATE);
-        LocalDate kt = LocalDate.parse(timeKetThucHD.toString(), DateTimeFormatter.ISO_LOCAL_DATE);
-        Duration truBDKT = Duration.between(bd.atStartOfDay(), kt.atStartOfDay());
-        long tienThueXe = 0, giaThueXeNgay = 0, tongTien = 0;
-        editHopDongDao editHD = new editHopDongDao();
-        try {
-            String sql = "select top 1 GiaThueXeTheoNgay from Xe where MaLoaiXe = ?";
-            Connection con = databaseHelper.openConnection();
-            PreparedStatement pstm = con.prepareStatement(sql);
-            pstm.setString(1, editHD.convertLoaiXeToMaLoaiXe(cbxMaLoaiXe.getSelectedItem().toString()));
-            ResultSet rs = pstm.executeQuery();
-            while (rs.next()) {
-                giaThueXeNgay = rs.getLong(1);
-            }
-            if (!dpkTimeKetThucHD.getDate().toString().isEmpty()) {
-                tienThueXe = (truBDKT.toDays() + 1) * giaThueXeNgay;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        txtTienThueXe.setText(String.valueOf(tienThueXe));
-        txtTienSuaChua.setText(String.valueOf(tienThueXe + Integer.parseInt(txtTienSuaChua.getText())));
-    }
+//    private void tinhTien() {
+//        java.util.Date utilDate2 = dpkTimeBatDauHD.getDate();
+//        java.sql.Date timeBatDauHD = new java.sql.Date(utilDate2.getTime());
+//        java.util.Date utilDate3 = dpkTimeKetThucHD.getDate();
+//        java.sql.Date timeKetThucHD = new java.sql.Date(utilDate3.getTime());
+//        LocalDate bd = LocalDate.parse(timeBatDauHD.toString(), DateTimeFormatter.ISO_LOCAL_DATE);
+//        LocalDate kt = LocalDate.parse(timeKetThucHD.toString(), DateTimeFormatter.ISO_LOCAL_DATE);
+//        Duration truBDKT = Duration.between(bd.atStartOfDay(), kt.atStartOfDay());
+//        long tienThueXe = 0, giaThueXeNgay = 0, tongTien = 0;
+//        editHopDongDao editHD = new editHopDongDao();
+//        try {
+//            String sql = "select top 1 GiaThueXeTheoNgay from Xe where MaLoaiXe = ?";
+//            Connection con = databaseHelper.openConnection();
+//            PreparedStatement pstm = con.prepareStatement(sql);
+//            pstm.setString(1, editHD.convertLoaiXeToMaLoaiXe(cbxMaLoaiXe.getSelectedItem().toString()));
+//            ResultSet rs = pstm.executeQuery();
+//            while (rs.next()) {
+//                giaThueXeNgay = rs.getLong(1);
+//            }
+//            if (!dpkTimeKetThucHD.getDate().toString().isEmpty()) {
+//                tienThueXe = (truBDKT.toDays() + 1) * giaThueXeNgay;
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        txtTienThueXe.setText(String.valueOf(tienThueXe));
+//        txtTienSuaChua.setText(String.valueOf(tienThueXe + Integer.parseInt(txtTienSuaChua.getText())));
+//    }
 }

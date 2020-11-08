@@ -39,6 +39,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel1" min="-2" pref="1116" max="-2" attributes="0"/>
                           <Component id="CenterBottom" alignment="0" min="-2" pref="1116" max="-2" attributes="0"/>
+                          <Component id="btnInHD" alignment="0" min="-2" pref="228" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -70,7 +71,8 @@
                   <Component id="Left" pref="374" max="32767" attributes="0"/>
                   <Component id="Right" alignment="0" pref="374" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+              <Component id="btnInHD" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -244,7 +246,7 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="B&#x1ea3;ng &#x111;i&#x1ec1;u khi&#x1ec3;n"/>
+                <TitledBorder title="T&#xec;m ki&#x1ebf;m"/>
               </Border>
             </Property>
           </Properties>
@@ -958,6 +960,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddReset1ActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnInHD">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="In d&#x1eef; li&#x1ec7;u h&#x1ee3;p &#x111;&#x1ed3;ng n&#xe0;y"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
