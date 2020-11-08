@@ -1266,12 +1266,11 @@ public class XePanel extends javax.swing.JPanel {
     public static String txtTienPhat;
     public static String txtBienSoXe;
     public static String txtTTXe;
-    public static Date txtTimeStart;
+    public static String txtTimeStart;
     public static String txtTimeEnd;
     
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
 
-        
         txtMaXe = txtAddMaXe.getText();
         txtTenXe = txtAddTenXe.getText();
         txtSoKhung = txtAddSoKhung.getText();
@@ -1286,25 +1285,11 @@ public class XePanel extends javax.swing.JPanel {
         txtTienPhat = txtAddTienPhat.getText();
         txtBienSoXe = txtAddMaXe.getText();
         txtTTXe = cbxAddTinhTrang.getSelectedItem().toString();
-        
-//        java.util.Date utilDate1 = dpkAddTimeBatDau.getDate();
-//        java.sql.Date timeBatDau = new java.sql.Date(utilDate1.getTime());
-//        java.util.Date utilDate2 = dpkAddTimeKetThuc.getDate();
-//        java.sql.Date timeKetThuc = new java.sql.Date(utilDate2.getTime());
-        
-        txtTimeStart = (Date) dpkAddTimeBatDau.getDate();
+        txtTimeStart = dpkAddTimeBatDau.getDate().toString();
+        txtTimeEnd = dpkAddTimeKetThuc.getDate().toString();
 
-//        txtTimeStart = dpkAddTimeBatDau.getDate();
-        
-//        dataStatic = txtAddGiaNgay.getText();
-//        abc = txtAddGiaThang.getText();
         xePrint xePrint = new xePrint();
         xePrint.setVisible(true);
-        
-        
-//        java.util.Date utilDate2 = dpkAddTimeKetThuc.getDate();
-//        java.sql.Date timeKetThuc = new java.sql.Date(utilDate2.getTime());
-//        xePrint.setThoiGianKetThucTinhTrang((Date) timeKetThuc);
         
     }//GEN-LAST:event_btnPrintActionPerformed
  
