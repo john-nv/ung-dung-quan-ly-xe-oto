@@ -23,32 +23,29 @@ public class hopDongPrint extends javax.swing.JFrame {
     }
 
     private void loadData(){
-//        this.txtMaHD.setText(addHopDongPanel.txtprintMaHD);
-//        this.txtNgayLap.setText(addHopDongPanel.txtprintNgayLap);
-//        this.txtSoCmnd.setText(addHopDongPanel.txtprintSoCMND);
-//        this.txtTimeStart.setText(addHopDongPanel.txtprintTimeStart);
-//        this.txttimeEnd.setText(addHopDongPanel.txtprintTimeEnd);
-//        this.txtDiaDiemLayXe.setText(addHopDongPanel.txtprintDDNhanXe);
-//        this.txtDiaDiemTraXe.setText(addHopDongPanel.txtprintDDTraXe);
-//        this.txtGhiChu.setText(addHopDongPanel.txtprintGhiChu);
-//        this.txtTTHD.setText(addHopDongPanel.txtprintTinhTrang);
+        this.txtMaHD.setText(addHopDongPanel.maHD);
+        this.txtNgayLap.setText(addHopDongPanel.ngayLap);
+        this.txtSoCmnd.setText(addHopDongPanel.soCMND);
+        this.txtTimeStart.setText(addHopDongPanel.TimeStartHD);
+        this.txttimeEnd.setText(addHopDongPanel.timeEndHD);
+        this.txtDiaDiemLayXe.setText(addHopDongPanel.diaDiemNhan);
+        this.txtDiaDiemTraXe.setText(addHopDongPanel.diaDiemTra);
+        this.txtGhiChu.setText(addHopDongPanel.ghiChu);
+        this.txtTTHD.setText(addHopDongPanel.tinhTrang);
         
-//        this..setText(addHopDongPanel.txtprintTinhTrang);
-//        this.txtTTHD.setText(addHopDongPanel.txtprintTinhTrang);
-//        this.txtTTHD.setText(addHopDongPanel.txtprintTinhTrang);
-//        this.txtTTHD.setText(addHopDongPanel.txtprintTinhTrang);
-//        this.txtTTHD.setText(addHopDongPanel.txtprintTinhTrang);
-//        this.txtTTHD.setText(addHopDongPanel.txtprintTinhTrang);
-//        this.txtTTHD.setText(addHopDongPanel.txtprintTinhTrang);
+        this.txtTenLoaiXe.setText(addHopDongPanel.tenLoaiXe);
+        this.AreaTenLoaiPK.setText(addHopDongPanel.tenLoaiPK);
+        this.txtDatCoc.setText(addHopDongPanel.datCoc);
+        this.txtMaThanhToan.setText(addHopDongPanel.maThanhToan);
+        this.txtTienThueXe.setText(addHopDongPanel.tienThue);
+        this.txtTienSuaChua.setText(addHopDongPanel.tienSuaChua);
+        this.txtTongTien.setText(addHopDongPanel.tongTien);
         
         
-//        txtprintTenLoaiXe = cbxMaLoaiXe.getSelectedItem().toString();
-//        txtprintMaThanhToan = jList2.getSelectedValue().toString();
-//        txtprintDatCoc = cbxDatCoc.getSelectedItem().toString();
-//        txtprintMaThanhToan = txtMaTT.getText();
-//        txtprintTienThueXe = txtTienThueXe.getText();
-//        txtprintTienSuaChua = txtTienSuaChua.getText();
-//        txtprintTongTien = txtTongTien.getText();
+
+        
+        
+
     }
     
     @SuppressWarnings("unchecked")
@@ -79,25 +76,22 @@ public class hopDongPrint extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         txtTTHD = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtMaHD1 = new javax.swing.JLabel();
-        txttimeEnd1 = new javax.swing.JLabel();
+        txtTenLoaiXe = new javax.swing.JLabel();
+        txtTienThueXe = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        txtDiaDiemLayXe1 = new javax.swing.JLabel();
+        txtTienSuaChua = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        txtDiaDiemTraXe1 = new javax.swing.JLabel();
-        txtNgayLap1 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
+        txtTongTien = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        txtGhiChu1 = new javax.swing.JLabel();
-        txtSoCmnd1 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
+        txtDatCoc = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        txtTTHD1 = new javax.swing.JLabel();
-        txtTimeStart1 = new javax.swing.JLabel();
+        txtMaThanhToan = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        AreaTenLoaiPK = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -176,49 +170,41 @@ public class hopDongPrint extends javax.swing.JFrame {
         txtTTHD.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setText("Mã hợp đồng :");
+        jLabel4.setText("Tên loại xe :");
 
-        txtMaHD1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txtTenLoaiXe.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
-        txttimeEnd1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txtTienThueXe.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel28.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel28.setText("Địa điểm lấy xe :");
+        jLabel28.setText("Tiền sửa chữa :");
 
-        txtDiaDiemLayXe1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txtTienSuaChua.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel30.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel30.setText("Địa điểm trả xe :");
+        jLabel30.setText("Tổng tiền :");
 
         jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel20.setText("Ngày lập :");
+        jLabel20.setText("Tên loại phụ kiện :");
 
-        txtDiaDiemTraXe1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        txtNgayLap1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        jLabel32.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel32.setText("Ghi chú :");
+        txtTongTien.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel22.setText("Số CMND :");
+        jLabel22.setText("Đặt cọc :");
 
-        txtGhiChu1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        txtSoCmnd1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        jLabel34.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel34.setText("Tình trạng HĐ :");
+        txtDatCoc.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel24.setText("T.gian bắt dầu HĐ :");
+        jLabel24.setText("Mã thanh toán :");
 
-        txtTTHD1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        txtTimeStart1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txtMaThanhToan.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel26.setText("T.gian kết thúc HĐ :");
+        jLabel26.setText("Tiền thuê xe :");
+
+        AreaTenLoaiPK.setColumns(20);
+        AreaTenLoaiPK.setRows(5);
+        jScrollPane1.setViewportView(AreaTenLoaiPK);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -267,42 +253,25 @@ public class hopDongPrint extends javax.swing.JFrame {
                                 .addComponent(jLabel33)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtTTHD, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
+                        .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel32, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtGhiChu1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDiaDiemTraXe1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDiaDiemLayXe1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txttimeEnd1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel22))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(32, 32, 32)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSoCmnd1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTimeStart1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtNgayLap1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtMaHD1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel34)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTTHD1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(17, Short.MAX_VALUE))))
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel30))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTenLoaiXe, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(txtDatCoc, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(txtMaThanhToan, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(txtTienThueXe, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(txtTienSuaChua, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(txtTongTien, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,46 +318,41 @@ public class hopDongPrint extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTTHD, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(44, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtMaHD1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTenLoaiXe, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNgayLap1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSoCmnd1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDatCoc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTimeStart1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMaThanhToan, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txttimeEnd1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTienThueXe, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDiaDiemLayXe1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTienSuaChua, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDiaDiemTraXe1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtGhiChu1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTTHD1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(44, Short.MAX_VALUE))
+                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(34, 34, 34))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -443,6 +407,7 @@ public class hopDongPrint extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea AreaTenLoaiPK;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -459,30 +424,26 @@ public class hopDongPrint extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel txtDatCoc;
     private javax.swing.JLabel txtDiaDiemLayXe;
-    private javax.swing.JLabel txtDiaDiemLayXe1;
     private javax.swing.JLabel txtDiaDiemTraXe;
-    private javax.swing.JLabel txtDiaDiemTraXe1;
     private javax.swing.JLabel txtGhiChu;
-    private javax.swing.JLabel txtGhiChu1;
     private javax.swing.JLabel txtMaHD;
-    private javax.swing.JLabel txtMaHD1;
+    private javax.swing.JLabel txtMaThanhToan;
     private javax.swing.JLabel txtNgayLap;
-    private javax.swing.JLabel txtNgayLap1;
     private javax.swing.JLabel txtSoCmnd;
-    private javax.swing.JLabel txtSoCmnd1;
     private javax.swing.JLabel txtTTHD;
-    private javax.swing.JLabel txtTTHD1;
+    private javax.swing.JLabel txtTenLoaiXe;
+    private javax.swing.JLabel txtTienSuaChua;
+    private javax.swing.JLabel txtTienThueXe;
     private javax.swing.JLabel txtTimeStart;
-    private javax.swing.JLabel txtTimeStart1;
+    private javax.swing.JLabel txtTongTien;
     private javax.swing.JLabel txttimeEnd;
-    private javax.swing.JLabel txttimeEnd1;
     // End of variables declaration//GEN-END:variables
 }

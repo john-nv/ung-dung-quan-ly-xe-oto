@@ -2,7 +2,7 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -97,54 +97,27 @@
                                   <Component id="txtTTHD" min="-2" pref="230" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel32" alignment="1" min="-2" pref="66" max="-2" attributes="0"/>
-                                      <Component id="jLabel28" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel30" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel26" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtGhiChu1" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                                      <Component id="txtDiaDiemTraXe1" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                                      <Component id="txtDiaDiemLayXe1" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                                      <Component id="txttimeEnd1" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                          <Component id="jLabel24" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
-                                          <Component id="jLabel22" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel20" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtSoCmnd1" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                                      <Component id="txtTimeStart1" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                          <Component id="txtNgayLap1" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
-                                          <Component id="txtMaHD1" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtTTHD1" min="-2" pref="230" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel20" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel24" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="17" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtTenLoaiXe" pref="230" max="32767" attributes="0"/>
+                              <Component id="txtDatCoc" alignment="0" pref="230" max="32767" attributes="0"/>
+                              <Component id="txtMaThanhToan" alignment="0" pref="230" max="32767" attributes="0"/>
+                              <Component id="txtTienThueXe" alignment="0" pref="230" max="32767" attributes="0"/>
+                              <Component id="txtTienSuaChua" alignment="0" pref="230" max="32767" attributes="0"/>
+                              <Component id="txtTongTien" alignment="0" pref="230" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -158,7 +131,7 @@
                   <Component id="jSeparator1" min="-2" pref="14" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel3" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
                               <Component id="txtMaHD" min="-2" pref="28" max="-2" attributes="0"/>
@@ -204,37 +177,39 @@
                               <Component id="txtTTHD" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
                               <Component id="jLabel33" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace pref="44" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel4" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="txtMaHD1" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="txtTenLoaiXe" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel20" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="txtNgayLap1" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel20" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="jScrollPane1" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel22" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="txtSoCmnd1" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="txtDatCoc" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtTimeStart1" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="txtMaThanhToan" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
                               <Component id="jLabel24" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txttimeEnd1" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="txtTienThueXe" min="-2" pref="28" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtDiaDiemLayXe1" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="txtTienSuaChua" min="-2" pref="28" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtDiaDiemTraXe1" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtGhiChu1" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="txtTongTien" min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel26" min="-2" pref="28" max="-2" attributes="0"/>
@@ -242,18 +217,11 @@
                                   <Component id="jLabel28" min="-2" pref="28" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel30" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel32" min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtTTHD1" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="jLabel34" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="44" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -458,17 +426,17 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="M&#xe3; h&#x1ee3;p &#x111;&#x1ed3;ng :"/>
+            <Property name="text" type="java.lang.String" value="T&#xea;n lo&#x1ea1;i xe :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtMaHD1">
+        <Component class="javax.swing.JLabel" name="txtTenLoaiXe">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txttimeEnd1">
+        <Component class="javax.swing.JLabel" name="txtTienThueXe">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -480,10 +448,10 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a &#x111;i&#x1ec3;m l&#x1ea5;y xe :"/>
+            <Property name="text" type="java.lang.String" value="Ti&#x1ec1;n s&#x1eed;a ch&#x1eef;a :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtDiaDiemLayXe1">
+        <Component class="javax.swing.JLabel" name="txtTienSuaChua">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -495,7 +463,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a &#x111;i&#x1ec3;m tr&#x1ea3; xe :"/>
+            <Property name="text" type="java.lang.String" value="T&#x1ed5;ng ti&#x1ec1;n :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel20">
@@ -503,29 +471,14 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ng&#xe0;y l&#x1ead;p :"/>
+            <Property name="text" type="java.lang.String" value="T&#xea;n lo&#x1ea1;i ph&#x1ee5; ki&#x1ec7;n :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtDiaDiemTraXe1">
+        <Component class="javax.swing.JLabel" name="txtTongTien">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="txtNgayLap1">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel32">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Ghi ch&#xfa; :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel22">
@@ -533,29 +486,14 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="S&#x1ed1; CMND :"/>
+            <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t c&#x1ecd;c :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtGhiChu1">
+        <Component class="javax.swing.JLabel" name="txtDatCoc">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="txtSoCmnd1">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel34">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="T&#xec;nh tr&#x1ea1;ng H&#x110; :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel24">
@@ -563,17 +501,10 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="T.gian b&#x1eaf;t d&#x1ea7;u H&#x110; :"/>
+            <Property name="text" type="java.lang.String" value="M&#xe3; thanh to&#xe1;n :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtTTHD1">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="txtTimeStart1">
+        <Component class="javax.swing.JLabel" name="txtMaThanhToan">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -585,9 +516,24 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="T.gian k&#x1ebf;t th&#xfa;c H&#x110; :"/>
+            <Property name="text" type="java.lang.String" value="Ti&#x1ec1;n thu&#xea; xe :"/>
           </Properties>
         </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="AreaTenLoaiPK">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>

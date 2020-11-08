@@ -38,7 +38,6 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel1" min="-2" pref="1116" max="-2" attributes="0"/>
                           <Component id="CenterBottom" alignment="0" min="-2" pref="1116" max="-2" attributes="0"/>
-                          <Component id="btnInHD" alignment="0" min="-2" pref="228" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -72,8 +71,7 @@
                   <Component id="Left" pref="374" max="32767" attributes="0"/>
                   <Component id="Right" alignment="0" pref="374" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-              <Component id="btnInHD" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -145,7 +143,7 @@
                       <Component id="jPanel2" max="32767" attributes="0"/>
                       <Component id="jPanel1" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="16" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -960,11 +958,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddReset1ActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnInHD">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="In d&#x1eef; li&#x1ec7;u h&#x1ee3;p &#x111;&#x1ed3;ng n&#xe0;y"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="printHD">
       <Properties>

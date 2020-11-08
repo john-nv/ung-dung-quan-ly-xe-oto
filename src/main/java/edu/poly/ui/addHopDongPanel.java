@@ -10,6 +10,7 @@ import edu.poly.Helper.notificationError;
 import edu.poly.object.modelHopDong;
 import edu.poly.object.modelTien;
 import edu.poly.objectDAO.editHopDongDao;
+import edu.poly.ui.Print.hopDongPrint;
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.Date;
@@ -140,7 +141,6 @@ public class addHopDongPanel extends javax.swing.JPanel {
         btnEditXe = new javax.swing.JButton();
         btnDel = new javax.swing.JButton();
         btnAddReset1 = new javax.swing.JButton();
-        btnInHD = new javax.swing.JButton();
         printHD = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -318,7 +318,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                 .addGroup(CenterBottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jPanel1.getAccessibleContext().setAccessibleDescription("");
@@ -648,8 +648,6 @@ public class addHopDongPanel extends javax.swing.JPanel {
             }
         });
 
-        btnInHD.setText("In dữ liệu hợp đồng này");
-
         printHD.setText("In hợp đồng này");
         printHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -680,8 +678,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CenterBottom, javax.swing.GroupLayout.PREFERRED_SIZE, 1116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnInHD, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(CenterBottom, javax.swing.GroupLayout.PREFERRED_SIZE, 1116, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -708,8 +705,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                         .addComponent(printHD))
                     .addComponent(Left, javax.swing.GroupLayout.PREFERRED_SIZE, 374, Short.MAX_VALUE)
                     .addComponent(Right, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
-                .addGap(5, 5, 5)
-                .addComponent(btnInHD))
+                .addGap(37, 37, 37))
         );
 
         Left.getAccessibleContext().setAccessibleParent(Left);
@@ -1069,8 +1065,47 @@ public class addHopDongPanel extends javax.swing.JPanel {
 //        tinhTien();
     }//GEN-LAST:event_cbxMaLoaiXeActionPerformed
 
+    public static String maHD;
+    public static String ngayLap;
+    public static String soCMND;
+    public static String TimeStartHD;
+    public static String timeEndHD;
+    public static String diaDiemNhan;
+    public static String diaDiemTra;
+    public static String ghiChu;
+    public static String tinhTrang;
+    public static String tenLoaiXe;
+    public static String tenLoaiPK;
+    public static String datCoc;
+    public static String maThanhToan;
+    public static String tienThue;
+    public static String tienSuaChua;
+    public static String tongTien;
     private void printHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printHDActionPerformed
-        
+        try {
+            maHD = txtMaHD.getText();
+            ngayLap = dpkNgayLap.getDate().toString();
+            soCMND = cbxSoCMND.getSelectedItem().toString();
+            TimeStartHD = dpkTimeBatDauHD.getDate().toString();
+            timeEndHD = dpkTimeKetThucHD.getDate().toString();
+            diaDiemNhan = txtDiemNhanXe.getText();
+            diaDiemTra = txtDiemTraXe.getText();
+            ghiChu = tareaGhiChu.getText();
+            tinhTrang = cbxTinhTrangHD.getSelectedItem().toString();
+            tenLoaiXe = cbxMaLoaiXe.getSelectedItem().toString();
+            tenLoaiPK = jList2.getSelectedValue().toString();
+            datCoc = cbxDatCoc.getSelectedItem().toString();
+            maThanhToan = txtMaTT.getText();
+            tienThue = txtTienThueXe.getText();
+            tienSuaChua = txtTienSuaChua.getText();
+            tongTien = txtTongTien.getText();
+            
+            hopDongPrint HDPrint = new hopDongPrint();
+            HDPrint.setVisible(true);
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(this, "Dữ liệu chưa được đưa vào các trường. Vui lòng thêm và thử lại !");
+         
+        }
     }//GEN-LAST:event_printHDActionPerformed
     private boolean soSanhItem2ListPhuKien() {
         boolean kq = true;
@@ -1097,7 +1132,6 @@ public class addHopDongPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnControlUpdete;
     private javax.swing.JButton btnDel;
     private javax.swing.JButton btnEditXe;
-    private javax.swing.JButton btnInHD;
     private javax.swing.JButton btnXeAdd;
     private javax.swing.JComboBox<String> cbxDatCoc;
     private javax.swing.JComboBox<String> cbxMaLoaiXe;
