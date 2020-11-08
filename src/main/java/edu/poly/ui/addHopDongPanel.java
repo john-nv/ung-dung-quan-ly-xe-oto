@@ -64,9 +64,9 @@ public class addHopDongPanel extends javax.swing.JPanel {
         editHopDongDao.setSoLuongXe();
         editHopDongDao.setSoLuongPK();
         dpkNgayLap1.setDate(Calendar.getInstance().getTime());
-//        dpkNgayLap.setDate(Calendar.getInstance().getTime());
-//        dpkTimeBatDauHD.setDate(Calendar.getInstance().getTime());
-//        dpkTimeKetThucHD.setDate(Calendar.getInstance().getTime());
+        dpkNgayLap.setDate(Calendar.getInstance().getTime());
+        dpkTimeBatDauHD.setDate(Calendar.getInstance().getTime());
+        dpkTimeKetThucHD.setDate(Calendar.getInstance().getTime());
     }
 
     /**
@@ -1501,30 +1501,33 @@ public class addHopDongPanel extends javax.swing.JPanel {
     }
 
     private void tinhTien() {
-        java.util.Date utilDate2 = dpkTimeBatDauHD.getDate();
-        java.sql.Date timeBatDauHD = new java.sql.Date(utilDate2.getTime());
-        java.util.Date utilDate3 = dpkTimeKetThucHD.getDate();
-        java.sql.Date timeKetThucHD = new java.sql.Date(utilDate3.getTime());
-        LocalDate bd = LocalDate.parse(timeBatDauHD.toString(), DateTimeFormatter.ISO_LOCAL_DATE);
-        LocalDate kt = LocalDate.parse(timeKetThucHD.toString(), DateTimeFormatter.ISO_LOCAL_DATE);
-        Duration truBDKT = Duration.between(bd.atStartOfDay(), kt.atStartOfDay());
-        long tienThueXe = 0, giaThueXeNgay = 0, tongTienXe = 0;
-        editHopDongDao editHD = new editHopDongDao();
-        try {
-            String sql = "select top 1 GiaThueXeTheoNgay from Xe where MaLoaiXe = ?";
-            Connection con = databaseHelper.openConnection();
-            PreparedStatement pstm = con.prepareStatement(sql);
-            pstm.setString(1, editHD.convertLoaiXeToMaLoaiXe(cbxMaLoaiXe.getSelectedItem().toString()));
-            ResultSet rs = pstm.executeQuery();
-            while (rs.next()) {
-                giaThueXeNgay = rs.getLong(1);
-            }
-            if (!dpkTimeKetThucHD.getDate().toString().isEmpty()) {
-                tienThueXe = (truBDKT.toDays() + 1) * giaThueXeNgay;
-            }
+        long tienThueXe = 0, giaThueXeNgay = 0;
+        if (!dpkTimeBatDauHD.getDate().toString().isEmpty()) {
+            java.util.Date utilDate2 = dpkTimeBatDauHD.getDate();
+            java.sql.Date timeBatDauHD = new java.sql.Date(utilDate2.getTime());
+            java.util.Date utilDate3 = dpkTimeKetThucHD.getDate();
+            java.sql.Date timeKetThucHD = new java.sql.Date(utilDate3.getTime());
+            LocalDate bd = LocalDate.parse(timeBatDauHD.toString(), DateTimeFormatter.ISO_LOCAL_DATE);
+            LocalDate kt = LocalDate.parse(timeKetThucHD.toString(), DateTimeFormatter.ISO_LOCAL_DATE);
+            Duration truBDKT = Duration.between(bd.atStartOfDay(), kt.atStartOfDay());
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            editHopDongDao editHD = new editHopDongDao();
+            try {
+                String sql = "select top 1 GiaThueXeTheoNgay from Xe where MaLoaiXe = ?";
+                Connection con = databaseHelper.openConnection();
+                PreparedStatement pstm = con.prepareStatement(sql);
+                pstm.setString(1, editHD.convertLoaiXeToMaLoaiXe(cbxMaLoaiXe.getSelectedItem().toString()));
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    giaThueXeNgay = rs.getLong(1);
+                }
+                if (!dpkTimeKetThucHD.getDate().toString().isEmpty()) {
+                    tienThueXe = (truBDKT.toDays() + 1) * giaThueXeNgay;
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         txtTienThueXe.setText(String.valueOf(tienThueXe));
