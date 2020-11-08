@@ -1040,7 +1040,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnControlCancelActionPerformed
 
     private void btnControlSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlSave1ActionPerformed
-        // TODO add your handling code here:
+        System.out.println("abcnsajd");
     }//GEN-LAST:event_btnControlSave1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
