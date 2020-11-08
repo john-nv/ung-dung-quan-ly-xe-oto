@@ -141,6 +141,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
         btnDel = new javax.swing.JButton();
         btnAddReset1 = new javax.swing.JButton();
         btnInHD = new javax.swing.JButton();
+        printHD = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -274,7 +275,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                         .addComponent(jLabel22)
                         .addGap(10, 10, 10)
                         .addComponent(cbxSoCMND1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(btnControlSave1)
                 .addGap(33, 33, 33))
         );
@@ -321,7 +322,6 @@ public class addHopDongPanel extends javax.swing.JPanel {
         );
 
         jPanel1.getAccessibleContext().setAccessibleDescription("");
-        jPanel2.getAccessibleContext().setAccessibleName("Tìm kiếm");
         jPanel2.getAccessibleContext().setAccessibleDescription("");
 
         Left.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -417,7 +417,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                                 .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(dpkTimeBatDauHD, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         LeftLayout.setVerticalGroup(
             LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -562,7 +562,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbxMaLoaiXe, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 61, Short.MAX_VALUE))
+                .addGap(0, 48, Short.MAX_VALUE))
         );
         RightLayout.setVerticalGroup(
             RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -650,6 +650,13 @@ public class addHopDongPanel extends javax.swing.JPanel {
 
         btnInHD.setText("In dữ liệu hợp đồng này");
 
+        printHD.setText("In hợp đồng này");
+        printHD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printHDActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -663,12 +670,12 @@ public class addHopDongPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Right, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAddReset1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnXeAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnEditXe, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnXeAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEditXe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAddReset1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(printHD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(16, 16, 16))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -696,8 +703,10 @@ public class addHopDongPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnEditXe)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDel))
-                    .addComponent(Left, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                        .addComponent(btnDel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(printHD))
+                    .addComponent(Left, javax.swing.GroupLayout.PREFERRED_SIZE, 374, Short.MAX_VALUE)
                     .addComponent(Right, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
                 .addGap(5, 5, 5)
                 .addComponent(btnInHD))
@@ -1059,6 +1068,10 @@ public class addHopDongPanel extends javax.swing.JPanel {
     private void cbxMaLoaiXeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMaLoaiXeActionPerformed
 //        tinhTien();
     }//GEN-LAST:event_cbxMaLoaiXeActionPerformed
+
+    private void printHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printHDActionPerformed
+        
+    }//GEN-LAST:event_printHDActionPerformed
     private boolean soSanhItem2ListPhuKien() {
         boolean kq = true;
         for (int i = 0; i < jList2.getModel().getSize(); i++) {
@@ -1131,6 +1144,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JButton printHD;
     private javax.swing.JTextArea tareaGhiChu;
     private javax.swing.JTable tblKh;
     private javax.swing.JTextField txtDiemNhanXe;
