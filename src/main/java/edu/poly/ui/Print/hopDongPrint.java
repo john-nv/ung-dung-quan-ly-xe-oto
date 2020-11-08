@@ -34,7 +34,7 @@ public class hopDongPrint extends javax.swing.JFrame {
         this.txtTTHD.setText(addHopDongPanel.tinhTrang);
         
         this.txtTenLoaiXe.setText(addHopDongPanel.tenLoaiXe);
-        this.AreaTenLoaiPK.setText(addHopDongPanel.tenLoaiPK);
+//        this.AreaTenLoaiPK.setText(addHopDongPanel.tenLoaiPK);
         this.txtDatCoc.setText(addHopDongPanel.datCoc);
         this.txtMaThanhToan.setText(addHopDongPanel.maThanhToan);
         this.txtTienThueXe.setText(addHopDongPanel.tienThue);
@@ -42,7 +42,6 @@ public class hopDongPrint extends javax.swing.JFrame {
         this.txtTongTien.setText(addHopDongPanel.tongTien);
         
         
-
         
         
 
@@ -76,7 +75,7 @@ public class hopDongPrint extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         txtTTHD = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtTenLoaiXe = new javax.swing.JLabel();
+        AreaTenLoaiPK = new javax.swing.JLabel();
         txtTienThueXe = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         txtTienSuaChua = new javax.swing.JLabel();
@@ -89,7 +88,8 @@ public class hopDongPrint extends javax.swing.JFrame {
         txtMaThanhToan = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        AreaTenLoaiPK = new javax.swing.JTextArea();
+        AreaTenLoaiPK1 = new javax.swing.JTextArea();
+        txtTenLoaiXe = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -124,87 +124,41 @@ public class hopDongPrint extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Mã hợp đồng :");
 
-        txtMaHD.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel19.setText("Ngày lập :");
 
-        txtNgayLap.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        jLabel21.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel21.setText("Số CMND :");
 
-        txtSoCmnd.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel23.setText("T.gian bắt dầu HĐ :");
 
-        txtTimeStart.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        jLabel25.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel25.setText("T.gian kết thúc HĐ :");
 
-        txttimeEnd.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        jLabel27.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel27.setText("Địa điểm lấy xe :");
 
-        txtDiaDiemLayXe.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        jLabel29.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel29.setText("Địa điểm trả xe :");
 
-        txtDiaDiemTraXe.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        jLabel31.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel31.setText("Ghi chú :");
 
-        txtGhiChu.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        jLabel33.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel33.setText("Tình trạng HĐ :");
 
-        txtTTHD.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Tên loại xe :");
 
-        txtTenLoaiXe.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        txtTienThueXe.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        jLabel28.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel28.setText("Tiền sửa chữa :");
 
-        txtTienSuaChua.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        jLabel30.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel30.setText("Tổng tiền :");
 
-        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel20.setText("Tên loại phụ kiện :");
 
-        txtTongTien.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel22.setText("Đặt cọc :");
 
-        txtDatCoc.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel24.setText("Mã thanh toán :");
 
-        txtMaThanhToan.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel26.setText("Tiền thuê xe :");
 
-        AreaTenLoaiPK.setColumns(20);
-        AreaTenLoaiPK.setRows(5);
-        jScrollPane1.setViewportView(AreaTenLoaiPK);
+        AreaTenLoaiPK1.setColumns(20);
+        AreaTenLoaiPK1.setRows(5);
+        jScrollPane1.setViewportView(AreaTenLoaiPK1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -214,34 +168,21 @@ public class hopDongPrint extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jSeparator1)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel29, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtGhiChu, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDiaDiemTraXe, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDiaDiemLayXe, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txttimeEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel21))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(32, 32, 32)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGap(73, 73, 73)
+                                            .addComponent(jLabel21))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                            .addGap(34, 34, 34)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                    .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtSoCmnd, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,9 +191,20 @@ public class hopDongPrint extends javax.swing.JFrame {
                                         .addComponent(txtNgayLap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtMaHD, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel33)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel27)
+                                    .addComponent(jLabel29)
+                                    .addComponent(jLabel25)
+                                    .addComponent(jLabel31)
+                                    .addComponent(jLabel33))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTTHD, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtGhiChu, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtDiaDiemTraXe, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtDiaDiemLayXe, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txttimeEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtTTHD, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel20)
@@ -264,14 +216,16 @@ public class hopDongPrint extends javax.swing.JFrame {
                             .addComponent(jLabel30))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtTenLoaiXe, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(AreaTenLoaiPK, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
                             .addComponent(txtDatCoc, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
                             .addComponent(txtMaThanhToan, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
                             .addComponent(txtTienThueXe, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
                             .addComponent(txtTienSuaChua, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
                             .addComponent(txtTongTien, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1)
+                            .addComponent(txtTenLoaiXe, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
+                        .addGap(0, 29, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,8 +246,19 @@ public class hopDongPrint extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSoCmnd, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtSoCmnd, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(txtTenLoaiXe, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(AreaTenLoaiPK, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTimeStart, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -321,15 +286,7 @@ public class hopDongPrint extends javax.swing.JFrame {
                             .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(44, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTenLoaiXe, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -407,7 +364,8 @@ public class hopDongPrint extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea AreaTenLoaiPK;
+    private javax.swing.JLabel AreaTenLoaiPK;
+    private javax.swing.JTextArea AreaTenLoaiPK1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;

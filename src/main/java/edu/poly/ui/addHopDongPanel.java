@@ -1082,7 +1082,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
     public static String tienSuaChua;
     public static String tongTien;
     private void printHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printHDActionPerformed
-        try {
+//        try {
             maHD = txtMaHD.getText();
             ngayLap = dpkNgayLap.getDate().toString();
             soCMND = cbxSoCMND.getSelectedItem().toString();
@@ -1093,7 +1093,8 @@ public class addHopDongPanel extends javax.swing.JPanel {
             ghiChu = tareaGhiChu.getText();
             tinhTrang = cbxTinhTrangHD.getSelectedItem().toString();
             tenLoaiXe = cbxMaLoaiXe.getSelectedItem().toString();
-            tenLoaiPK = jList2.getSelectedValue().toString();
+
+//            tenLoaiPK = jList2.getSelectedValue();
             datCoc = cbxDatCoc.getSelectedItem().toString();
             maThanhToan = txtMaTT.getText();
             tienThue = txtTienThueXe.getText();
@@ -1102,10 +1103,10 @@ public class addHopDongPanel extends javax.swing.JPanel {
             
             hopDongPrint HDPrint = new hopDongPrint();
             HDPrint.setVisible(true);
-        } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(this, "Dữ liệu chưa được đưa vào các trường. Vui lòng thêm và thử lại !");
-         
-        }
+//        } catch (NullPointerException e) {
+//            JOptionPane.showMessageDialog(this, "Dữ liệu chưa được đưa vào các trường. Vui lòng thêm và thử lại !");
+//         
+//        }
     }//GEN-LAST:event_printHDActionPerformed
     private boolean soSanhItem2ListPhuKien() {
         boolean kq = true;
