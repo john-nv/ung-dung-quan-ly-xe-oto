@@ -293,4 +293,8 @@ public class loginDialog extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Lỗi");
         }
     }
+    
+    private void checkAccount(){
+        
+    }
 }

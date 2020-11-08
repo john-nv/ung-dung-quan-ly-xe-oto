@@ -16,26 +16,18 @@ import edu.poly.object.modelXe;
 import edu.poly.ui.Print.xePrint;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.print.PageFormat;
-import java.awt.print.Printable;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.TableCellRenderer;
@@ -66,6 +58,7 @@ public class XePanel extends javax.swing.JPanel {
         
         tblSearchXe.setRowHeight(25);
         tblSearchXe.setShowGrid(true);
+        
     }
     
     public void initTable(){
@@ -1271,25 +1264,29 @@ public class XePanel extends javax.swing.JPanel {
     
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
 
-        txtMaXe = txtAddMaXe.getText();
-        txtTenXe = txtAddTenXe.getText();
-        txtSoKhung = txtAddSoKhung.getText();
-        txtSoMay = txtAddSoMay.getText();
-        txtMaLuc = txtAddMaLuc.getText();
-        txtHang = cbxAddHang.getSelectedItem().toString();
-        txtSoCho = cbxAddSoCho.getSelectedItem().toString();
-        txtMaLoaiXe = cbxAddMaLoaiXe.getSelectedItem().toString();
-        txtGiaGio = txtAddGiaGio.getText();
-        txtGiaNgay = txtAddGiaNgay.getText();
-        txtGiaThang = txtAddGiaThang.getText();
-        txtTienPhat = txtAddTienPhat.getText();
-        txtBienSoXe = txtAddMaXe.getText();
-        txtTTXe = cbxAddTinhTrang.getSelectedItem().toString();
-        txtTimeStart = dpkAddTimeBatDau.getDate().toString();
-        txtTimeEnd = dpkAddTimeKetThuc.getDate().toString();
-
-        xePrint xePrint = new xePrint();
-        xePrint.setVisible(true);
+        try {
+            txtMaXe = txtAddMaXe.getText();
+            txtTenXe = txtAddTenXe.getText();
+            txtSoKhung = txtAddSoKhung.getText();
+            txtSoMay = txtAddSoMay.getText();
+            txtMaLuc = txtAddMaLuc.getText();
+            txtHang = cbxAddHang.getSelectedItem().toString();
+            txtSoCho = cbxAddSoCho.getSelectedItem().toString();
+            txtMaLoaiXe = cbxAddMaLoaiXe.getSelectedItem().toString();
+            txtGiaGio = txtAddGiaGio.getText();
+            txtGiaNgay = txtAddGiaNgay.getText();
+            txtGiaThang = txtAddGiaThang.getText();
+            txtTienPhat = txtAddTienPhat.getText();
+            txtBienSoXe = txtAddMaXe.getText();
+            txtTTXe = cbxAddTinhTrang.getSelectedItem().toString();
+            txtTimeStart = dpkAddTimeBatDau.getDate().toString();
+            txtTimeEnd = dpkAddTimeKetThuc.getDate().toString();
+            
+            xePrint xePrint = new xePrint();
+            xePrint.setVisible(true);
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(this, "Dữ liệu chưa được đưa vào các trường. Vui lòng thêm và thử lại !");
+        }
         
     }//GEN-LAST:event_btnPrintActionPerformed
  

@@ -30,7 +30,6 @@ public class xePrint extends javax.swing.JFrame {
     public xePrint() {
         initComponents();
         
-        
         loadData();
     }
 
@@ -50,8 +49,8 @@ public class xePrint extends javax.swing.JFrame {
         this.txtTienPhat.setText(XePanel.txtTienPhat);
         this.txtBienSo.setText(XePanel.txtBienSoXe);
         this.txtTinhTrang.setText(XePanel.txtTTXe);
-        this.txtTimeStart.setText(XePanel.txtTimeStart); //replace(":","").replace("T","").replace("C","").replace("I","")
-        this.txtTimeEnd.setText(XePanel.txtTimeEnd);
+        this.txtTimeStart.setText(XePanel.txtTimeStart.replace(" 00:00:00 ICT",""));
+        this.txtTimeEnd.setText(XePanel.txtTimeEnd.replace(" 00:00:00 ICT",""));
     }
 
     private void printrecord(JPanel panel) {
@@ -135,7 +134,13 @@ public class xePrint extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setText("Mã xe :");
 
@@ -390,6 +395,10 @@ public class xePrint extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         printrecord(print);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+//        this.dispose();
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
