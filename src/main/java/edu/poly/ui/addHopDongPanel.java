@@ -52,8 +52,10 @@ public class addHopDongPanel extends javax.swing.JPanel {
         initComponents();
         editHopDongDao.setSoLuongXe();
         loadCBX("LOAIXE", cbxMaLoaiXe);
+        loadCBX("LOAIXE", cbxMaLoaiXe1);
 //        loadCBX("PHUKIEN", cbxMaPK);
         loadCBX("KHACHHANG", cbxSoCMND);
+        loadCBX("KHACHHANG", cbxSoCMND1);
         loadListBoxSanSang();
         loadDataTable();
         setEnabledTextFieldOFF();
@@ -61,6 +63,7 @@ public class addHopDongPanel extends javax.swing.JPanel {
         tblKh.setEnabled(false);
         editHopDongDao.setSoLuongXe();
         editHopDongDao.setSoLuongPK();
+        dpkNgayLap1.setDate(Calendar.getInstance().getTime());
 //        dpkNgayLap.setDate(Calendar.getInstance().getTime());
 //        dpkTimeBatDauHD.setDate(Calendar.getInstance().getTime());
 //        dpkTimeKetThucHD.setDate(Calendar.getInstance().getTime());
