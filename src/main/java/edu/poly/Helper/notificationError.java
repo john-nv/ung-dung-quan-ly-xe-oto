@@ -7,19 +7,22 @@ package edu.poly.Helper;
 
 import java.awt.Color;
 import javax.swing.JTextField;
+import org.jdatepicker.JDatePicker;
+import org.jdesktop.swingx.JXDatePicker;
 
 /**
  *
  * @author QUANGC
  */
 public class notificationError {
-    public static void DataAvailable(JTextField field, StringBuilder sb, String errorMeesage){
+
+    public static void DataAvailable(JTextField field, StringBuilder sb, String errorMeesage) {
         if (field.getText().equals("")) {
-                sb.append(errorMeesage).append("\n");
-                field.setBackground(Color.red);
-                field.requestFocus();
-            } else {
-                field.setBackground(Color.WHITE);
-            }
+            sb.append(errorMeesage).append("\n");
+            field.setBackground(Color.red);
+            field.requestFocus();
+        } else {
+            field.setBackground(Color.WHITE);
+        }
     }
 }

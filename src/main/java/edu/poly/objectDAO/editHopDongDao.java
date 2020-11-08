@@ -339,6 +339,8 @@ public class editHopDongDao {
             e.printStackTrace();
             temp = 0;
         }
+        doiTrangThaiCuaXeThanhSanSang(hd.getMaHD());
+        doiTrangThaiCuaPKThanhSanSang(hd.getMaHD());
         return temp;
     }
 

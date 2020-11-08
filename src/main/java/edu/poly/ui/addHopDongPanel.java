@@ -6,6 +6,7 @@
 package edu.poly.ui;
 
 import edu.poly.Helper.databaseHelper;
+import edu.poly.Helper.notificationError;
 import edu.poly.object.modelHopDong;
 import edu.poly.object.modelTien;
 import edu.poly.objectDAO.editHopDongDao;
@@ -22,6 +23,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -33,6 +35,8 @@ import javax.swing.JPanel;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
+import org.apache.poi.hssf.record.chart.EndRecord;
+import org.apache.poi.ss.formula.functions.Today;
 
 /**
  *
@@ -53,6 +57,12 @@ public class addHopDongPanel extends javax.swing.JPanel {
         loadDataTable();
         setEnabledTextFieldOFF();
         setEnabledEventOFF();
+        tblKh.setEnabled(false);
+        editHopDongDao.setSoLuongXe();
+        editHopDongDao.setSoLuongPK();
+//        dpkNgayLap.setDate(Calendar.getInstance().getTime());
+//        dpkTimeBatDauHD.setDate(Calendar.getInstance().getTime());
+//        dpkTimeKetThucHD.setDate(Calendar.getInstance().getTime());
     }
 
     /**
@@ -123,6 +133,9 @@ public class addHopDongPanel extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
         btnXeAdd = new javax.swing.JButton();
         btnEditXe = new javax.swing.JButton();
         btnDel = new javax.swing.JButton();
@@ -328,11 +341,21 @@ public class addHopDongPanel extends javax.swing.JPanel {
         jLabel5.setText("Thời gian bắt đầu HĐ:");
 
         dpkTimeBatDauHD.setFormats("dd/MM/yyyy");
+        dpkTimeBatDauHD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dpkTimeBatDauHDActionPerformed(evt);
+            }
+        });
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Thời gian kết thúc HĐ:");
 
         dpkTimeKetThucHD.setFormats("dd/MM/yyyy");
+        dpkTimeKetThucHD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dpkTimeKetThucHDActionPerformed(evt);
+            }
+        });
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Địa điểm nhận xe:");
@@ -463,6 +486,12 @@ public class addHopDongPanel extends javax.swing.JPanel {
 
         jScrollPane4.setViewportView(jList2);
 
+        cbxMaLoaiXe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxMaLoaiXeActionPerformed(evt);
+            }
+        });
+
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Tên Loại Xe:");
 
@@ -479,6 +508,15 @@ public class addHopDongPanel extends javax.swing.JPanel {
 
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel16.setText("Tổng Tiền:");
+
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel23.setText("VND");
+
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel24.setText("VND");
+
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel25.setText("VND");
 
         javax.swing.GroupLayout RightLayout = new javax.swing.GroupLayout(Right);
         Right.setLayout(RightLayout);
@@ -512,7 +550,12 @@ public class addHopDongPanel extends javax.swing.JPanel {
                                     .addComponent(txtMaTT)
                                     .addComponent(txtTienThueXe)
                                     .addComponent(txtTienSuaChua)
-                                    .addComponent(txtTongTien)))))
+                                    .addComponent(txtTongTien))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel23)
+                                    .addComponent(jLabel24)))))
                     .addGroup(RightLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(jLabel10)
@@ -553,15 +596,18 @@ public class addHopDongPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(txtTienThueXe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTienThueXe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(txtTienSuaChua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTienSuaChua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(txtTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25))
                 .addContainerGap())
         );
 
@@ -743,6 +789,16 @@ public class addHopDongPanel extends javax.swing.JPanel {
         t.setMaTT(txtMaTT.getText());
         if (editHD.xoaHopDong(hd, t) == 1) {
             JOptionPane.showMessageDialog(this, "Xoa Hop Dong thanh cong");
+            editHopDongDao.setSoLuongXe();
+            editHopDongDao.setSoLuongPK();
+            loadListBoxSanSang();
+            tblKh.setEnabled(false);
+            setEnabledTextFieldOFF();
+            setEnabledControlON();
+            setEnabledEventOFF();
+            btnResetActionPerformed(evt);
+            btnAddReset1.setEnabled(false);
+            btnXeAdd.setEnabled(false);
         } else {
             JOptionPane.showMessageDialog(this, "Xoa Hop Dong khong thanh cong");
         }
@@ -756,7 +812,13 @@ public class addHopDongPanel extends javax.swing.JPanel {
             editHopDongDao.setSoLuongXe();
             editHopDongDao.setSoLuongPK();
             loadListBoxSanSang();
-
+            tblKh.setEnabled(false);
+            setEnabledTextFieldOFF();
+            setEnabledControlON();
+            setEnabledEventOFF();
+            btnResetActionPerformed(evt);
+            btnAddReset1.setEnabled(false);
+            btnXeAdd.setEnabled(false);
             JOptionPane.showMessageDialog(this, "Cap nhat Hop Dong thanh cong!");
         } else
             JOptionPane.showMessageDialog(this, "Hay nhap day du cac field!");
@@ -764,9 +826,12 @@ public class addHopDongPanel extends javax.swing.JPanel {
 
     private void btnAddReset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddReset1ActionPerformed
         txtMaHD.setText("");
-        dpkNgayLap.setDate(null);
-        dpkTimeBatDauHD.setDate(null);
-        dpkTimeKetThucHD.setDate(null);
+        dpkNgayLap.setDate(Calendar.getInstance().getTime());
+        dpkTimeBatDauHD.setDate(Calendar.getInstance().getTime());
+        dpkTimeKetThucHD.setDate(Calendar.getInstance().getTime());
+        cbxDatCoc.setSelectedIndex(0);
+        cbxMaLoaiXe.setSelectedIndex(0);
+        cbxTinhTrangHD.setSelectedIndex(0);
         txtDiemNhanXe.setText("");
         txtDiemTraXe.setText("");
         tareaGhiChu.setText("");
@@ -796,15 +861,29 @@ public class addHopDongPanel extends javax.swing.JPanel {
 //            loadCBX("LOAIXE", cbxMaLoaiXe);
 //            listModelPhuKienDangThue.removeAllElements();
 //        } else if (btnXeAdd.getText() == "Lưu") {
+        StringBuilder sb = new StringBuilder();
+        notificationError.DataAvailable(txtDiemTraXe, sb, "Trường Địa Điểm Trả Xe không thể bỏ trống !");
+        notificationError.DataAvailable(txtDiemNhanXe, sb, "Trường Địa Điểm Nhận Xe không thể bỏ trống !");
+
+        // Hiển thị thông báo lỗi đã được đặt sẵn
+        if (sb.length() > 0) {
+            JOptionPane.showMessageDialog(this, sb.toString());
+            return;
+        }
         if (themHopDong() == 1) {
+            tblKh.setEnabled(false);
+            setEnabledTextFieldOFF();
+            setEnabledControlON();
+            setEnabledEventOFF();
+            btnResetActionPerformed(evt);
+            btnAddReset1.setEnabled(false);
+            btnXeAdd.setEnabled(false);
             loadDataTable();
             JOptionPane.showMessageDialog(this, "Them Hop Dong thanh cong!");
             editHopDongDao.setSoLuongXe();
             editHopDongDao.setSoLuongPK();
             loadCBX("LOAIXE", cbxMaLoaiXe);
             loadListBoxSanSang();
-        } else {
-            JOptionPane.showMessageDialog(this, "Hay nhap day du cac field!");
         }
 //        }
     }//GEN-LAST:event_btnXeAddActionPerformed
@@ -830,6 +909,8 @@ public class addHopDongPanel extends javax.swing.JPanel {
         txtTienThueXe.setEnabled(true);
         txtTienSuaChua.setEnabled(true);
         txtTongTien.setEnabled(true);
+        jButton1.setEnabled(true);
+        jButton2.setEnabled(true);
     }
 
     public void setEnabledTextFieldOFF() {
@@ -850,6 +931,8 @@ public class addHopDongPanel extends javax.swing.JPanel {
         txtTienThueXe.setEnabled(false);
         txtTienSuaChua.setEnabled(false);
         txtTongTien.setEnabled(false);
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(false);
     }
 
     public void setEnabledEventON() {
@@ -882,34 +965,50 @@ public class addHopDongPanel extends javax.swing.JPanel {
         btnControlUpdete.setEnabled(false);
     }
     private void btnControlSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlSaveActionPerformed
+        tblKh.setEnabled(false);
         setEnabledTextFieldON();
         setEnabledControlOFF();
         setEnabledEventOFF();
         btnResetActionPerformed(evt);
         btnAddReset1.setEnabled(true);
         btnXeAdd.setEnabled(true);
+        cbxTinhTrangHD.setEnabled(false);
+        txtMaHD.setText(String.valueOf((Integer.parseInt(tblKh.getValueAt(tblKh.getRowCount() - 1, 0).toString())) + 1));
+        txtMaHD.setEnabled(false);
+        txtMaTT.setText("TT" + String.valueOf((Integer.parseInt(tblKh.getValueAt(tblKh.getRowCount() - 1, 0).toString())) + 1));
+        txtMaTT.setEnabled(false);
+        tinhTien();
+//        System.out.println("last row: "+((Integer.parseInt(tblKh.getValueAt(tblKh.getRowCount()-1, 0).toString()))+1));
     }//GEN-LAST:event_btnControlSaveActionPerformed
 
     private void btnControlUpdeteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlUpdeteActionPerformed
+        tblKh.setEnabled(true);
         setEnabledTextFieldON();
         setEnabledControlOFF();
         setEnabledEventOFF();
         btnEditXe.setEnabled(true);
         txtMaHD.setEnabled(false);
-
+        txtMaTT.setEnabled(false);
+        btnResetActionPerformed(evt);
     }//GEN-LAST:event_btnControlUpdeteActionPerformed
 
     private void btnControlDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlDelActionPerformed
+        tblKh.setEnabled(true);
         setEnabledTextFieldON();
         setEnabledControlOFF();
         setEnabledEventOFF();
         btnDel.setEnabled(true);
+        txtMaHD.setEnabled(false);
+        txtMaTT.setEnabled(false);
+        btnResetActionPerformed(evt);
     }//GEN-LAST:event_btnControlDelActionPerformed
 
     private void btnControlCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlCancelActionPerformed
         setEnabledEventOFF();
         setEnabledControlON();
         setEnabledTextFieldOFF();
+        tblKh.setEnabled(false);
+        btnResetActionPerformed(evt);
     }//GEN-LAST:event_btnControlCancelActionPerformed
 
     private void btnControlSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlSave1ActionPerformed
@@ -943,6 +1042,18 @@ public class addHopDongPanel extends javax.swing.JPanel {
         //        }
         jList2.setModel(listModelPhuKienDangThue);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void dpkTimeBatDauHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dpkTimeBatDauHDActionPerformed
+        tinhTien();
+    }//GEN-LAST:event_dpkTimeBatDauHDActionPerformed
+
+    private void dpkTimeKetThucHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dpkTimeKetThucHDActionPerformed
+        tinhTien();
+    }//GEN-LAST:event_dpkTimeKetThucHDActionPerformed
+
+    private void cbxMaLoaiXeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMaLoaiXeActionPerformed
+        tinhTien();
+    }//GEN-LAST:event_cbxMaLoaiXeActionPerformed
     private boolean soSanhItem2ListPhuKien() {
         boolean kq = true;
         for (int i = 0; i < jList2.getModel().getSize(); i++) {
@@ -996,6 +1107,9 @@ public class addHopDongPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1063,15 +1177,21 @@ public class addHopDongPanel extends javax.swing.JPanel {
             java.sql.Date timeBatDauHD = new java.sql.Date(utilDate2.getTime());
             java.util.Date utilDate3 = dpkTimeKetThucHD.getDate();
             java.sql.Date timeKetThucHD = new java.sql.Date(utilDate3.getTime());
-            System.out.println("time BD: " + timeBatDauHD);
-            System.out.println("time KT: " + timeKetThucHD);
-            System.out.println("time now: " + LocalDate.now());
             LocalDate bd = LocalDate.parse(timeBatDauHD.toString(), DateTimeFormatter.ISO_LOCAL_DATE);
             LocalDate kt = LocalDate.parse(timeKetThucHD.toString(), DateTimeFormatter.ISO_LOCAL_DATE);
             LocalDate nl = LocalDate.parse(ngayLap.toString(), DateTimeFormatter.ISO_LOCAL_DATE);
             Duration truBDKT = Duration.between(bd.atStartOfDay(), kt.atStartOfDay());
             Duration truNLNow = Duration.between(LocalDate.now().atStartOfDay(), nl.atStartOfDay());
             Duration truBDNow = Duration.between(LocalDate.now().atStartOfDay(), bd.atStartOfDay());
+            System.out.println("time BD: " + timeBatDauHD);
+            System.out.println("time KT: " + timeKetThucHD);
+            System.out.println("time now: " + LocalDate.now());
+//            LocalDate bd = LocalDate.parse(timeBatDauHD.toString(), DateTimeFormatter.ISO_LOCAL_DATE);
+//            LocalDate kt = LocalDate.parse(timeKetThucHD.toString(), DateTimeFormatter.ISO_LOCAL_DATE);
+//            LocalDate nl = LocalDate.parse(ngayLap.toString(), DateTimeFormatter.ISO_LOCAL_DATE);
+//            Duration truBDKT = Duration.between(bd.atStartOfDay(), kt.atStartOfDay());
+//            Duration truNLNow = Duration.between(LocalDate.now().atStartOfDay(), nl.atStartOfDay());
+//            Duration truBDNow = Duration.between(LocalDate.now().atStartOfDay(), bd.atStartOfDay());
             System.out.println("time KT - BD: " + truBDKT.toDays());
             System.out.println("time now - NL: " + truNLNow.toDays());
             System.out.println("time now - BF: " + truBDNow.toDays());
@@ -1080,6 +1200,9 @@ public class addHopDongPanel extends javax.swing.JPanel {
             modelTien t = new modelTien();
             t.setMaTT(txtMaTT.getText());
             t.setTienThueXe(Float.parseFloat(txtTienThueXe.getText()));
+            if (txtTienSuaChua.getText().isEmpty()) {
+                txtTienSuaChua.setText("0");
+            }
             t.setTienSuaChua(Float.parseFloat(txtTienSuaChua.getText()));
             t.setTongTien(Float.parseFloat(txtTongTien.getText()));
 
@@ -1100,7 +1223,8 @@ public class addHopDongPanel extends javax.swing.JPanel {
             hd.setMaTT(txtMaTT.getText());
             hd.setDatCoc(cbxDatCoc.getSelectedItem().toString());
             hd.setTinhTrang(cbxTinhTrangHD.getSelectedItem().toString());
-//            System.out.println("in loi: " + cbxMaLoaiXe.getSelectedItem().toString() + "hehe");
+
+//            System.out.println("ngay HD: " + truBDKT.toDays());
             if (truNLNow.toDays() < 0) {
                 JOptionPane.showMessageDialog(this, "Hãy nhập Ngày Lập Hợp Đồng lớn hơn Ngày hiện tại!");
             } else if (truBDNow.toDays() < 0) {
@@ -1268,22 +1392,52 @@ public class addHopDongPanel extends javax.swing.JPanel {
     }
 
     private void btnResetActionPerformed(ActionEvent evt) {
-        txtMaHD.setText("");;
-        dpkNgayLap.setDate(null);
-        cbxSoCMND.setSelectedIndex(-1);
-        dpkTimeBatDauHD.setDate(null);
-        dpkTimeKetThucHD.setDate(null);
+        txtMaHD.setText("");
+        cbxSoCMND.setSelectedIndex(0);
+        dpkNgayLap.setDate(Calendar.getInstance().getTime());
+        dpkTimeBatDauHD.setDate(Calendar.getInstance().getTime());
+        dpkTimeKetThucHD.setDate(Calendar.getInstance().getTime());
         txtDiemNhanXe.setText("");
         txtDiemTraXe.setText("");
         tareaGhiChu.setText("");
-//        cbxTinhTrangHD.setSelectedIndex(-1);
-        cbxMaLoaiXe.setSelectedIndex(-1);
+        cbxTinhTrangHD.setSelectedIndex(0);
+        cbxMaLoaiXe.setSelectedIndex(0);
 //        jList1.removeAll();
         jList2.removeAll();
-        cbxDatCoc.setSelectedIndex(-1);
+        cbxDatCoc.setSelectedIndex(0);
         txtMaTT.setText("");
         txtTienThueXe.setText("");
         txtTienSuaChua.setText("");
         txtTongTien.setText("");
+    }
+
+    private void tinhTien() {
+        java.util.Date utilDate2 = dpkTimeBatDauHD.getDate();
+        java.sql.Date timeBatDauHD = new java.sql.Date(utilDate2.getTime());
+        java.util.Date utilDate3 = dpkTimeKetThucHD.getDate();
+        java.sql.Date timeKetThucHD = new java.sql.Date(utilDate3.getTime());
+        LocalDate bd = LocalDate.parse(timeBatDauHD.toString(), DateTimeFormatter.ISO_LOCAL_DATE);
+        LocalDate kt = LocalDate.parse(timeKetThucHD.toString(), DateTimeFormatter.ISO_LOCAL_DATE);
+        Duration truBDKT = Duration.between(bd.atStartOfDay(), kt.atStartOfDay());
+        long tienThueXe = 0, giaThueXeNgay = 0, tongTien = 0;
+        editHopDongDao editHD = new editHopDongDao();
+        try {
+            String sql = "select top 1 GiaThueXeTheoNgay from Xe where MaLoaiXe = ?";
+            Connection con = databaseHelper.openConnection();
+            PreparedStatement pstm = con.prepareStatement(sql);
+            pstm.setString(1, editHD.convertLoaiXeToMaLoaiXe(cbxMaLoaiXe.getSelectedItem().toString()));
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                giaThueXeNgay = rs.getLong(1);
+            }
+            if (!dpkTimeKetThucHD.getDate().toString().isEmpty()) {
+                tienThueXe = (truBDKT.toDays() + 1) * giaThueXeNgay;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        txtTienThueXe.setText(String.valueOf(tienThueXe));
+        txtTienSuaChua.setText(String.valueOf(tienThueXe + Integer.parseInt(txtTienSuaChua.getText())));
     }
 }
