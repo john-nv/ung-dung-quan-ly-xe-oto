@@ -1,4 +1,3 @@
-# project-1000usa
-project 1000usa
+# java Swing
 
 project java swing , quản lí xe
