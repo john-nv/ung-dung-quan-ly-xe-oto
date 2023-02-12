@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------------------------
-Quy trình cho thuê xe của công ty 10000…$
+Quy trình cho thuê xe của công ty
 -------------------------------------------------------------------------------------------------
 
 Đối tượng thuê xe chỉ được lái xe khi đủ tiêu chuẩn điều kiện điều khiển xe ô tô theo quy định pháp luật và đầy đủ thông tin cty đưa ra
